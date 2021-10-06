@@ -6,7 +6,7 @@ Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://j
 
 
 
-![Image of Dolomiti](https://stefanocarotenuto.github.com/portfolio/images/Stefano-Carotenuto-Dolomiti-2016.jpg)
+![Image of Dolomiti](https://stefanocarotenuto.github.io/portfolio/images/Stefano-Carotenuto-Dolomiti-2016.jpg)
 
 ### Markdown
 
