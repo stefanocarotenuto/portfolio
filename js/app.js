@@ -82,12 +82,7 @@ const observer = new IntersectionObserver((entries) => {
 
 sections.forEach(s => observer.observe(s));
 
-progressDots.forEach(dot => {
-  dot.addEventListener('click', () => {
-    document.getElementById(dot.dataset.target)
-      ?.scrollIntoView({ behavior: 'smooth' });
-  });
-});
+/* Progress dots are display-only — no click interaction */
 
 
 /* ─── CV TABS — ARIA COMPLIANT ────────── */

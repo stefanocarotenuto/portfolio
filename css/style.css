@@ -52,18 +52,18 @@
    DESIGN TOKENS
 ───────────────────────────────────────── */
 :root {
-  --paper:      #f5f2eb;
-  --paper-2:    #edeae1;
-  --ink:        #19180f;
-  --ink-2:      #3d3b30;
-  --muted:      #6e6b5c;
-  --muted-2:    #696657;
-  --rule:       #d4d0c5;
-  --dark-bg:    #141410;
-  --dark-2:     #1e1d17;
-  --dark-rule:  #2e2d24;
-  --dark-muted: #f5f5f5;
-  --dark-muted2: #807f6e;
+  --paper:      #f3f4f8;
+  --paper-2:    #e9ebf1;
+  --ink:        #1b1e28;
+  --ink-2:      #383c4a;
+  --muted:      #6c7085;
+  --muted-2:    #656979;
+  --rule:       #d1d4dd;
+  --dark-bg:    #13151c;
+  --dark-2:     #1d1f29;
+  --dark-rule:  #2d303c;
+  --dark-muted: #f3f3f5;
+  --dark-muted2: #7b7f8e;
 
   --serif: 'Cormorant Garamond', Georgia, serif;
   --mono:  'DM Mono', 'Courier New', monospace;
@@ -377,9 +377,9 @@ section {
 }
 
 /* Colored vertex dots */
-.dot-sign { fill: #c95b4b; }
-.dot-obj  { fill: #d4a94b; }
-.dot-int  { fill: #6a9d56; }
+.dot-sign { fill: #b4564f; }
+.dot-obj  { fill: #c08e3a; }
+.dot-int  { fill: #4d866c; }
 
 /* ── UI wireframe elements ── */
 .ui-el {
@@ -391,9 +391,9 @@ section {
 }
 
 /* Window control dots — macOS-style colors */
-.ui-dot-r { fill: #c95b4b; stroke: none; }
-.ui-dot-y { fill: #d4a94b; stroke: none; }
-.ui-dot-g { fill: #6a9d56; stroke: none; }
+.ui-dot-r { fill: #b4564f; stroke: none; }
+.ui-dot-y { fill: #c08e3a; stroke: none; }
+.ui-dot-g { fill: #4d866c; stroke: none; }
 
 /* Sidebar nav */
 .ui-sn { stroke-width: 1; stroke: var(--muted); }
@@ -425,7 +425,7 @@ section {
 /* Smile arc (Phase 4) */
 .ui-smile {
   fill: none;
-  stroke: #6a9d56;
+  stroke: #4d866c;
   stroke-width: 2.5;
   stroke-linecap: round;
   opacity: 0;
@@ -528,7 +528,7 @@ section {
   max-width: 240px;
   border: 1px solid var(--rule);
   padding: var(--s3);
-  background: #f5f5f5;
+  background: #f1f2f6;
 }
 
 .about-portrait {
@@ -608,7 +608,7 @@ section {
   transition: transform .25s ease, box-shadow .25s ease;
   position: relative;
   overflow: hidden;
-  background: #f5f5f5
+  background: #f1f2f6
 }
 
 .project-card::after {
@@ -623,7 +623,7 @@ section {
 
 .project-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(25,24,15,.07);
+  box-shadow: 0 8px 24px rgba(27,30,40,.07);
 }
 .project-card:hover::after { opacity: 1; }
 
@@ -658,8 +658,8 @@ section {
     -45deg,
     transparent,
     transparent 4px,
-    rgba(25,24,15,.04) 4px,
-    rgba(25,24,15,.04) 8px
+    rgba(27,30,40,.04) 4px,
+    rgba(27,30,40,.04) 8px
   );
   opacity: 1;
   transition: opacity .4s ease;
@@ -1041,7 +1041,6 @@ section {
   background: var(--rule);
   border: none;
   padding: 0;
-  cursor: pointer;
   transition: background .2s, transform .2s;
 }
 .progress-dot.active {
