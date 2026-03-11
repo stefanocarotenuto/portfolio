@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stefano Carotenuto — Designing digital experiences</title>
+  <meta name="description" content="Stefano Carotenuto — digital strategist, UX designer, and street photographer based in Milan. Working at the intersection of communication, design, and semiotics.">
+  <meta name="theme-color" content="#f5f2eb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141410" media="(prefers-color-scheme: dark)">
+
+  <!-- Canonical URL — update with final domain -->
+  <link rel="canonical" href="https://www.stefanocarotenuto.com/">
+
+  <!-- Font preloads — critical above-the-fold weights -->
+  <link rel="preload" href="fonts/CormorantGaramond-Light.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/DMMono-Light.ttf" as="font" type="font/ttf" crossorigin>
+
+  <!-- Splide CSS (locale) -->
+  <link rel="stylesheet" href="css/splide-core.min.css">
+
+  <!-- Stili sito -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Structured data — Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Stefano Carotenuto",
+    "url": "https://www.stefanocarotenuto.com",
+    "jobTitle": "Head of Communication",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "National Research Council — CNR-DSU",
+      "url": "https://www.dsu.cnr.it"
+    },
+    "knowsAbout": ["UX Design", "Digital Communication", "Semiotics", "Street Photography"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Milan",
+      "addressCountry": "IT"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/stefanocarotenuto/",
+      "https://www.instagram.com/stefcarotenu",
+      "https://www.flickr.com/people/stefano_carotenuto/"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner" id="site-header">
+    <a href="#hero" class="site-logo" aria-label="Stefano Carotenuto — home">
+      Stefano Carotenuto
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="site-nav" id="site-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#photography" class="nav-aside">Photography</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true">
+        <rect width="20" height="1.5" fill="currentColor"/>
+        <rect y="6" width="20" height="1.5" fill="currentColor"/>
+        <rect y="12" width="20" height="1.5" fill="currentColor"/>
+      </svg>
+    </button>
+  </header>
+
+  <nav class="page-progress" aria-label="Page sections">
+    <button class="progress-dot active" data-target="hero"        aria-label="Go to Hero section"></button>
+    <button class="progress-dot"        data-target="about"       aria-label="Go to About section"></button>
+    <button class="progress-dot"        data-target="work"        aria-label="Go to Work section"></button>
+    <button class="progress-dot"        data-target="cv"          aria-label="Go to CV section"></button>
+    <button class="progress-dot"        data-target="photography" data-dark aria-label="Go to Photography section"></button>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- 01 HERO -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="hero-inner inner">
+        <h1 class="hero-keywords" id="hero-heading">
+          <span class="visually-hidden">Designing digital experiences</span>
+          <span class="hero-kw" aria-hidden="true">Designing</span>
+          <span class="hero-kw" aria-hidden="true">digital</span>
+          <span class="hero-kw" aria-hidden="true"><i>experiences</i></span>
+        </h1>
+        <div class="hero-diagram-wrap">
+          <div class="hero-diagram" aria-hidden="true">
+            <svg class="hero-svg" id="hero-svg" viewBox="0 0 360 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+              <!-- ═══ SEMIOTIC TRIANGLE (Peirce) ═══ -->
+              <!-- Solid sides: Sign↔Object, Sign↔Interpretant -->
+              <line class="morph-line" id="ml-1" x1="180" y1="46"  x2="48"  y2="254"/>
+              <line class="morph-line" id="ml-3" x1="312" y1="254" x2="180" y2="46"/>
+              <!-- Dashed base: Object···Interpretant (indirect/mediated relation) -->
+              <line class="morph-line morph-base" id="ml-2" x1="48" y1="254" x2="312" y2="254"/>
+
+              <!-- Colored vertex dots -->
+              <circle class="morph-dot dot-sign" id="md-1" cx="180" cy="46"  r="4.5"/>
+              <circle class="morph-dot dot-obj"  id="md-2" cx="48"  cy="254" r="4.5"/>
+              <circle class="morph-dot dot-int"  id="md-3" cx="312" cy="254" r="4.5"/>
+
+              <!-- ═══ UI WIREFRAME (revealed after morph) ═══ -->
+              <rect class="ui-frame" id="ui-frame" x="52" y="26" width="256" height="264" rx="5"/>
+
+              <!-- Header bar -->
+              <line class="ui-el" id="ui-header" x1="52" y1="62" x2="308" y2="62"/>
+
+              <!-- Window dots (colored: red, yellow, green) -->
+              <circle class="ui-el ui-dot-r" id="ui-d1" cx="72" cy="44" r="3"/>
+              <circle class="ui-el ui-dot-y" id="ui-d2" cx="84" cy="44" r="3"/>
+              <circle class="ui-el ui-dot-g" id="ui-d3" cx="96" cy="44" r="3"/>
+
+              <!-- Sidebar divider -->
+              <line class="ui-el" id="ui-sidebar" x1="128" y1="62" x2="128" y2="290"/>
+
+              <!-- Sidebar nav items -->
+              <line class="ui-el ui-sn" id="ui-sn1" x1="68" y1="86"  x2="114" y2="86"/>
+              <line class="ui-el ui-sn" id="ui-sn2" x1="68" y1="104" x2="106" y2="104"/>
+              <line class="ui-el ui-sn" id="ui-sn3" x1="68" y1="122" x2="110" y2="122"/>
+              <line class="ui-el ui-sn" id="ui-sn4" x1="68" y1="140" x2="98"  y2="140"/>
+
+              <!-- Content heading -->
+              <line class="ui-el ui-heading" id="ui-h1" x1="144" y1="86"  x2="272" y2="86"/>
+              <line class="ui-el ui-heading" id="ui-h2" x1="144" y1="100" x2="224" y2="100"/>
+
+              <!-- Text block -->
+              <line class="ui-el ui-text" id="ui-t1" x1="144" y1="126" x2="296" y2="126"/>
+              <line class="ui-el ui-text" id="ui-t2" x1="144" y1="140" x2="290" y2="140"/>
+              <line class="ui-el ui-text" id="ui-t3" x1="144" y1="154" x2="278" y2="154"/>
+              <line class="ui-el ui-text" id="ui-t4" x1="144" y1="168" x2="256" y2="168"/>
+
+              <!-- Card blocks -->
+              <rect class="ui-el ui-card" id="ui-c1" x="144" y="192" width="68" height="46" rx="3"/>
+              <rect class="ui-el ui-card" id="ui-c2" x="222" y="192" width="68" height="46" rx="3"/>
+
+              <!-- Buttons -->
+              <rect class="ui-el ui-btn" id="ui-b1" x="144" y="254" width="52" height="16" rx="3"/>
+              <rect class="ui-el ui-btn-ghost" id="ui-b2" x="206" y="254" width="52" height="16" rx="3"/>
+
+              <!-- Success check inside ghost button -->
+              <polyline class="ui-check" id="ui-check" points="225,262 230,267 239,257"/>
+
+              <!-- Smile arc (Phase 4) -->
+              <path class="ui-smile" id="ui-smile" d="M 148 178 Q 180 206 212 178"/>
+            </svg>
+          </div>
+          <button class="hero-replay" id="hero-replay" aria-label="Replay animation">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M1 4v6h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">scroll to explore</div>
+    </section>
+
+    <!-- 02 ABOUT -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="inner">
+        <div class="section-label" aria-hidden="true">
+          <span>About</span>
+        </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <h2 id="about-heading">
+              Designing <i>digital experiences</i> <br>and <i>communication</i> <br>for <i>research</i> institutions.
+            </h2>
+            <p>
+              👋 Hi! I'm Stefano. Based in Milan, I'm currently head of communication at the Italian National Research Council's Department of Social Sciences and Humanities, Cultural Heritage (CNR-DSU) and work as a UX designer at CNR-ISMed's Mediterranean Digital Humanities Lab.
+            </p>
+
+            <div class="about-tags" role="list" aria-label="Areas of expertise">
+              <span class="tag" role="listitem">User Centered Design</span>
+              <span class="tag" role="listitem">User Experience</span>
+              <span class="tag" role="listitem">User Interface</span>
+              <span class="tag" role="listitem">Communication</span>
+              <span class="tag" role="listitem">Semiotics</span>
+              <span class="tag" role="listitem">Accessibility</span>
+              <span class="tag" role="listitem">Analytics</span>
+              <span class="tag" role="listitem">Digital Marketing</span>
+            </div>
+          </div>
+          <div class="about-visual">
+            <img
+              src="img/sc.avif"
+              alt="Portrait of Stefano Carotenuto"
+              width="480"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="about-portrait"
+            >
+            <p class="portrait-credit">Photo © Diego Marino, 2023</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 WORK -->
+    <section id="work" aria-labelledby="work-heading">
+      <div class="inner">
+        <div class="section-label" aria-hidden="true">
+          <span>Selected Works</span>
+        </div>
+        <h2 id="work-heading" class="visually-hidden">Selected Work</h2>
+        <div class="work-grid">
+
+          <!-- PUBDSU -->
+          <a class="project-card"
+             href="https://www.dsu.cnr.it/pubdsu"
+             target="_blank" rel="noopener noreferrer"
+             aria-labelledby="card1-title"
+             aria-label="PUBDSU — opens in new tab">
+            <div class="card-thumb" aria-hidden="true">
+              <img src="img/w-pubdsu.avif" alt="Screenshot of the PUBDSU research publications section" class="card-thumb-img">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" id="card1-title">PUBDSU</h3>
+              <p class="card-org">CNR-DSU — 2026</p>
+              <p class="card-desc">A redesigned section that makes the department's entire research output browsable, filterable, and downloadable. Launched February 2026.</p>
+              <span class="card-arrow">
+                Visit project
+                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- Annual Conference 2025 -->
+          <a class="project-card"
+             href="https://www.dsu.cnr.it/conferenza-dsu-2026"
+             target="_blank" rel="noopener noreferrer"
+             aria-labelledby="card2-title"
+             aria-label="DSU Annual Conference 2025 — opens in new tab">
+            <div class="card-thumb" aria-hidden="true">
+              <img src="img/w-confdsu.avif" alt="Screenshot of the DSU Annual Conference 2025 minisite" class="card-thumb-img">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" id="card2-title">DSU Annual Conference</h3>
+              <p class="card-org">CNR-DSU — 2025</p>
+              <p class="card-desc">A dedicated minisite with its own visual identity: programme, speaker profiles, abstract archive, and all contributions in one accessible space.</p>
+              <span class="card-arrow">
+                Visit project
+                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- WeMED -->
+          <a class="project-card"
+             href="https://wemed.cnr.it"
+             target="_blank" rel="noopener noreferrer"
+             aria-labelledby="card3-title"
+             aria-label="WeMED Platform — opens in new tab">
+            <div class="card-thumb" aria-hidden="true">
+              <img src="img/w-wemed.avif" alt="Screenshot of the WeMED Mediterranean Digital Humanities platform" class="card-thumb-img">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" id="card3-title">WeMed</h3>
+              <p class="card-org">CNR-ISMed · Istat — 2024–present</p>
+              <p class="card-desc">Interface architecture, user flows, and design system for a Mediterranean Digital Humanities research platform, in collaboration with CNR-ISMed and Istat.</p>
+              <span class="card-arrow">
+                Visit project
+                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- CNR-DSU website -->
+          <a class="project-card"
+             href="https://www.dsu.cnr.it"
+             target="_blank" rel="noopener noreferrer"
+             aria-labelledby="card4-title"
+             aria-label="CNR-DSU Department Website — opens in new tab">
+            <div class="card-thumb" aria-hidden="true">
+              <img src="img/w-cnrdsu.avif" alt="Screenshot of the CNR-DSU department website" class="card-thumb-img">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" id="card4-title">CNR-DSU Website</h3>
+              <p class="card-org">National Research Council — 2023–present</p>
+              <p class="card-desc">Digital communication strategy, web presence, analytics, and institutional media for CNR's Department of Social Sciences and Humanities, Cultural Heritage.</p>
+              <span class="card-arrow">
+                Visit project
+                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- CLIC -->
+          <a class="project-card"
+             href="https://cordis.europa.eu/project/id/776758/"
+             target="_blank" rel="noopener noreferrer"
+             aria-labelledby="card5-title"
+             aria-label="Horizon 2020 CLIC project — opens in new tab">
+            <div class="card-thumb" aria-hidden="true">
+              <img src="img/w-clic.avif" alt="Screenshot of the CLIC Horizon 2020 project website" class="card-thumb-img">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" id="card5-title">Horizon 2020 — CLIC</h3>
+              <p class="card-org">National Research Council — GA 776758 · 2017–2021</p>
+              <p class="card-desc">Project website and communication deliverables for a €4.9M European research consortium on circular models for cultural heritage reuse, coordinated by CNR.</p>
+              <span class="card-arrow">
+                Visit project
+                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </span>
+            </div>
+          </a>
+
+          <!-- IRISS -->
+          <a class="project-card"
+             href="https://www.iriss.cnr.it"
+             target="_blank" rel="noopener noreferrer"
+             aria-labelledby="card6-title"
+             aria-label="CNR-IRISS institutional website — opens in new tab">
+            <div class="card-thumb" aria-hidden="true">
+              <img src="img/w-iriss.avif" alt="Screenshot of the CNR-IRISS institutional website" class="card-thumb-img">
+            </div>
+            <div class="card-body">
+              <h3 class="card-title" id="card6-title">CNR-IRISS Website</h3>
+              <p class="card-org">Institute for Research on Innovation and Services for Development — 2014–2024</p>
+              <p class="card-desc">Ten years of digital communication, content strategy, and web management for one of CNR's social science institutes in Naples.</p>
+              <span class="card-arrow">
+                Visit project
+                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+              </span>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 CV -->
+    <section id="cv" aria-labelledby="cv-heading">
+      <div class="inner">
+        <div class="section-label" aria-hidden="true">
+          <span>Curriculum Vitae</span>
+        </div>
+        <h2 id="cv-heading" class="visually-hidden">Curriculum Vitae</h2>
+        <div class="cv-layout">
+
+          <div class="cv-tabs" role="tablist" aria-label="CV sections">
+            <button class="cv-tab active" role="tab" aria-selected="true"  aria-controls="panel-exp" id="tab-exp">Experience</button>
+            <button class="cv-tab"        role="tab" aria-selected="false" aria-controls="panel-edu" id="tab-edu">Education</button>
+          </div>
+
+          <div>
+            <div class="cv-panel active" id="panel-exp" role="tabpanel" aria-labelledby="tab-exp">
+              <div class="cv-timeline">
+                <div class="cv-entry current">
+                  <p class="cv-year">2023 — Present</p>
+                  <h3 class="cv-role">Head of Communication</h3>
+                  <p class="cv-org">National Research Council — Dept. of Social Sciences and Humanities, Cultural Heritage (CNR-DSU) · Milan</p>
+                  <p class="cv-detail">Digital strategy, web management, social media, stakeholder communications, and analytics for CNR-DSU. Communication Officer for the department within the CNR national network.</p>
+                </div>
+                <div class="cv-entry">
+                  <p class="cv-year">2024 — Present</p>
+                  <h3 class="cv-role">UX Designer</h3>
+                  <p class="cv-org">Mediterranean Digital Humanities Lab, CNR-ISMed · Milan</p>
+                  <p class="cv-detail">UI/UX design for the WeMed research platform. Interface architecture, user flows, accessibility compliance, and design system documentation.</p>
+                </div>
+                <div class="cv-entry">
+                  <p class="cv-year">2010 — 2024</p>
+                  <h3 class="cv-role">UX Design & Communication</h3>
+                  <p class="cv-org">National Research Council - Multiple roles - CNR-ISGI and CNR-IRISS · Naples and Milan</p>
+                  <p class="cv-detail">Over fourteen years of digital strategy, and institutional relations across public research and cultural organisations.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="cv-panel" id="panel-edu" role="tabpanel" aria-labelledby="tab-edu">
+              <div class="cv-timeline">
+                <div class="cv-entry current">
+                  <p class="cv-year">2025 — Ongoing</p>
+                  <h3 class="cv-role">MA in Semiotics</h3>
+                  <p class="cv-org">Alma Mater Studiorum - Università di Bologna</p>
+                  <p class="cv-detail">Research focus on digital semiotics, visual communication, and the theory of meaning in institutional and media contexts.</p>
+                </div>
+                <div class="cv-entry">
+                  <p class="cv-year">2023</p>
+                  <h3 class="cv-role">Google UX Design Professional Certificate</h3>
+                  <p class="cv-org">Google · Coursera</p>
+                  <p class="cv-detail">Seven-course program covering the full UX design process: user research, wireframing, prototyping, and usability testing. Credential issued by Google.</p>
+                </div>
+                <div class="cv-entry">
+                  <p class="cv-year">2022 — 2025</p>
+                  <h3 class="cv-role">BA in Innovative Communication in Multimedia and Digital environments</h3>
+                  <p class="cv-org">IUL University - Florence</p>
+                  <p class="cv-detail">Graduated cum laude. Studies in media theory, digital communication, and institutional communications.</p>
+                </div>
+                <div class="cv-entry">
+                  <p class="cv-year">2011 — 2012</p>
+                  <h3 class="cv-role">Graphic Design and Advertising Course</h3>
+                  <p class="cv-org">New Media Art and Design School - Naples</p>
+                  <p class="cv-detail">I learned concepts and techniques for creatively and effectively expressing communication messages through brand campaign simulations, brochure design, poster design, and various typographic and digital products.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 PHOTOGRAPHY -->
+    <section id="photography" aria-labelledby="photo-heading">
+      <div class="inner">
+        <div class="section-label" aria-hidden="true">
+          <span>Photography</span>
+        </div>
+        <div class="photo-layout">
+
+          <div class="photo-intro">
+            <h2 id="photo-heading">
+              Street.<br>Observation.<br>Chance.
+            </h2>
+            <p>
+              When I'm not designing stuff, I walk and photograph. Street photography is where I train my eye for framing, timing, and the unexpected.
+            </p>
+            <p>
+              Recognised by Magnum photographers <i>Martin Parr</i> and <i>Steve McCurry</i>. Exhibited at the HistoryMiami Museum during <i>Art Basel Miami</i>, featured in <i>Corriere della Sera Style Magazine</i>. Co-author of <cite>10 Street Photography</cite> (Psicografici Editore, 2023).
+            </p>
+            <nav class="photo-social" aria-label="Photography profiles and CV">
+              <a href="https://www.instagram.com/stefcarotenu" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile (opens in new tab)">Instagram ↗</a>
+              <a href="https://www.flickr.com/people/stefano_carotenuto/" target="_blank" rel="noopener noreferrer" aria-label="Flickr profile (opens in new tab)">Flickr ↗</a>
+              <a href="https://www.dropbox.com/scl/fi/q4da6wywybyb0oocwphnd/Photography-Resume-Stefano-Carotenuto.pdf?rlkey=w8fn8a2os7mlmak4pw2qkwkbh&dl=0" target="_blank" rel="noopener noreferrer" aria-label="Download photography CV as PDF (opens in new tab)">Download photography resume ↗</a>
+            </nav>
+          </div>
+
+          <div>
+            <div id="photo-slider" class="splide" role="group" aria-roledescription="carousel" aria-label="Photography portfolio">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 1 of 8">
+                    <img src="img/1.avif" alt="Surfboard leaning against a glass-fronted bar during a heavy snowfall in Manhattan" width="1600" height="1200" loading="eager" decoding="async" fetchpriority="high" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 2 of 8">
+                    <img src="img/2.avif" alt="Hospital room with rolling hills landscape wallpaper wrapping the walls and ceiling, surgical lamp overhead, blue sheets on the bed" width="1600" height="1200" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 3 of 8">
+                    <img src="img/3.avif" alt="Photographer crouching to shoot a large-scale mountain art installation covering the facade of Milano Centrale station" width="1600" height="1200" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 4 of 8">
+                    <img src="img/4.avif" alt="Crowd of photographers with telephoto lenses aiming at a figure in white outside a Milan Fashion Week venue at golden hour" width="1600" height="1200" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 5 of 8">
+                    <img src="img/5.avif" alt="Aerial view of Manhattan rooftops, street grid, and a construction site seen from above" width="1600" height="1200" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 6 of 8">
+                    <img src="img/6.avif" alt="Lone figure walking along a rural dirt road at blue hour, backlit by approaching car headlights" width="1600" height="1200" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 7 of 8">
+                    <img src="img/7.avif" alt="Striped curtain caught by the wind on a whitewashed Mediterranean terrace overlooking a green hillside" width="1600" height="1200" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 8 of 8">
+                    <img src="img/8.avif" alt="Two people in red outfits adorned with pressed flowers posing on a park bench at a summer gathering" width="1600" height="1200" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="photo-counter" aria-live="polite" aria-atomic="true">
+              <span id="photo-count">1&thinsp;/&thinsp;8</span>
+              <div class="photo-nav">
+                <button class="photo-nav-btn" id="photo-prev" aria-label="Previous photo">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <button class="photo-nav-btn" id="photo-next" aria-label="Next photo">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER / CONTACT -->
+  <footer class="site-footer" id="contact" role="contentinfo">
+    <p class="footer-copy">© 2026 Stefano Carotenuto · Milan, Italy</p>
+    <nav aria-label="Contact and social links">
+      <ul class="footer-links">
+        <li><a href="#" id="email-link">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/stefanocarotenuto/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/stefcarotenu" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in new tab)">Instagram</a></li>
+        <li><a href="https://www.flickr.com/people/stefano_carotenuto/" target="_blank" rel="noopener noreferrer" aria-label="Flickr (opens in new tab)">Flickr</a></li>
+      </ul>
+    </nav>
+    <p class="footer-privacy">This site does not use profiling cookies or third-party tracking. No personal data is collected.</p>
+  </footer>
+
+  <!-- Splide JS (locale) -->
+  <script src="js/splide.min.js"></script>
+
+  <!-- Script sito -->
+  <script src="js/app.js"></script>
+
+</body>
+</html>
