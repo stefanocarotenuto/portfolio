@@ -52,12 +52,11 @@
    DESIGN TOKENS
 ───────────────────────────────────────── */
 :root {
-  --paper:      #f3f4f8;
+  --paper:      #fafbfd;
   --paper-2:    #e9ebf1;
   --ink:        #1b1e28;
   --ink-2:      #383c4a;
-  --muted:      #6c7085;
-  --muted-2:    #656979;
+  --muted:      #555a73;
   --rule:       #d1d4dd;
   --dark-bg:    #13151c;
   --dark-2:     #1d1f29;
@@ -192,7 +191,7 @@ img { display: block; max-width: 100%; }
   letter-spacing: .1em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--muted-2);
+  color: var(--muted);
   transition: color .2s;
   padding-bottom: 2px;
   border-bottom: 1px solid transparent;
@@ -253,10 +252,10 @@ section {
   font-size: .625rem;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--muted-2);
+  color: var(--muted);
   margin-bottom: var(--s6);
 }
-#cv .section-label { color: var(--muted-2-2); }
+#cv .section-label { color: var(--muted-2); }
 
 .section-label::after {
   content: '';
@@ -341,7 +340,7 @@ section {
   border: none;
   border-radius: 50%;
   background: transparent;
-  color: var(--muted-2);
+  color: var(--muted);
   cursor: pointer;
   opacity: 0;
   transition: color .2s, opacity .3s;
@@ -396,14 +395,14 @@ section {
 .ui-dot-g { fill: #4d866c; stroke: none; }
 
 /* Sidebar nav */
-.ui-sn { stroke-width: 1; stroke: var(--muted-2); }
+.ui-sn { stroke-width: 1; stroke: var(--muted); }
 .ui-active-dot { fill: var(--ink); stroke: none; }
 
 /* Content heading */
 .ui-heading { stroke-width: 1.1; }
 
 /* Text lines */
-.ui-text { stroke-width: 0.6; stroke: var(--muted-2); }
+.ui-text { stroke-width: 0.6; stroke: var(--muted); }
 
 /* Card blocks */
 .ui-card { stroke-width: 0.8; stroke: var(--rule); }
@@ -495,7 +494,7 @@ section {
   font-size: .5625rem;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--muted-2);
+  color: var(--muted);
   opacity: 0;
   animation: fadeUp .5s .8s ease forwards;
 }
@@ -543,7 +542,7 @@ section {
   font-size: .5625rem;
   font-family: var(--mono);
   letter-spacing: .06em;
-  color: var(--muted-2);
+  color: var(--muted);
   margin-top: var(--s2);
   text-align: right;
   padding-right: var(--s1);
@@ -560,7 +559,7 @@ section {
 
 .about-text h2 i {
   font-style: italic;
-  color: var(--muted-2);
+  color: var(--muted);
 }
 
 .about-text p {
@@ -581,7 +580,7 @@ section {
   font-size: .625rem;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--muted-2);
+  color: var(--muted);
   border: 1px solid var(--rule);
   padding: var(--s1) var(--s3);
   border-radius: 1px;
@@ -671,7 +670,7 @@ section {
   font-size: .6875rem;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--muted-2);
+  color: var(--muted);
   position: relative;
   z-index: 1;
 }
@@ -705,7 +704,7 @@ section {
 .card-org {
   font-size: .6875rem;
   letter-spacing: .06em;
-  color: var(--muted-2);
+  color: var(--muted);
 }
 
 .card-desc {
@@ -722,7 +721,7 @@ section {
   font-size: .6875rem;
   letter-spacing: .08em;
   text-transform: uppercase;
-  color: var(--muted-2);
+  color: var(--muted);
   margin-top: var(--s3);
   text-decoration: none;
   transition: color .2s;
@@ -764,7 +763,7 @@ section {
   font-size: .6875rem;
   letter-spacing: .1em;
   text-transform: uppercase;
-  color: var(--muted-2-2);
+  color: var(--muted-2);
   background: none;
   border: none;
   cursor: pointer;
@@ -810,7 +809,7 @@ section {
   font-size: .625rem;
   letter-spacing: .12em;
   text-transform: uppercase;
-  color: var(--muted-2-2);
+  color: var(--muted-2);
   margin-bottom: var(--s1);
 }
 
@@ -831,7 +830,7 @@ section {
 .cv-detail {
   font-size: .8125rem;
   line-height: 1.65;
-  color: var(--muted-2-2);
+  color: var(--muted-2);
 }
 
 .cv-download {
