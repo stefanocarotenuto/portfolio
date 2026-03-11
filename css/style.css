@@ -147,7 +147,7 @@ img { display: block; max-width: 100%; }
   justify-content: space-between;
   padding: 0 var(--s5);
   z-index: 100;
-  transition: background .3s, border-color .3s;
+  transition: background .3s, border-color .3s
 }
 
 .site-header.dark-zone {
