@@ -204,6 +204,11 @@ img { display: block; max-width: 100%; }
   border-bottom-color: var(--ink);
 }
 
+.site-header.dark-zone .site-nav.open {
+  background: var(--dark-bg);
+  border-bottom-color: var(--dark-rule);
+}
+
 .site-header.dark-zone .site-nav a            { color: var(--dark-muted); }
 .site-header.dark-zone .site-nav a:hover,
 .site-header.dark-zone .site-nav a[aria-current="true"] {
