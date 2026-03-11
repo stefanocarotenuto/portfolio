@@ -527,7 +527,7 @@ section {
   max-width: 240px;
   border: 1px solid var(--rule);
   padding: var(--s3);
-  background: #f1f2f6;
+  background: #fff;
 }
 
 .about-portrait {
