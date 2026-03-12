@@ -70,6 +70,11 @@
   --dark-muted: #f3f3f5;
   --dark-muted2: #7b7f8e;
 
+  /* Semiotic accent colours — Sign · Object · Interpretant */
+  --c-sign: #9a6b82;
+  --c-obj:  #4b7faa;
+  --c-int:  #4a8872;
+
   --serif: 'Cormorant Garamond', Georgia, serif;
   --mono:  'DM Mono', 'Courier New', monospace;
 
@@ -270,6 +275,11 @@ section {
   background: var(--rule);
 }
 
+/* Per-section accent gradient on the divider line */
+#about .section-label::after { background: linear-gradient(to right, var(--c-sign), var(--rule)); }
+#work  .section-label::after { background: linear-gradient(to right, var(--c-obj),  var(--rule)); }
+#cv    .section-label::after { background: linear-gradient(to right, var(--c-int),  var(--rule)); }
+
 
 
 .inner {
@@ -382,9 +392,9 @@ section {
 }
 
 /* Colored vertex dots */
-.dot-sign { fill: #b4564f; }
-.dot-obj  { fill: #c08e3a; }
-.dot-int  { fill: #4d866c; }
+.dot-sign { fill: var(--c-sign); }
+.dot-obj  { fill: var(--c-obj);  }
+.dot-int  { fill: var(--c-int);  }
 
 /* ── UI wireframe elements ── */
 .ui-el {
@@ -396,9 +406,9 @@ section {
 }
 
 /* Window control dots — macOS-style colors */
-.ui-dot-r { fill: #b4564f; stroke: none; }
-.ui-dot-y { fill: #c08e3a; stroke: none; }
-.ui-dot-g { fill: #4d866c; stroke: none; }
+.ui-dot-r { fill: var(--c-sign); stroke: none; }
+.ui-dot-y { fill: var(--c-obj);  stroke: none; }
+.ui-dot-g { fill: var(--c-int);  stroke: none; }
 
 /* Sidebar nav */
 .ui-sn { stroke-width: 1; stroke: var(--muted); }
@@ -414,7 +424,7 @@ section {
 .ui-card { stroke-width: 0.8; stroke: var(--rule); }
 
 /* Buttons */
-.ui-btn       { stroke: none; fill: var(--ink); }
+.ui-btn       { stroke: var(--rule); stroke-width: 0.8; fill: none; }
 .ui-btn-ghost { stroke: var(--ink); stroke-width: 0.8; fill: none; }
 
 /* Success check in primary button */
@@ -430,8 +440,17 @@ section {
 /* Smile arc (Phase 4) */
 .ui-smile {
   fill: none;
-  stroke: #4d866c;
+  stroke: var(--c-int);
   stroke-width: 2.5;
+  stroke-linecap: round;
+  opacity: 0;
+}
+
+/* Face outline (Phase 4) */
+.ui-face-ring {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.2;
   stroke-linecap: round;
   opacity: 0;
 }
@@ -460,6 +479,8 @@ section {
   text-align: center;
   gap: 0;
 }
+
+.hero-kw i { color: var(--muted); }
 
 .hero-kw {
   font-family: var(--serif);
@@ -591,6 +612,11 @@ section {
   padding: var(--s1) var(--s3);
   border-radius: 1px;
 }
+
+/* Semantic accent borders — purely decorative, no text-colour change */
+.tag-sign { border-color: var(--c-sign); }
+.tag-obj  { border-color: var(--c-obj);  }
+.tag-int  { border-color: var(--c-int);  }
 
 /* ─────────────────────────────────────────
    03 WORK
@@ -807,7 +833,8 @@ section {
   top: 6px;
   width: 7px; height: 7px;
   border-radius: 50%;
-  background: var(--rule);
+  background: var(--c-int);
+  opacity: .55;
   border: none;
 }
 

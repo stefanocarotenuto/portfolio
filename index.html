@@ -155,8 +155,11 @@
               <!-- Success check inside ghost button -->
               <polyline class="ui-check" id="ui-check" points="225,262 230,267 239,257"/>
 
-              <!-- Smile arc (Phase 4) -->
-              <path class="ui-smile" id="ui-smile" d="M 148 178 Q 180 206 212 178"/>
+              <!-- Smile arc (Phase 4) — warm, natural -->
+              <path class="ui-smile" id="ui-smile" d="M 148 186 Q 180 208 212 186"/>
+
+              <!-- Face outline (Phase 4) — ghostly containment -->
+              <circle class="ui-face-ring" id="ui-face-ring" cx="180" cy="162" r="66"/>
             </svg>
           </div>
           <button class="hero-replay" id="hero-replay" aria-label="Replay animation">
@@ -186,14 +189,14 @@
             </p>
 
             <div class="about-tags" role="list" aria-label="Areas of expertise">
-              <span class="tag" role="listitem">User Centered Design</span>
-              <span class="tag" role="listitem">User Experience</span>
-              <span class="tag" role="listitem">User Interface</span>
-              <span class="tag" role="listitem">Communication</span>
-              <span class="tag" role="listitem">Semiotics</span>
-              <span class="tag" role="listitem">Accessibility</span>
-              <span class="tag" role="listitem">Analytics</span>
-              <span class="tag" role="listitem">Digital Marketing</span>
+              <span class="tag tag-obj"  role="listitem">User Centered Design</span>
+              <span class="tag tag-obj"  role="listitem">User Experience</span>
+              <span class="tag tag-obj"  role="listitem">User Interface</span>
+              <span class="tag tag-sign" role="listitem">Communication</span>
+              <span class="tag tag-sign" role="listitem">Semiotics</span>
+              <span class="tag tag-int"  role="listitem">Accessibility</span>
+              <span class="tag tag-int"  role="listitem">Analytics</span>
+              <span class="tag tag-int"  role="listitem">Digital Marketing</span>
             </div>
           </div>
           <div class="about-visual">
@@ -233,7 +236,7 @@
             <div class="card-body">
               <h3 class="card-title" id="card1-title">PUBDSU</h3>
               <p class="card-org">CNR-DSU — 2026</p>
-              <p class="card-desc">A redesigned section that makes the department's entire research output browsable, filterable, and downloadable. Launched February 2026.</p>
+              <p class="card-desc">Redesigned section making the department's entire research output browsable, filterable, and downloadable.</p>
               <span class="card-arrow">
                 Visit project
                 <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -253,7 +256,7 @@
             <div class="card-body">
               <h3 class="card-title" id="card2-title">DSU Annual Conference</h3>
               <p class="card-org">CNR-DSU — 2025</p>
-              <p class="card-desc">A dedicated minisite with its own visual identity: programme, speaker profiles, abstract archive, and all contributions in one accessible space.</p>
+              <p class="card-desc">Dedicated minisite with its own visual identity: programme, speaker profiles, abstract archive, and all contributions in one accessible space.</p>
               <span class="card-arrow">
                 Visit project
                 <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
@@ -272,7 +275,7 @@
             </div>
             <div class="card-body">
               <h3 class="card-title" id="card3-title">WeMed</h3>
-              <p class="card-org">CNR-ISMed · Istat — 2024-present</p>
+              <p class="card-org">CNR-ISMed · Istat — 2024 — Present</p>
               <p class="card-desc">Interface architecture, user flows, and design system for a Mediterranean Digital Humanities research platform, in collaboration with CNR-ISMed and Istat.</p>
               <span class="card-arrow">
                 Visit project
@@ -292,7 +295,7 @@
             </div>
             <div class="card-body">
               <h3 class="card-title" id="card4-title">CNR-DSU Website</h3>
-              <p class="card-org">National Research Council — 2023-present</p>
+              <p class="card-org">National Research Council — 2023 — Present</p>
               <p class="card-desc">Digital communication strategy, web presence, analytics, and institutional media for CNR's Department of Social Sciences and Humanities, Cultural Heritage.</p>
               <span class="card-arrow">
                 Visit project
@@ -312,7 +315,7 @@
             </div>
             <div class="card-body">
               <h3 class="card-title" id="card5-title">Horizon 2020 — CLIC</h3>
-              <p class="card-org">National Research Council — GA 776758 · 2017-2021</p>
+              <p class="card-org">National Research Council — GA 776758 · 2017 — 2021</p>
               <p class="card-desc">Project website and communication deliverables for a €4.9M European research consortium on circular models for cultural heritage reuse, coordinated by CNR.</p>
               <span class="card-arrow">
                 Visit project
@@ -332,7 +335,7 @@
             </div>
             <div class="card-body">
               <h3 class="card-title" id="card6-title">CNR-IRISS Website</h3>
-              <p class="card-org">Institute for Research on Innovation and Services for Development — 2014-2024</p>
+              <p class="card-org">Institute for Research on Innovation and Services for Development — 2014 — 2024</p>
               <p class="card-desc">Ten years of digital communication, content strategy, and web management for one of CNR's social science institutes in Naples.</p>
               <span class="card-arrow">
                 Visit project
@@ -377,8 +380,22 @@
                 <div class="cv-entry">
                   <p class="cv-year">2010 — 2024</p>
                   <h3 class="cv-role">UX Design & Communication (CTER)</h3>
-                  <p class="cv-org">National Research Council - Multiple roles - CNR-ISGI and CNR-IRISS · Naples and Milan</p>
-                  <p class="cv-detail">Over fourteen years of digital strategy, and institutional relations across public research and cultural organisations.</p>
+                  <p class="cv-org">National Research Council — CNR-ISGI and CNR-IRISS · Naples and Milan</p>
+                  <p class="cv-detail">Fourteen years of digital strategy, UX design, and institutional communications across multiple CNR research institutes in Naples and Milan.</p>
+                </div>
+
+                <div class="cv-entry">
+                  <p class="cv-year">1999 — 2010</p>
+                  <h3 class="cv-role">Web Design & Communication</h3>
+                  <p class="cv-org">Independent & Small Studios · Naples Area</p>
+                  <p class="cv-detail">Self-taught web design and communication, starting from an unlikely classroom: building sites for online gaming communities to organise teams and coordinate matches. That practical foundation extended to web and communication work for small businesses and associations across the Naples area.</p>
+                </div>
+
+                <div class="cv-entry">
+                  <p class="cv-year">2025 — Present</p>
+                  <h3 class="cv-role">Alice's Dad</h3>
+                  <p class="cv-org">Family · Milan</p>
+                  <p class="cv-detail">The most radical usability test: a user with no prior context, zero tolerance for ambiguity, and completely unfiltered feedback. Parenthood turned out to be a continuous lesson in first principles — plain language, patient iteration, and the quiet reminder that good communication is always, ultimately, an act of care.</p>
                 </div>
               </div>
             </div>
@@ -386,7 +403,7 @@
             <div class="cv-panel" id="panel-edu" role="tabpanel" aria-labelledby="tab-edu">
               <div class="cv-timeline">
                 <div class="cv-entry current">
-                  <p class="cv-year">2025 — Ongoing</p>
+                  <p class="cv-year">2025 — Present</p>
                   <h3 class="cv-role">MA in Semiotics</h3>
                   <p class="cv-org">Alma Mater Studiorum - Università di Bologna</p>
                   <p class="cv-detail">Research focus on digital semiotics, visual communication, and the theory of meaning in institutional and media contexts.</p>
@@ -395,19 +412,19 @@
                   <p class="cv-year">2023</p>
                   <h3 class="cv-role">Google UX Design Professional Certificate</h3>
                   <p class="cv-org">Google · Coursera</p>
-                  <p class="cv-detail">Seven-course program covering the full UX design process: user research, wireframing, prototyping, and usability testing. Credential issued by Google.</p>
+                  <p class="cv-detail">Seven-course program covering the full UX design process: user research, wireframing, prototyping, and usability testing.</p>
                 </div>
                 <div class="cv-entry">
                   <p class="cv-year">2022 — 2025</p>
                   <h3 class="cv-role">BA in Innovative Communication in Multimedia and Digital environments</h3>
                   <p class="cv-org">IUL University - Florence</p>
-                  <p class="cv-detail">Graduated cum laude. Studies in media theory, digital communication, and institutional communications.</p>
+                  <p class="cv-detail">Graduated cum laude in media theory, digital communication, and institutional communications.</p>
                 </div>
                 <div class="cv-entry">
                   <p class="cv-year">2011 — 2012</p>
                   <h3 class="cv-role">Graphic Design and Advertising Course</h3>
                   <p class="cv-org">New Media Art and Design School - Naples</p>
-                  <p class="cv-detail">I learned concepts and techniques for creatively and effectively expressing communication messages through brand campaign simulations, brochure design, poster design, and various typographic and digital products.</p>
+                  <p class="cv-detail">Practical training in visual communication, typography, and advertising design — brand campaigns, brochure and poster production, and typographic composition.</p>
                 </div>
               </div>
             </div>

@@ -173,9 +173,9 @@ document.addEventListener('keydown', (e) => {
 (function () {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  const ease    = 'cubic-bezier(0.4, 0, 0.2, 1)';
-  const easeOut = 'cubic-bezier(0.0, 0, 0.2, 1)';
-  const spring  = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
+  const ease      = 'cubic-bezier(0.4, 0, 0.2, 1)';
+  const easeSmooth = 'cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+  const spring    = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
 
   const $ = id => document.getElementById(id);
 
@@ -186,6 +186,7 @@ document.addEventListener('keydown', (e) => {
   // Store initial SVG markup for clean reset
   const initialSVG = svg.innerHTML;
   let timers = [];
+  let animationDone = false;
 
   function delay(fn, ms) {
     const id = setTimeout(fn, ms);
@@ -230,7 +231,7 @@ document.addEventListener('keydown', (e) => {
       { x1: el.getAttribute('x1'), y1: el.getAttribute('y1'),
         x2: el.getAttribute('x2'), y2: el.getAttribute('y2') },
       { x1: `${to.x1}`, y1: `${to.y1}`, x2: `${to.x2}`, y2: `${to.y2}` }
-    ], { duration, delay: wait, easing: easeOut, fill: 'forwards' });
+    ], { duration, delay: wait, easing: easeSmooth, fill: 'forwards' });
 
     delay(() => {
       el.setAttribute('x1', to.x1);
@@ -268,6 +269,7 @@ document.addEventListener('keydown', (e) => {
      RUN ANIMATION
      ═══════════════════════════════════════ */
   function runAnimation() {
+    animationDone = false;
     // Hide replay button
     replayBtn.classList.remove('visible');
 
@@ -300,20 +302,29 @@ document.addEventListener('keydown', (e) => {
     }, morphStart);
 
     const mDelay = morphStart + 650;
-    const mDur   = 850;
+    const mDur   = 1050;
 
     delay(() => {
       morphLine(ml1, { x1: 128, y1: 62, x2: 128, y2: 290, sw: 0.8 }, mDur, 0);
-      morphLine(ml2, { x1: 52, y1: 62, x2: 308, y2: 62, sw: 0.9 }, mDur, 70);
-      morphLine(ml3, { x1: 144, y1: 186, x2: 296, y2: 186, sw: 0.6 }, mDur, 140);
+      morphLine(ml2, { x1: 52, y1: 62, x2: 308, y2: 62, sw: 0.9 }, mDur, 100);
+      morphLine(ml3, { x1: 144, y1: 186, x2: 296, y2: 186, sw: 0.6 }, mDur, 200);
 
-      fade(md1, 1, 0, 400, 0);
-      fade(md2, 1, 0, 400, 70);
-      fade(md3, 1, 0, 400, 140);
+      // Opacity "breath" during morph: lines dip then recover, organic feel
+      [ml1, ml2, ml3].forEach((el, i) => {
+        el.animate(
+          [{ opacity: 1 }, { opacity: 0.45, offset: 0.45 }, { opacity: 1 }],
+          { duration: mDur + 100, delay: i * 100, easing: ease, fill: 'forwards' }
+        );
+      });
+
+      // Dots fade later and slower (don't disappear before morph settles)
+      fade(md1, 1, 0, 520, 200);
+      fade(md2, 1, 0, 520, 310);
+      fade(md3, 1, 0, 520, 420);
     }, mDelay);
 
     /* ── PHASE 3 — UI details materialise ── */
-    const detailStart = mDelay + mDur + 250;
+    const detailStart = mDelay + mDur - 200;
 
     delay(() => {
       const frame = $('ui-frame');
@@ -358,7 +369,7 @@ document.addEventListener('keydown', (e) => {
       const b1 = $('ui-b1'), b2 = $('ui-b2');
       if (b1) b1.animate(
         [{ opacity: 0, transform: 'scaleX(0)' },
-         { opacity: 0.7, transform: 'scaleX(1)' }],
+         { opacity: 0.3, transform: 'scaleX(1)' }],
         { duration: 350, delay: 950, easing: spring, fill: 'forwards' }
       );
       if (b2) b2.animate(
@@ -372,7 +383,7 @@ document.addEventListener('keydown', (e) => {
         delay(() => {
           b2.animate(
             [{ fill: 'none', stroke: 'var(--ink)' },
-             { fill: '#6a9d56', stroke: '#6a9d56' }],
+             { fill: '#4a8872', stroke: '#4a8872' }],
             { duration: 400, easing: ease, fill: 'forwards' }
           );
         }, 1450);
@@ -404,79 +415,99 @@ document.addEventListener('keydown', (e) => {
       // (moved to Phase 4)
     }, detailStart);
 
-    /* ── PHASE 4 — Smiley: meaning accomplished ── */
-    const faceStart = detailStart + 2800;
+    /* ── PHASE 4 — Satisfaction: meaning accomplished ── */
+    const faceStart = detailStart + 2400;
 
     delay(() => {
-      // Fade out all UI elements
-      ['ui-frame','ui-d1','ui-d2','ui-d3',
-       'ui-sn1','ui-sn2','ui-sn3','ui-sn4',
-       'ui-h1','ui-h2',
-       'ui-t1','ui-t2','ui-t3','ui-t4',
-       'ui-c1','ui-c2','ui-b1','ui-b2','ui-check',
-       'ui-header','ui-sidebar'
-      ].forEach((id, i) => {
+      // UI dissolves slowly — let the completed interface breathe before fading
+      const uiOrder = ['ui-check','ui-b2','ui-b1','ui-c2','ui-c1',
+        'ui-t4','ui-t3','ui-t2','ui-t1','ui-h2','ui-h1',
+        'ui-sn4','ui-sn3','ui-sn2','ui-sn1','ui-sidebar',
+        'ui-d3','ui-d2','ui-d1','ui-header','ui-frame'];
+      uiOrder.forEach((id, i) => {
         const el = $(id);
-        if (el) el.animate([{ opacity: 0 }],
-          { duration: 450, delay: i * 12, easing: 'ease', fill: 'forwards' });
+        if (el) el.animate([{ opacity: el.style.opacity || 1 }, { opacity: 0 }],
+          { duration: 600, delay: i * 22, easing: ease, fill: 'forwards' });
       });
-
-      // Fade out morph lines
+      // Morph lines dissolve in the same wave
       [ml1, ml2, ml3].forEach((el, i) => {
-        el.animate([{ opacity: 0 }],
-          { duration: 450, delay: i * 30, easing: 'ease', fill: 'forwards' });
+        el.animate([{ opacity: 1 }, { opacity: 0 }],
+          { duration: 600, delay: 220 + i * 40, easing: ease, fill: 'forwards' });
       });
 
-      // Reposition dots as eyes — animate from current (invisible) to new position
-      const md1 = $('md-1'), md2 = $('md-2'), md3 = $('md-3');
+      const md1 = $('md-1'), md2 = $('md-2');
 
-      // Left eye (red/Sign)
+      // Helper: draw a path via stroke-dashoffset
+      const drawPath = (id, targetOpacity, duration, t) => {
+        const el = $(id);
+        if (!el) return;
+        const len = el.getTotalLength();
+        el.setAttribute('stroke-dasharray', len);
+        el.setAttribute('stroke-dashoffset', len);
+        delay(() => {
+          el.animate(
+            [{ opacity: 0, strokeDashoffset: len },
+             { opacity: targetOpacity, strokeDashoffset: 0 }],
+            { duration, easing: easeSmooth, fill: 'forwards' }
+          );
+        }, t);
+        delay(() => {
+          el.removeAttribute('stroke-dasharray');
+          el.removeAttribute('stroke-dashoffset');
+        }, t + duration);
+      };
+
+      // 1. Face ring — appears as a ghostly circle (barely visible)
+      const faceRing = $('ui-face-ring');
+      if (faceRing) {
+        const perim = 2 * Math.PI * 66;
+        faceRing.setAttribute('stroke-dasharray', perim);
+        faceRing.setAttribute('stroke-dashoffset', perim);
+        delay(() => {
+          faceRing.animate(
+            [{ opacity: 0, strokeDashoffset: perim },
+             { opacity: 0.18, strokeDashoffset: 0 }],
+            { duration: 900, easing: easeSmooth, fill: 'forwards' }
+          );
+        }, 700);
+        delay(() => {
+          faceRing.removeAttribute('stroke-dasharray');
+          faceRing.removeAttribute('stroke-dashoffset');
+        }, 700 + 900);
+      }
+
+      // 2. Left eye (Sign — mauve) materialises from its last triangle position
       if (md1) {
         delay(() => {
-          md1.setAttribute('cx', 148);
-          md1.setAttribute('cy', 142);
+          md1.setAttribute('cx', 152);
+          md1.setAttribute('cy', 150);
           md1.animate(
-            [{ opacity: 0, r: 0 }, { opacity: 1, r: 7 }],
-            { duration: 400, easing: spring, fill: 'forwards' }
+            [{ opacity: 0, r: 0 }, { opacity: 1, r: 5 }],
+            { duration: 420, easing: spring, fill: 'forwards' }
           );
-        }, 550);
+        }, 1050);
       }
 
-      // Right eye (yellow/Object)
+      // 3. Right eye (Object — steel blue)
       if (md2) {
         delay(() => {
-          md2.setAttribute('cx', 212);
-          md2.setAttribute('cy', 142);
+          md2.setAttribute('cx', 208);
+          md2.setAttribute('cy', 150);
           md2.animate(
-            [{ opacity: 0, r: 0 }, { opacity: 1, r: 7 }],
-            { duration: 400, easing: spring, fill: 'forwards' }
+            [{ opacity: 0, r: 0 }, { opacity: 1, r: 5 }],
+            { duration: 420, easing: spring, fill: 'forwards' }
           );
-        }, 650);
+        }, 1200);
       }
 
-      // Green smile arc — draw in
-      const smile = $('ui-smile');
-      if (smile) {
-        const len = smile.getTotalLength();
-        smile.setAttribute('stroke-dasharray', len);
-        smile.setAttribute('stroke-dashoffset', len);
-        delay(() => {
-          smile.animate(
-            [{ opacity: 0, strokeDashoffset: len },
-             { opacity: 1, strokeDashoffset: 0 }],
-            { duration: 450, easing: ease, fill: 'forwards' }
-          );
-        }, 800);
-        delay(() => {
-          smile.removeAttribute('stroke-dasharray');
-          smile.removeAttribute('stroke-dashoffset');
-        }, 800 + 450);
-      }
+      // 4. Smile (Interpretant — teal): the meaning produced
+      drawPath('ui-smile', 1, 620, 1420);
 
       // Replay
       delay(() => {
+        animationDone = true;
         replayBtn.classList.add('visible');
-      }, 1500);
+      }, 2300);
     }, faceStart);
   }
 
@@ -500,11 +531,13 @@ document.addEventListener('keydown', (e) => {
 
   replayBtn.addEventListener('click', resetAndReplay);
 
-  /* Pause pending timers when tab is hidden to save resources */
+  /* Pause when tab hidden; restart if animation was still in progress */
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) {
       timers.forEach(clearTimeout);
       timers = [];
+    } else if (!animationDone) {
+      resetAndReplay();
     }
   });
 
