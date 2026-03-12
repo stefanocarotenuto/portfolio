@@ -1261,9 +1261,24 @@ section {
     animation-iteration-count: 1 !important;
     transition-duration: 0s !important;
   }
-  .hero-diagram { opacity: 1; }
-  .morph-dot { opacity: 1; }
-  .ui-el, .ui-frame { opacity: 0; }
-  .ui-check { opacity: 0; }
-  .ui-smile { opacity: 0; }
+
+  /* Show completed wireframe state — no animation played */
+  .hero-diagram              { opacity: 1; }
+  .morph-line                { opacity: 0; }   /* triangle lines hidden: ui-header/sidebar replace them */
+  .morph-dot                 { opacity: 0; }   /* triangle vertices hidden */
+
+  .ui-frame                  { opacity: .55; }
+  .ui-el                     { opacity: .65; }
+  .ui-sn                     { opacity: .7;  }
+  .ui-text                   { opacity: .4;  }
+  .ui-card                   { opacity: .5;  }
+  #ui-b1                     { opacity: .3;  }
+  #ui-b2                     { fill: var(--c-int); stroke: var(--c-int); opacity: 1; }
+  .ui-check                  { opacity: 1;   }
+
+  /* Phase 4 elements stay hidden */
+  .ui-smile, .ui-face-ring   { opacity: 0;   }
+
+  /* Replay button irrelevant without animation */
+  .hero-replay               { display: none; }
 }
