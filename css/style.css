@@ -1089,7 +1089,7 @@ section {
 
   .site-header { padding: 0 var(--s6); }
 
-  /* Work: 2-column grid — all 5 cards flow naturally */
+  /* Work: 2-column grid */
   .work-grid { grid-template-columns: repeat(2, 1fr); }
 
   .about-visual { max-width: 240px; }
@@ -1213,8 +1213,7 @@ section {
   /* Hero: larger diagram on desktop */
   .hero-svg { max-width: 480px; }
 
-  /* Work: 3-column grid */
-  .work-grid { grid-template-columns: repeat(3, 1fr); }
+  /* Work: stays 2-column on desktop */
 
   /* About: wider portrait column */
   .about-grid {
