@@ -39,9 +39,11 @@ document.getElementById('photo-prev')
 document.getElementById('photo-next')
   .addEventListener('click', () => splide.go('>'));
 
-splide.on('moved', (i) => {
+function updateCount(i) {
   countEl.textContent = (i + 1) + '\u2009/\u2009' + splide.length;
-});
+}
+splide.on('move',  updateCount);
+splide.on('moved', updateCount);
 
 splide.mount();
 
