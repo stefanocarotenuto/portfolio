@@ -967,7 +967,7 @@ section {
 .splide__slide img {
   width: 100%;
   height: auto;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/2;
   object-fit: cover;
   display: block;
 }
