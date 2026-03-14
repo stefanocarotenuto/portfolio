@@ -86,6 +86,16 @@ sections.forEach(s => observer.observe(s));
 
 /* Progress dots are display-only — no click interaction */
 
+/* ─── SMOOTH SCROLL solo per link anchor ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', (e) => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+
 
 /* ─── CV TABS — ARIA COMPLIANT ────────── */
 const tabs   = document.querySelectorAll('.cv-tab[role="tab"]');
