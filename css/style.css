@@ -696,6 +696,52 @@ section {
   filter: grayscale(0%);
 }
 
+/* Video pause/play toggle */
+.work-media-toggle {
+  position: absolute;
+  bottom: var(--s3);
+  right: var(--s3);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .3s ease;
+}
+.work-media-toggle svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.work-media-toggle .icon-play  { display: none; }
+.work-media-toggle .icon-pause { display: block; }
+.work-media-toggle[data-paused] .icon-play  { display: block; }
+.work-media-toggle[data-paused] .icon-pause { display: none; }
+
+.work-item:hover .work-media-toggle,
+.work-item:focus-within .work-media-toggle {
+  opacity: 1;
+}
+.work-media-toggle:hover {
+  background: rgba(0, 0, 0, .75);
+}
+.work-media-toggle:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+  opacity: 1;
+}
+
 /* Body */
 .work-body {
   padding: var(--s5) 0 0;
