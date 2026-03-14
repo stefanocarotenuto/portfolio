@@ -104,24 +104,34 @@ const navLinks     = document.querySelectorAll('.site-nav a');
 const progressDots = document.querySelectorAll('.progress-dot');
 const header       = document.getElementById('site-header');
 
+let activeId = '';
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const id = entry.target.id;
-
-    navLinks.forEach(a => {
-      a.setAttribute('aria-current',
-        a.getAttribute('href') === '#' + id ? 'true' : 'false');
-    });
-
-    progressDots.forEach(dot => {
-      dot.classList.toggle('active', dot.dataset.target === id);
-    });
-
-    header.classList.toggle('dark-zone', id === 'photography');
+    entry.target._ratio = entry.intersectionRatio;
   });
+
+  let best = null;
+  let bestRatio = 0;
+  sections.forEach(s => {
+    const r = s._ratio || 0;
+    if (r > bestRatio) { bestRatio = r; best = s; }
+  });
+
+  if (!best || best.id === activeId) return;
+  activeId = best.id;
+
+  navLinks.forEach(a => {
+    a.setAttribute('aria-current',
+      a.getAttribute('href') === '#' + activeId ? 'true' : 'false');
+  });
+
+  progressDots.forEach(dot => {
+    dot.classList.toggle('active', dot.dataset.target === activeId);
+  });
+
+  header.classList.toggle('dark-zone', activeId === 'photography');
 }, {
-  threshold:  0.45,
+  threshold:  [0, 0.1, 0.2, 0.3, 0.5],
   rootMargin: '-56px 0px 0px 0px',
 });
 
