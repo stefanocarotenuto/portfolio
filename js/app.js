@@ -51,7 +51,7 @@ splide.mount();
 countEl.textContent = '1\u2009/\u2009' + splide.length;
 
 
-/* ─── LAZY VIDEO — hover to play ───────── */
+/* ─── LAZY VIDEO — click to play ───────── */
 (function () {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const items = document.querySelectorAll('.work-item');
@@ -60,10 +60,7 @@ countEl.textContent = '1\u2009/\u2009' + splide.length;
     const video = item.querySelector('video[data-lazy-video]');
     if (!video) return;
 
-    if (prefersReduced) {
-      video.removeAttribute('autoplay');
-      return;
-    }
+    if (prefersReduced) return;
 
     /* Lazy-load source on first intersection */
     const lazyObserver = new IntersectionObserver((entries) => {
@@ -82,49 +79,30 @@ countEl.textContent = '1\u2009/\u2009' + splide.length;
 
     lazyObserver.observe(item);
 
-    /* Pause / play toggle button */
+    /* Play / pause toggle button */
     const btn = document.createElement('button');
     btn.className = 'work-media-toggle';
-    btn.setAttribute('aria-label', 'Pause video');
+    btn.setAttribute('data-paused', '');
+    btn.setAttribute('aria-label', 'Play video');
     btn.innerHTML =
       '<svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4h4v16H6z"/><path d="M14 4h4v16h-4z"/></svg>' +
       '<svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>';
     item.querySelector('.work-media').appendChild(btn);
 
-    let userPaused = false;
-
-    const play  = () => {
-      if (userPaused) return;
-      video.currentTime = 0;
-      video.play().catch(() => {});
-      btn.removeAttribute('data-paused');
-      btn.setAttribute('aria-label', 'Pause video');
-    };
-    const pause = () => {
-      video.pause();
-      btn.setAttribute('data-paused', '');
-      btn.setAttribute('aria-label', 'Play video');
-    };
-
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
+    btn.addEventListener('click', () => {
       if (video.paused) {
-        userPaused = false;
+        video.currentTime = 0;
         video.play().catch(() => {});
+        video.classList.add('is-playing');
         btn.removeAttribute('data-paused');
         btn.setAttribute('aria-label', 'Pause video');
       } else {
-        userPaused = true;
         video.pause();
+        video.classList.remove('is-playing');
         btn.setAttribute('data-paused', '');
         btn.setAttribute('aria-label', 'Play video');
       }
     });
-
-    item.addEventListener('pointerenter', play);
-    item.addEventListener('pointerleave', () => { pause(); userPaused = false; });
-    item.addEventListener('focusin',  play);
-    item.addEventListener('focusout', () => { pause(); userPaused = false; });
   });
 })();
 

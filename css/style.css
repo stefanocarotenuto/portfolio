@@ -686,17 +686,16 @@ section {
   transition: opacity .3s ease;
 }
 
-.work-item:hover .work-media video,
-.work-item:focus-within .work-media video {
+/* Video visible only while playing (JS removes data-paused) */
+.work-media video.is-playing {
   opacity: 1;
 }
-
-.work-item:hover .work-media img,
-.work-item:focus-within .work-media img {
+.work-media video.is-playing + .work-media-toggle ~ img,
+.work-media:has(video.is-playing) img {
   filter: grayscale(0%);
 }
 
-/* Video pause/play toggle */
+/* Video play/pause toggle — always visible */
 .work-media-toggle {
   position: absolute;
   bottom: var(--s3);
@@ -712,8 +711,7 @@ section {
   background: rgba(0, 0, 0, .55);
   color: #fff;
   cursor: pointer;
-  opacity: 0;
-  transition: opacity .3s ease;
+  transition: background .2s ease;
 }
 .work-media-toggle svg {
   width: 16px;
@@ -729,10 +727,6 @@ section {
 .work-media-toggle[data-paused] .icon-play  { display: block; }
 .work-media-toggle[data-paused] .icon-pause { display: none; }
 
-.work-item:hover .work-media-toggle,
-.work-item:focus-within .work-media-toggle {
-  opacity: 1;
-}
 .work-media-toggle:hover {
   background: rgba(0, 0, 0, .75);
 }
