@@ -776,6 +776,7 @@ section {
   border: 1px solid var(--rule);
   padding: var(--s2) var(--s4);
   margin-top: var(--s4);
+  align-self: flex-end;
   transition: color .2s, border-color .2s;
 }
 
