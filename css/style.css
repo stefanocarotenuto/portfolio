@@ -655,14 +655,7 @@ section {
 .work-link {
   display: flex;
   flex-direction: column;
-  text-decoration: none;
   color: var(--ink);
-}
-
-.work-link:focus-visible {
-  outline: 2px solid var(--c-obj);
-  outline-offset: 4px;
-  border-radius: 2px;
 }
 
 /* Media */
@@ -698,8 +691,8 @@ section {
   opacity: 1;
 }
 
-.work-link:hover .work-media img,
-.work-link:focus-visible .work-media img {
+.work-item:hover .work-media img,
+.work-item:focus-within .work-media img {
   filter: grayscale(0%);
 }
 
@@ -774,15 +767,16 @@ section {
 .work-cta {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
   font-size: .6875rem;
   letter-spacing: .08em;
   text-transform: uppercase;
+  text-decoration: none;
   color: var(--muted);
+  border: 1px solid var(--rule);
+  padding: var(--s2) var(--s4);
   margin-top: var(--s4);
-  padding-top: var(--s3);
-  border-top: 1px solid var(--rule);
-  transition: color .2s;
+  transition: color .2s, border-color .2s;
 }
 
 .work-cta svg {
@@ -796,8 +790,12 @@ section {
   transition: transform .2s;
 }
 
-.work-link:hover .work-cta             { color: var(--ink); }
-.work-link:hover .work-cta svg         { transform: translate(2px, -2px); }
+.work-cta:hover                        { color: var(--ink); border-color: var(--ink); }
+.work-cta:hover svg                    { transform: translate(2px, -2px); }
+.work-cta:focus-visible {
+  outline: 2px solid var(--c-obj);
+  outline-offset: 2px;
+}
 
 /* ─────────────────────────────────────────
    04 CV
