@@ -573,7 +573,7 @@ section {
 .about-visual {
   position: relative;
   border: 1px solid var(--rule);
-  padding: var(--s3);
+  padding: var(--s1);
   background: #fff;
 }
 
