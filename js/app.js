@@ -74,10 +74,11 @@ countEl.textContent = '1\u2009/\u2009' + splide.length;
           source.src = source.dataset.src;
           source.removeAttribute('data-src');
           video.load();
+          video.preload = 'auto';
         }
         lazyObserver.unobserve(entry.target);
       });
-    }, { rootMargin: '200px' });
+    }, { rootMargin: '600px' });
 
     lazyObserver.observe(item);
 
