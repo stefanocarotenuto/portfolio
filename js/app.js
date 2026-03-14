@@ -51,6 +51,48 @@ splide.mount();
 countEl.textContent = '1\u2009/\u2009' + splide.length;
 
 
+/* ─── LAZY VIDEO — hover to play ───────── */
+(function () {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const items = document.querySelectorAll('.work-item');
+
+  items.forEach(item => {
+    const video = item.querySelector('video[data-lazy-video]');
+    if (!video) return;
+
+    if (prefersReduced) {
+      video.removeAttribute('autoplay');
+      return;
+    }
+
+    /* Lazy-load source on first intersection */
+    const lazyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const source = video.querySelector('source[data-src]');
+        if (source) {
+          source.src = source.dataset.src;
+          source.removeAttribute('data-src');
+          video.load();
+        }
+        lazyObserver.unobserve(entry.target);
+      });
+    }, { rootMargin: '200px' });
+
+    lazyObserver.observe(item);
+
+    /* Play on hover / focus, pause on leave */
+    const play  = () => { video.currentTime = 0; video.play().catch(() => {}); };
+    const pause = () => { video.pause(); };
+
+    item.addEventListener('pointerenter', play);
+    item.addEventListener('pointerleave', pause);
+    item.addEventListener('focusin',  play);
+    item.addEventListener('focusout', pause);
+  });
+})();
+
+
 /* ─── SCROLL SPY ──────────────────────
    - aggiorna aria-current sui link nav
    - aggiorna il dot attivo nella sidebar

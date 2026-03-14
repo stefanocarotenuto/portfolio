@@ -74,11 +74,7 @@
     </nav>
 
     <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
-      <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true">
-        <rect width="20" height="1.5" fill="currentColor"/>
-        <rect y="6" width="20" height="1.5" fill="currentColor"/>
-        <rect y="12" width="20" height="1.5" fill="currentColor"/>
-      </svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
     </button>
   </header>
 
@@ -164,10 +160,7 @@
             </svg>
           </div>
           <button class="hero-replay" id="hero-replay" aria-label="Replay animation">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M1 4v6h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
           </button>
         </div>
       </div>
@@ -223,87 +216,171 @@
           <span>Selected Works</span>
         </div>
         <h2 id="work-heading" class="visually-hidden">Selected Work</h2>
-        <div class="work-grid">
+        <div class="work-list">
 
           <!-- PUBDSU -->
-          <a class="project-card"
-             href="https://www.dsu.cnr.it/pubdsu"
-             target="_blank" rel="noopener noreferrer"
-             aria-labelledby="card1-title"
-             aria-label="PUBDSU — opens in new tab">
-            <div class="card-thumb" aria-hidden="true">
-              <img src="img/w-pubdsu.avif" alt="Screenshot of the PUBDSU research publications section" class="card-thumb-img" width="600" height="338" loading="lazy" decoding="async">
-            </div>
-            <div class="card-body">
-              <h3 class="card-title" id="card1-title">PUBDSU</h3>
-              <p class="card-org">CNR-DSU — 2026</p>
-              <p class="card-desc">Redesigned section making the department's entire research output browsable, filterable, and downloadable.</p>
-              <span class="card-arrow">
-                Visit project
-                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-              </span>
-            </div>
-          </a>
+          <div class="work-item">
+            <a class="work-link" href="https://www.dsu.cnr.it/pubdsu"
+               target="_blank" rel="noopener noreferrer"
+               aria-labelledby="work1-title">
+              <div class="work-media">
+                <img src="img/w-pubdsu-poster.avif" alt="Screenshot of the PUBDSU research publications section" width="960" height="540" loading="lazy" decoding="async">
+                <video muted loop playsinline
+                       preload="none"
+                       width="960" height="540"
+                       aria-hidden="true"
+                       data-lazy-video>
+                  <source data-src="img/pubdsu-2x.webm" type="video/webm">
+                </video>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work1-title">PUBDSU</h3>
+                <p class="work-org">CNR-DSU — 2026</p>
+                <p class="work-tagline">A searchable archive that brings the department's entire research output into one place — with live search, filtering, and detailed records.</p>
+                <ul class="work-highlights" role="list">
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                    Live search with instant results and filters by author, type, and keyword
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                    Detailed single-page view for each publication
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    Built on WordPress for open data distribution and future interoperability
+                  </li>
+                </ul>
+                <span class="work-cta">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </span>
+              </div>
+            </a>
+          </div>
 
           <!-- Annual Conference 2025 -->
-          <a class="project-card"
-             href="https://www.dsu.cnr.it/conferenza-dsu-2026"
-             target="_blank" rel="noopener noreferrer"
-             aria-labelledby="card2-title"
-             aria-label="DSU Annual Conference 2025 — opens in new tab">
-            <div class="card-thumb" aria-hidden="true">
-              <img src="img/w-confdsu.avif" alt="Screenshot of the DSU Annual Conference 2025 minisite" class="card-thumb-img" width="600" height="338" loading="lazy" decoding="async">
-            </div>
-            <div class="card-body">
-              <h3 class="card-title" id="card2-title">DSU Annual Conference</h3>
-              <p class="card-org">CNR-DSU — 2025</p>
-              <p class="card-desc">Dedicated minisite with its own visual identity: programme, speaker profiles, abstract archive, and all contributions in one accessible space.</p>
-              <span class="card-arrow">
-                Visit project
-                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-              </span>
-            </div>
-          </a>
+          <div class="work-item">
+            <a class="work-link" href="https://www.dsu.cnr.it/conferenza-dsu-2026"
+               target="_blank" rel="noopener noreferrer"
+               aria-labelledby="work2-title">
+              <div class="work-media">
+                <img src="img/w-confdsu-poster.avif" alt="Screenshot of the DSU Annual Conference minisite" width="960" height="540" loading="lazy" decoding="async">
+                <video muted loop playsinline
+                       preload="none"
+                       width="960" height="540"
+                       aria-hidden="true"
+                       data-lazy-video>
+                  <source data-src="img/dsu-annual-conf-2x.webm" type="video/webm">
+                </video>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work2-title">DSU Annual Conference</h3>
+                <p class="work-org">CNR-DSU — 2025</p>
+                <p class="work-tagline">A dedicated minisite with its own visual identity — narrative storytelling, searchable abstracts, and everything attendees need in one place.</p>
+                <ul class="work-highlights" role="list">
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                    Searchable abstract database browsable by title and author
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                    Narrative content structure with integrated video to tell the event story
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    Programme, registration, and contributions unified for the research community
+                  </li>
+                </ul>
+                <span class="work-cta">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </span>
+              </div>
+            </a>
+          </div>
 
           <!-- WeMED -->
-          <a class="project-card"
-             href="https://wemed.cnr.it"
-             target="_blank" rel="noopener noreferrer"
-             aria-labelledby="card3-title"
-             aria-label="WeMED Platform — opens in new tab">
-            <div class="card-thumb" aria-hidden="true">
-              <img src="img/w-wemed.avif" alt="Screenshot of the WeMED Mediterranean Digital Humanities platform" class="card-thumb-img" width="600" height="337" loading="lazy" decoding="async">
-            </div>
-            <div class="card-body">
-              <h3 class="card-title" id="card3-title">WeMed</h3>
-              <p class="card-org">CNR-ISMed · Istat — 2024 — Present</p>
-              <p class="card-desc">Interface architecture, user flows, and design system for a Mediterranean Digital Humanities research platform, in collaboration with CNR-ISMed and Istat.</p>
-              <span class="card-arrow">
-                Visit project
-                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-              </span>
-            </div>
-          </a>
+          <div class="work-item">
+            <a class="work-link" href="https://wemed.cnr.it"
+               target="_blank" rel="noopener noreferrer"
+               aria-labelledby="work3-title">
+              <div class="work-media">
+                <img src="img/w-wemed-poster.avif" alt="Screenshot of the WeMED platform" width="960" height="540" loading="lazy" decoding="async">
+                <video muted loop playsinline
+                       preload="none"
+                       width="960" height="540"
+                       aria-hidden="true"
+                       data-lazy-video>
+                  <source data-src="img/wemed-2x.webm" type="video/webm">
+                </video>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work3-title">WeMed</h3>
+                <p class="work-org">CNR-ISMed · Istat — 2024 — Present</p>
+                <p class="work-tagline">UX design for a Mediterranean socioeconomic research platform — from user surveys to a redesigned dashboard for exploring comparative data.</p>
+                <ul class="work-highlights" role="list">
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                    User research through surveys to inform interface decisions
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                    Dashboard redesign for navigating 12 thematic areas across 26 countries
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    Making comparative Mediterranean data accessible to researchers and policymakers
+                  </li>
+                </ul>
+                <span class="work-cta">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </span>
+              </div>
+            </a>
+          </div>
 
           <!-- CNR-DSU website -->
-          <a class="project-card"
-             href="https://www.dsu.cnr.it"
-             target="_blank" rel="noopener noreferrer"
-             aria-labelledby="card4-title"
-             aria-label="CNR-DSU Department Website — opens in new tab">
-            <div class="card-thumb" aria-hidden="true">
-              <img src="img/w-cnrdsu.avif" alt="Screenshot of the CNR-DSU department website" class="card-thumb-img" width="600" height="338" loading="lazy" decoding="async">
-            </div>
-            <div class="card-body">
-              <h3 class="card-title" id="card4-title">CNR-DSU Website</h3>
-              <p class="card-org">CNR-DSU — 2023 — Present</p>
-              <p class="card-desc">Digital communication strategy, web presence, analytics, and institutional media for CNR's Department of Social Sciences and Humanities, Cultural Heritage.</p>
-              <span class="card-arrow">
-                Visit project
-                <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-              </span>
-            </div>
-          </a>
+          <div class="work-item">
+            <a class="work-link" href="https://www.dsu.cnr.it"
+               target="_blank" rel="noopener noreferrer"
+               aria-labelledby="work4-title">
+              <div class="work-media">
+                <img src="img/w-cnrdsu-poster.avif" alt="Screenshot of the CNR-DSU department website" width="960" height="540" loading="lazy" decoding="async">
+                <video muted loop playsinline
+                       preload="none"
+                       width="960" height="540"
+                       aria-hidden="true"
+                       data-lazy-video>
+                  <source data-src="img/sito-dsu-2x.webm" type="video/webm">
+                </video>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work4-title">CNR-DSU Website</h3>
+                <p class="work-org">CNR-DSU — 2023 — Present</p>
+                <p class="work-tagline">Digital communication strategy and web presence for CNR's Department of Social Sciences and Humanities.</p>
+                <ul class="work-highlights" role="list">
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                    Overhauled information architecture for clearer institutional navigation
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                    Analytics-driven iteration improving engagement and content discoverability
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    Unified digital presence across institutional media channels
+                  </li>
+                </ul>
+                <span class="work-cta">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </span>
+              </div>
+            </a>
+          </div>
 
         </div>
       </div>
@@ -408,7 +485,7 @@
               Recognised by Magnum photographers <i>Martin Parr</i> and <i>Steve McCurry</i>. Exhibited at the HistoryMiami Museum during <i>Art Basel Miami</i>, featured in <i>Corriere della Sera Style Magazine</i>. Co-author of <cite>10 Street Photography</cite> (Psicografici Editore, 2023).
             </p>
             <nav class="photo-social" aria-label="Photography CV">
-              <a href="https://www.dropbox.com/scl/fi/q4da6wywybyb0oocwphnd/Photography-Resume-Stefano-Carotenuto.pdf?rlkey=w8fn8a2os7mlmak4pw2qkwkbh&dl=0" target="_blank" rel="noopener noreferrer" aria-label="Download photography CV as PDF (opens in new tab)">Download photography resume ↗</a>
+              <a href="https://www.dropbox.com/scl/fi/q4da6wywybyb0oocwphnd/Photography-Resume-Stefano-Carotenuto.pdf?rlkey=w8fn8a2os7mlmak4pw2qkwkbh&dl=0" target="_blank" rel="noopener noreferrer" aria-label="Download photography CV as PDF (opens in new tab)">Download photography resume <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
             </nav>
           </div>
 
@@ -448,10 +525,10 @@
               <span id="photo-count">1&thinsp;/&thinsp;8</span>
               <div class="photo-nav">
                 <button class="photo-nav-btn" id="photo-prev" aria-label="Previous photo">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
                 </button>
                 <button class="photo-nav-btn" id="photo-next" aria-label="Next photo">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
                 </button>
               </div>
             </div>
