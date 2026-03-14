@@ -237,20 +237,26 @@ img { display: block; max-width: 100%; }
 
 .nav-toggle {
   display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: none;
+  padding: var(--s2);
+  min-width: 44px;
+  min-height: 44px;
+}
+.nav-toggle {
+  color: var(--ink);
+  cursor: pointer;
 }
 .nav-toggle svg {
-  width: 20px;
-  height: 20px;
+  width: 28px;
+  height: 28px;
   stroke: currentColor;
   fill: none;
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  cursor: pointer;
-  padding: var(--s2);
-  color: var(--ink);
 }
 .site-header.dark-zone .nav-toggle { color: var(--paper); }
 
@@ -550,17 +556,22 @@ section {
 /* ─────────────────────────────────────────
    02 ABOUT
 ───────────────────────────────────────── */
+/* Mobile: h2 + p full width, then tags + portrait side by side */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--s7);
+  grid-template-columns: 1fr 120px;
+  grid-template-areas:
+    "text  text"
+    "tags  photo";
+  gap: var(--s5);
 }
+.about-text { grid-area: text; }
+.about-tags { grid-area: tags; align-self: start; }
+.about-visual { grid-area: photo; align-self: start; }
 
-/* Portrait: centred and smaller on mobile, aside on desktop */
+/* Portrait */
 .about-visual {
   position: relative;
-  max-width: 180px;
-  margin: 0 auto;
   border: 1px solid var(--rule);
   padding: var(--s3);
   background: #fff;
@@ -609,7 +620,6 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: var(--s2);
-  margin-top: var(--s5);
 }
 
 .tag {
@@ -1109,7 +1119,7 @@ section {
 
   /* Work: still stacked at sm */
 
-  .about-visual { max-width: 240px; margin: 0; }
+  .about-grid { grid-template-columns: 1fr 150px; }
 
   .cv-timeline { padding-left: var(--s6); }
   .cv-entry::before { left: calc(-1 * var(--s6) - 5px); width: 9px; height: 9px; }
@@ -1174,12 +1184,16 @@ section {
     flex-direction: row-reverse;
   }
 
-  /* About: portrait alongside text */
+  /* About: portrait in sidebar on desktop */
   .about-grid {
     grid-template-columns: 1fr 240px;
-    gap: var(--s8);
+    grid-template-areas:
+      "text  photo"
+      "tags  photo";
+    gap: var(--s5) var(--s8);
     align-items: start;
   }
+  .about-visual { max-width: 240px; }
 
   /* CV: sticky sidebar tabs */
   .cv-layout {
@@ -1255,7 +1269,7 @@ section {
   /* About: wider portrait column */
   .about-grid {
     grid-template-columns: 1fr 260px;
-    gap: var(--s9);
+    gap: var(--s5) var(--s9);
   }
   .about-visual { max-width: 260px; }
 
