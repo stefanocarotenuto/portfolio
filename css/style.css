@@ -390,25 +390,23 @@ section {
   height: 14px;
 }
 
-.morph-line {
-  stroke: var(--ink);
-  stroke-width: 1.4;
-  stroke-linecap: round;
-}
-
-/* Dashed base: Object↔Interpretant indirect relationship (Peirce) */
-.morph-base {
-  stroke-dasharray: 6 4;
-}
-
-.morph-dot {
+/* ── Research wall (sticky notes) ── */
+.sticky-note {
   opacity: 0;
+  fill-opacity: 0.18;
+  stroke-width: 0.8;
+  transform-box: fill-box;
+  transform-origin: center;
 }
-
-/* Colored vertex dots */
-.dot-sign { fill: var(--c-sign); }
-.dot-obj  { fill: var(--c-obj);  }
-.dot-int  { fill: var(--c-int);  }
+.sticky-sign { fill: var(--c-sign); stroke: var(--c-sign); }
+.sticky-obj  { fill: var(--c-obj);  stroke: var(--c-obj); }
+.sticky-int  { fill: var(--c-int);  stroke: var(--c-int); }
+#sn-1 { transform: rotate(-3deg); }
+#sn-2 { transform: rotate(2.5deg); }
+#sn-3 { transform: rotate(-4deg); }
+#sn-4 { transform: rotate(3.5deg); }
+#sn-5 { transform: rotate(-2deg); }
+#sn-6 { transform: rotate(4deg); }
 
 /* ── UI wireframe elements ── */
 .ui-el {
@@ -426,16 +424,26 @@ section {
 
 /* Sidebar nav */
 .ui-sn { stroke-width: 1; stroke: var(--muted); }
-.ui-active-dot { fill: var(--ink); stroke: none; }
+.ui-sn-active { stroke: var(--ink); }
+.ui-active-dot { fill: var(--c-int); stroke: none; }
+
+/* Avatar */
+.ui-avatar { fill: none; stroke: var(--muted); stroke-width: 0.8; }
 
 /* Content heading */
 .ui-heading { stroke-width: 1.1; }
+
+/* Content divider */
+.ui-divider { stroke-width: 0.5; stroke: var(--rule); }
 
 /* Text lines */
 .ui-text { stroke-width: 0.6; stroke: var(--muted); }
 
 /* Card blocks */
 .ui-card { stroke-width: 0.8; stroke: var(--rule); }
+
+/* Card inner titles */
+.ui-card-title { stroke-width: 0.9; stroke: var(--ink); }
 
 /* Buttons */
 .ui-btn       { stroke: var(--rule); stroke-width: 0.8; fill: none; }
@@ -451,23 +459,10 @@ section {
   opacity: 0;
 }
 
-/* Smile arc (Phase 4) */
-.ui-smile {
-  fill: none;
-  stroke: var(--c-int);
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  opacity: 0;
-}
-
-/* Face outline (Phase 4) */
-.ui-face-ring {
-  fill: none;
-  stroke: var(--ink);
-  stroke-width: 1.2;
-  stroke-linecap: round;
-  opacity: 0;
-}
+/* Phase 4 — cursor & interaction highlights */
+#ui-cursor { opacity: 0; will-change: transform, opacity; }
+.ui-hover-hl { pointer-events: none; opacity: 0; }
+.ui-btn-fill { opacity: 0; }
 
 /* Frame border */
 .ui-frame {
@@ -1353,20 +1348,25 @@ section {
 
   /* Show completed wireframe state — no animation played */
   .hero-diagram              { opacity: 1; }
-  .morph-line                { opacity: 0; }   /* triangle lines hidden: ui-header/sidebar replace them */
-  .morph-dot                 { opacity: 0; }   /* triangle vertices hidden */
+  .sticky-note               { opacity: 0; }   /* stickies hidden in static state */
 
   .ui-frame                  { opacity: .55; }
   .ui-el                     { opacity: .65; }
   .ui-sn                     { opacity: .7;  }
   .ui-text                   { opacity: .4;  }
   .ui-card                   { opacity: .5;  }
+  .ui-heading                { opacity: .65; }
+  .ui-avatar                 { opacity: .5;  }
+  .ui-divider                { opacity: .4;  }
+  .ui-card-title             { opacity: .6;  }
+  .ui-active-dot             { opacity: .7;  }
   #ui-b1                     { opacity: .3;  }
   #ui-b2                     { fill: var(--c-int); stroke: var(--c-int); opacity: 1; }
   .ui-check                  { opacity: 1;   }
 
-  /* Phase 4 elements stay hidden */
-  .ui-smile, .ui-face-ring   { opacity: 0;   }
+  /* Phase 4 — cursor hidden, button shown filled */
+  #ui-cursor, .ui-hover-hl   { opacity: 0;   }
+  .ui-btn-fill               { opacity: 1;   }
 
   /* Replay button irrelevant without animation */
   .hero-replay               { display: none; }

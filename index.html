@@ -104,62 +104,93 @@
           <div class="hero-diagram" aria-hidden="true">
             <svg class="hero-svg" id="hero-svg" viewBox="0 0 360 320" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-              <!-- ═══ SEMIOTIC TRIANGLE (Peirce) ═══ -->
-              <line class="morph-line" id="ml-1" x1="180" y1="46"  x2="48"  y2="254"/>
-              <line class="morph-line" id="ml-3" x1="312" y1="254" x2="180" y2="46"/>
-              <line class="morph-line morph-base" id="ml-2" x1="48" y1="254" x2="312" y2="254"/>
+              <!-- ═══ RESEARCH WALL (sticky notes) ═══ -->
+              <rect class="sticky-note sticky-sign" id="sn-1" x="55"  y="55"  width="52" height="36" rx="2"/>
+              <rect class="sticky-note sticky-obj"  id="sn-2" x="165" y="35"  width="48" height="34" rx="2"/>
+              <rect class="sticky-note sticky-int"  id="sn-3" x="260" y="65"  width="50" height="35" rx="2"/>
+              <rect class="sticky-note sticky-sign" id="sn-4" x="85"  y="165" width="46" height="33" rx="2"/>
+              <rect class="sticky-note sticky-obj"  id="sn-5" x="220" y="150" width="52" height="36" rx="2"/>
+              <rect class="sticky-note sticky-int"  id="sn-6" x="140" y="240" width="48" height="34" rx="2"/>
 
-              <!-- Colored vertex dots -->
-              <circle class="morph-dot dot-sign" id="md-1" cx="180" cy="46"  r="4.5"/>
-              <circle class="morph-dot dot-obj"  id="md-2" cx="48"  cy="254" r="4.5"/>
-              <circle class="morph-dot dot-int"  id="md-3" cx="312" cy="254" r="4.5"/>
-
-              <!-- ═══ UI WIREFRAME (revealed after morph) ═══ -->
+              <!-- ═══ UI WIREFRAME ═══ -->
               <rect class="ui-frame" id="ui-frame" x="52" y="26" width="256" height="264" rx="5"/>
 
               <!-- Header bar -->
-              <line class="ui-el" id="ui-header" x1="52" y1="62" x2="308" y2="62"/>
+              <line class="ui-el" id="ui-header" x1="52" y1="58" x2="308" y2="58"/>
 
-              <!-- Window dots (colored: red, yellow, green) -->
-              <circle class="ui-el ui-dot-r" id="ui-d1" cx="72" cy="44" r="3"/>
-              <circle class="ui-el ui-dot-y" id="ui-d2" cx="84" cy="44" r="3"/>
-              <circle class="ui-el ui-dot-g" id="ui-d3" cx="96" cy="44" r="3"/>
+              <!-- Window dots -->
+              <circle class="ui-el ui-dot-r" id="ui-d1" cx="68"  cy="42" r="2.5"/>
+              <circle class="ui-el ui-dot-y" id="ui-d2" cx="79"  cy="42" r="2.5"/>
+              <circle class="ui-el ui-dot-g" id="ui-d3" cx="90"  cy="42" r="2.5"/>
+
+              <!-- Logo text -->
+              <line class="ui-el ui-heading" id="ui-logo" x1="106" y1="42" x2="134" y2="42"/>
+
+              <!-- Avatar circle (top-right) -->
+              <circle class="ui-el ui-avatar" id="ui-avatar" cx="293" cy="42" r="7"/>
 
               <!-- Sidebar divider -->
-              <line class="ui-el" id="ui-sidebar" x1="128" y1="62" x2="128" y2="290"/>
+              <line class="ui-el" id="ui-sidebar" x1="124" y1="58" x2="124" y2="290"/>
 
-              <!-- Sidebar nav items -->
-              <line class="ui-el ui-sn" id="ui-sn1" x1="68" y1="86"  x2="114" y2="86"/>
-              <line class="ui-el ui-sn" id="ui-sn2" x1="68" y1="104" x2="106" y2="104"/>
-              <line class="ui-el ui-sn" id="ui-sn3" x1="68" y1="122" x2="110" y2="122"/>
-              <line class="ui-el ui-sn" id="ui-sn4" x1="68" y1="140" x2="98"  y2="140"/>
+              <!-- Sidebar section 1 label -->
+              <line class="ui-el ui-text" id="ui-sl1" x1="64" y1="74" x2="88" y2="74"/>
+
+              <!-- Sidebar nav items (section 1) -->
+              <circle class="ui-el ui-active-dot" id="ui-nav-dot" cx="64" cy="90" r="2"/>
+              <line class="ui-el ui-sn ui-sn-active" id="ui-sn1" x1="70" y1="90"  x2="114" y2="90"/>
+              <line class="ui-el ui-sn" id="ui-sn2" x1="64" y1="106" x2="108" y2="106"/>
+              <line class="ui-el ui-sn" id="ui-sn3" x1="64" y1="122" x2="104" y2="122"/>
+
+              <!-- Sidebar section 2 label -->
+              <line class="ui-el ui-text" id="ui-sl2" x1="64" y1="148" x2="84" y2="148"/>
+
+              <!-- Sidebar nav items (section 2) -->
+              <line class="ui-el ui-sn" id="ui-sn4" x1="64" y1="164" x2="110" y2="164"/>
+              <line class="ui-el ui-sn" id="ui-sn5" x1="64" y1="180" x2="98"  y2="180"/>
 
               <!-- Content heading -->
-              <line class="ui-el ui-heading" id="ui-h1" x1="144" y1="86"  x2="272" y2="86"/>
-              <line class="ui-el ui-heading" id="ui-h2" x1="144" y1="100" x2="224" y2="100"/>
+              <line class="ui-el ui-heading" id="ui-h1" x1="140" y1="78"  x2="268" y2="78"/>
+              <line class="ui-el ui-heading" id="ui-h2" x1="140" y1="92"  x2="218" y2="92"/>
+
+              <!-- Content divider -->
+              <line class="ui-el ui-divider" id="ui-divider" x1="140" y1="108" x2="296" y2="108"/>
 
               <!-- Text block -->
-              <line class="ui-el ui-text" id="ui-t1" x1="144" y1="126" x2="296" y2="126"/>
-              <line class="ui-el ui-text" id="ui-t2" x1="144" y1="140" x2="290" y2="140"/>
-              <line class="ui-el ui-text" id="ui-t3" x1="144" y1="154" x2="278" y2="154"/>
-              <line class="ui-el ui-text" id="ui-t4" x1="144" y1="168" x2="256" y2="168"/>
+              <line class="ui-el ui-text" id="ui-t1" x1="140" y1="122" x2="296" y2="122"/>
+              <line class="ui-el ui-text" id="ui-t2" x1="140" y1="134" x2="290" y2="134"/>
+              <line class="ui-el ui-text" id="ui-t3" x1="140" y1="146" x2="280" y2="146"/>
+              <line class="ui-el ui-text" id="ui-t4" x1="140" y1="158" x2="260" y2="158"/>
 
               <!-- Card blocks -->
-              <rect class="ui-el ui-card" id="ui-c1" x="144" y="192" width="68" height="46" rx="3"/>
-              <rect class="ui-el ui-card" id="ui-c2" x="222" y="192" width="68" height="46" rx="3"/>
+              <rect class="ui-el ui-card" id="ui-c1" x="140" y="176" width="72" height="52" rx="3"/>
+              <rect class="ui-el ui-card" id="ui-c2" x="222" y="176" width="72" height="52" rx="3"/>
+
+              <!-- Card inner titles -->
+              <line class="ui-el ui-card-title" id="ui-ct1" x1="150" y1="192" x2="198" y2="192"/>
+              <line class="ui-el ui-card-title" id="ui-ct2" x1="232" y1="192" x2="280" y2="192"/>
+
+              <!-- Card inner descriptions -->
+              <line class="ui-el ui-text" id="ui-cd1" x1="150" y1="204" x2="204" y2="204"/>
+              <line class="ui-el ui-text" id="ui-cd2" x1="232" y1="204" x2="286" y2="204"/>
 
               <!-- Buttons -->
-              <rect class="ui-el ui-btn" id="ui-b1" x="144" y="254" width="52" height="16" rx="3"/>
-              <rect class="ui-el ui-btn-ghost" id="ui-b2" x="206" y="254" width="52" height="16" rx="3"/>
+              <rect class="ui-el ui-btn" id="ui-b1" x="140" y="244" width="56" height="16" rx="3"/>
+              <rect class="ui-el ui-btn-ghost" id="ui-b2" x="206" y="244" width="56" height="16" rx="3"/>
 
               <!-- Success check inside ghost button -->
-              <polyline class="ui-check" id="ui-check" points="225,262 230,267 239,257"/>
+              <polyline class="ui-check" id="ui-check" points="227,252 232,257 241,247"/>
 
-              <!-- Smile arc (Phase 4) — warm, natural -->
-              <path class="ui-smile" id="ui-smile" d="M 148 186 Q 180 208 212 186"/>
-
-              <!-- Face outline (Phase 4) — ghostly containment -->
-              <circle class="ui-face-ring" id="ui-face-ring" cx="180" cy="162" r="66"/>
+              <!-- ═══ PHASE 4 — UI comes alive ═══ -->
+              <g id="ui-cursor" opacity="0">
+                <path d="M 0 0 L 0 14 L 4 11 L 7 17 L 9 16 L 6 10 L 11 10 Z"
+                      fill="var(--ink)" stroke="var(--paper)" stroke-width="0.5"/>
+              </g>
+              <rect class="ui-hover-hl" id="ui-hl-nav" x="60" y="101" width="52" height="10" rx="2"
+                    fill="var(--c-sign)" opacity="0"/>
+              <rect class="ui-hover-hl" id="ui-hl-card" x="140" y="176" width="72" height="52" rx="3"
+                    fill="var(--c-obj)" opacity="0"/>
+              <rect class="ui-btn-fill" id="ui-btn-fill" x="206" y="244" width="56" height="16" rx="3"
+                    fill="var(--c-int)" opacity="0"/>
             </svg>
           </div>
           <button class="hero-replay" id="hero-replay" aria-label="Replay animation">
