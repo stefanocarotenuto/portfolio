@@ -565,7 +565,7 @@ section {
 /* Mobile: h2 + p full width, then tags + portrait side by side */
 .about-grid {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-areas:
     "photo heading"
     "desc  desc"
