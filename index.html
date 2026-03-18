@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stefano Carotenuto — Designing digital experiences</title>
+  <meta name="description" content="Stefano Carotenuto — UX designer and street photographer based in Milan. Designing user experiences at the intersection of visual design, research, and semiotics.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+
+  <!-- Canonical URL — update with final domain -->
+  <link rel="canonical" href="https://www.stefanocarotenuto.it/">
+
+  <!-- Font preloads — critical above-the-fold weights -->
+  <link rel="preload" href="fonts/CormorantGaramond-Light.woff2"       as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/CormorantGaramond-LightItalic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/CormorantGaramond-Regular.woff2"     as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/DMMono-Light.woff2"                  as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/DMMono-Regular.woff2"                as="font" type="font/woff2" crossorigin>
+
+  <!-- Splide CSS (locale) -->
+  <link rel="stylesheet" href="css/splide-core.min.css">
+
+  <!-- Stili sito -->
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <!-- Preload LCP image (first photo in slider) -->
+  <link rel="preload" href="img/01.avif" as="image" type="image/avif">
+
+  <!-- Structured data — Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Stefano Carotenuto",
+    "url": "https://www.stefanocarotenuto.it",
+    "jobTitle": "Research Technician - CTER",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "National Research Council — CNR",
+      "url": "https://www.dsu.cnr.it"
+    },
+    "knowsAbout": ["UX Design", "Information Architecture", "Interaction Design", "Semiotics", "Street Photography"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Milan",
+      "addressCountry": "IT"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/stefanocarotenuto/",
+      "https://www.instagram.com/stefcarotenu",
+      "https://www.flickr.com/people/stefano_carotenuto/"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner" id="site-header">
+    <a href="#hero" class="site-logo" aria-label="Stefano Carotenuto — home">
+      Stefano Carotenuto
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="site-nav" id="site-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#photography" class="nav-aside">Photography</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+    </button>
+  </header>
+
+  <div class="page-progress" aria-hidden="true">
+    <span class="progress-dot active" data-target="hero"></span>
+    <span class="progress-dot"        data-target="about"></span>
+    <span class="progress-dot"        data-target="work"></span>
+    <span class="progress-dot"        data-target="cv"></span>
+    <span class="progress-dot"        data-target="photography" data-dark></span>
+  </div>
+
+  <main id="main-content">
+
+    <!-- 01 HERO -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="hero-inner inner">
+        <h1 class="hero-keywords" id="hero-heading">
+          <span class="visually-hidden">Designing digital experiences</span>
+          <span class="hero-kw" aria-hidden="true">Designing</span>
+          <span class="hero-kw" aria-hidden="true">digital</span>
+          <span class="hero-kw" aria-hidden="true">experiences</span>
+        </h1>
+        <div class="hero-diagram-wrap">
+          <div class="hero-diagram" aria-hidden="true">
+            <!-- ═══ MOBILE PHONE WIREFRAME ═══ -->
+            <svg class="hero-svg hero-svg-mobile" id="hero-svg-mobile" viewBox="0 0 200 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+              <!-- ═══ NOISE FRAGMENTS ═══ -->
+              <line class="noise-frag frag-sign" id="mnf-1" x1="0" y1="0" x2="32" y2="0"/>
+              <line class="noise-frag frag-obj"  id="mnf-2" x1="0" y1="0" x2="24" y2="0"/>
+              <line class="noise-frag frag-int"  id="mnf-3" x1="0" y1="0" x2="40" y2="0"/>
+              <line class="noise-frag frag-sign" id="mnf-4" x1="0" y1="0" x2="18" y2="0"/>
+              <line class="noise-frag frag-obj"  id="mnf-5" x1="0" y1="0" x2="36" y2="0"/>
+              <line class="noise-frag frag-int"  id="mnf-6" x1="0" y1="0" x2="28" y2="0"/>
+              <line class="noise-frag frag-sign" id="mnf-7" x1="0" y1="0" x2="22" y2="0"/>
+              <line class="noise-frag frag-obj"  id="mnf-8" x1="0" y1="0" x2="30" y2="0"/>
+
+              <!-- ═══ PHONE FRAME ═══ -->
+              <rect class="ui-frame" id="mui-frame" x="20" y="10" width="160" height="360" rx="20"/>
+
+              <!-- Clip path for scrollable content area (below status bar, above home bar) -->
+              <defs>
+                <clipPath id="mui-screen-clip">
+                  <rect x="21" y="40" width="158" height="310" rx="0"/>
+                </clipPath>
+              </defs>
+
+              <!-- Notch pill -->
+              <rect class="ui-el ui-url-bar" id="mui-notch" x="75" y="16" width="50" height="6" rx="3"/>
+
+              <!-- Status bar: time left, signal+battery right -->
+              <line class="ui-el ui-text" id="mui-time" x1="36" y1="32" x2="56" y2="32"/>
+              <line class="ui-el ui-text" id="mui-signal" x1="148" y1="32" x2="164" y2="32"/>
+
+              <!-- ═══ SCROLLABLE CONTENT GROUP (clipped to screen) ═══ -->
+              <g id="mui-scroll-content" clip-path="url(#mui-screen-clip)">
+                <g id="mui-scroll-inner">
+
+                  <!-- ── Mobile nav bar ── -->
+                  <line class="ui-el ui-heading" id="mui-ham1" x1="36" y1="48" x2="48" y2="48"/>
+                  <line class="ui-el ui-heading" id="mui-ham2" x1="36" y1="52" x2="48" y2="52"/>
+                  <line class="ui-el ui-heading" id="mui-ham3" x1="36" y1="56" x2="48" y2="56"/>
+                  <line class="ui-el ui-heading" id="mui-logo" x1="56" y1="52" x2="90" y2="52"/>
+                  <line class="ui-el ui-divider" id="mui-nav-line" x1="20" y1="66" x2="180" y2="66"/>
+
+                  <!-- ── Page content ── -->
+                  <line class="ui-el ui-heading" id="mui-h1" x1="36" y1="84" x2="150" y2="84"/>
+                  <line class="ui-el ui-heading" id="mui-h2" x1="36" y1="98" x2="120" y2="98"/>
+
+                  <!-- Hero image placeholder -->
+                  <rect class="ui-el ui-card-img" id="mui-hero-img" x="36" y="112" width="128" height="52" rx="3"/>
+
+                  <!-- Text block -->
+                  <line class="ui-el ui-text" id="mui-t1" x1="36" y1="178" x2="164" y2="178"/>
+                  <line class="ui-el ui-text" id="mui-t2" x1="36" y1="190" x2="156" y2="190"/>
+                  <line class="ui-el ui-text" id="mui-t3" x1="36" y1="202" x2="140" y2="202"/>
+
+                  <!-- Stacked cards -->
+                  <rect class="ui-el ui-card" id="mui-c1" x="36" y="220" width="128" height="36" rx="3"/>
+                  <rect class="ui-el ui-card-img" id="mui-ci1" x="39" y="223" width="40" height="16" rx="2"/>
+                  <line class="ui-el ui-card-title" id="mui-ct1" x1="84" y1="230" x2="130" y2="230"/>
+                  <line class="ui-el ui-text" id="mui-cd1" x1="84" y1="242" x2="158" y2="242"/>
+
+                  <rect class="ui-el ui-card" id="mui-c2" x="36" y="264" width="128" height="36" rx="3"/>
+                  <rect class="ui-el ui-card-img" id="mui-ci2" x="39" y="267" width="40" height="16" rx="2"/>
+                  <line class="ui-el ui-card-title" id="mui-ct2" x1="84" y1="274" x2="130" y2="274"/>
+                  <line class="ui-el ui-text" id="mui-cd2" x1="84" y1="286" x2="158" y2="286"/>
+
+                  <!-- More text below fold -->
+                  <line class="ui-el ui-text" id="mui-t4" x1="36" y1="314" x2="164" y2="314"/>
+                  <line class="ui-el ui-text" id="mui-t5" x1="36" y1="326" x2="148" y2="326"/>
+
+                  <!-- CTA button — starts below visible fold, revealed by scroll -->
+                  <rect class="ui-el ui-btn-ghost" id="mui-b2" x="36" y="346" width="128" height="22" rx="4"/>
+
+                  <!-- Success check inside button -->
+                  <polyline class="ui-check" id="mui-check" points="92,357 97,362 108,352"/>
+
+                  <!-- Button fill overlay -->
+                  <rect class="ui-btn-fill" id="mui-btn-fill" x="36" y="346" width="128" height="22" rx="4"
+                        fill="var(--c-int)" opacity="0"/>
+
+                  <!-- Celebration particles -->
+                  <circle class="ui-particle" id="mui-p1" cx="100" cy="357" r="2.5" fill="var(--c-sign)"/>
+                  <circle class="ui-particle" id="mui-p2" cx="100" cy="357" r="3"   fill="var(--c-obj)"/>
+                  <circle class="ui-particle" id="mui-p3" cx="100" cy="357" r="2"   fill="var(--c-int)"/>
+
+                  <!-- Footer area below CTA — light UI hints to avoid blank space -->
+                  <line class="ui-el ui-divider" id="mui-fdiv" x1="36" y1="386" x2="164" y2="386"/>
+                  <line class="ui-el ui-text" id="mui-f1" x1="36" y1="400" x2="110" y2="400"/>
+                  <line class="ui-el ui-text" id="mui-f2" x1="36" y1="412" x2="90" y2="412"/>
+                  <line class="ui-el ui-text" id="mui-f3" x1="120" y1="400" x2="164" y2="400"/>
+                  <line class="ui-el ui-text" id="mui-f4" x1="120" y1="412" x2="155" y2="412"/>
+                  <!-- Small logo/copyright line -->
+                  <line class="ui-el ui-divider" id="mui-fdiv2" x1="36" y1="430" x2="164" y2="430"/>
+                  <line class="ui-el ui-text" id="mui-f5" x1="60" y1="442" x2="140" y2="442"/>
+
+                </g>
+              </g>
+
+              <!-- Touch indicator — standard filled circle with subtle border (above clipped content) -->
+              <circle id="mui-touch" cx="100" cy="200" r="18"
+                      fill="var(--ink)" fill-opacity="0.15" stroke="var(--ink)" stroke-opacity="0.3" stroke-width="1" opacity="0"/>
+
+              <!-- Home indicator bar (outside clip, always visible) -->
+              <rect class="ui-el ui-divider" id="mui-home" x="72" y="358" width="56" height="4" rx="2"/>
+            </svg>
+
+            <!-- ═══ DESKTOP BROWSER WIREFRAME ═══ -->
+            <svg class="hero-svg hero-svg-desktop" id="hero-svg" viewBox="0 0 360 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+              <!-- ═══ NOISE FRAGMENTS (fade out during migration) ═══ -->
+              <line class="noise-frag frag-sign" id="nf-1" x1="0" y1="0" x2="32" y2="0"/>
+              <line class="noise-frag frag-obj"  id="nf-2" x1="0" y1="0" x2="24" y2="0"/>
+              <line class="noise-frag frag-int"  id="nf-3" x1="0" y1="0" x2="40" y2="0"/>
+              <line class="noise-frag frag-sign" id="nf-4" x1="0" y1="0" x2="18" y2="0"/>
+              <line class="noise-frag frag-obj"  id="nf-5" x1="0" y1="0" x2="36" y2="0"/>
+              <line class="noise-frag frag-int"  id="nf-6" x1="0" y1="0" x2="28" y2="0"/>
+              <line class="noise-frag frag-sign" id="nf-7" x1="0" y1="0" x2="22" y2="0"/>
+              <line class="noise-frag frag-obj"  id="nf-8" x1="0" y1="0" x2="30" y2="0"/>
+
+              <!-- ═══ UI WIREFRAME ═══ -->
+              <rect class="ui-frame" id="ui-frame" x="52" y="26" width="256" height="264" rx="5"/>
+
+              <!-- ── Browser chrome (y 26-58) ── -->
+              <line class="ui-el" id="ui-header" x1="52" y1="58" x2="308" y2="58"/>
+              <circle class="ui-el ui-dot-r" id="ui-d1" cx="68"  cy="42" r="2.5"/>
+              <circle class="ui-el ui-dot-y" id="ui-d2" cx="79"  cy="42" r="2.5"/>
+              <circle class="ui-el ui-dot-g" id="ui-d3" cx="90"  cy="42" r="2.5"/>
+              <rect class="ui-el ui-url-bar" id="ui-url" x="106" y="36" width="140" height="12" rx="6"/>
+
+              <!-- ── Website nav bar (y 58-82) ── -->
+              <line class="ui-el ui-heading" id="ui-logo" x1="66" y1="70" x2="100" y2="70"/>
+              <line class="ui-el ui-sn" id="ui-nav1" x1="216" y1="70" x2="240" y2="70"/>
+              <line class="ui-el ui-sn" id="ui-nav2" x1="250" y1="70" x2="272" y2="70"/>
+              <line class="ui-el ui-sn" id="ui-nav3" x1="280" y1="70" x2="296" y2="70"/>
+              <line class="ui-el ui-divider" id="ui-nav-line" x1="52" y1="82" x2="308" y2="82"/>
+
+              <!-- ── Page content (y 82-290) ── -->
+              <!-- Hero heading -->
+              <line class="ui-el ui-heading" id="ui-h1" x1="66" y1="100" x2="230" y2="100"/>
+              <line class="ui-el ui-heading" id="ui-h2" x1="66" y1="114" x2="180" y2="114"/>
+
+              <!-- Content divider -->
+              <line class="ui-el ui-divider" id="ui-divider" x1="66" y1="128" x2="294" y2="128"/>
+
+              <!-- Text block -->
+              <line class="ui-el ui-text" id="ui-t1" x1="66" y1="142" x2="294" y2="142"/>
+              <line class="ui-el ui-text" id="ui-t2" x1="66" y1="154" x2="286" y2="154"/>
+              <line class="ui-el ui-text" id="ui-t3" x1="66" y1="166" x2="270" y2="166"/>
+
+              <!-- Feature cards (3-column) -->
+              <rect class="ui-el ui-card" id="ui-c1" x="66"  y="182" width="68" height="56" rx="3"/>
+              <rect class="ui-el ui-card" id="ui-c2" x="144" y="182" width="68" height="56" rx="3"/>
+              <rect class="ui-el ui-card" id="ui-c3" x="222" y="182" width="68" height="56" rx="3"/>
+
+              <!-- Card image placeholders -->
+              <rect class="ui-el ui-card-img" id="ui-ci1" x="69"  y="185" width="62" height="20" rx="2"/>
+              <rect class="ui-el ui-card-img" id="ui-ci2" x="147" y="185" width="62" height="20" rx="2"/>
+              <rect class="ui-el ui-card-img" id="ui-ci3" x="225" y="185" width="62" height="20" rx="2"/>
+
+              <!-- Card titles -->
+              <line class="ui-el ui-card-title" id="ui-ct1" x1="69"  y1="214" x2="118" y2="214"/>
+              <line class="ui-el ui-card-title" id="ui-ct2" x1="147" y1="214" x2="196" y2="214"/>
+              <line class="ui-el ui-card-title" id="ui-ct3" x1="225" y1="214" x2="274" y2="214"/>
+
+              <!-- Card descriptions -->
+              <line class="ui-el ui-text" id="ui-cd1" x1="69"  y1="226" x2="126" y2="226"/>
+              <line class="ui-el ui-text" id="ui-cd2" x1="147" y1="226" x2="204" y2="226"/>
+              <line class="ui-el ui-text" id="ui-cd3" x1="225" y1="226" x2="282" y2="226"/>
+
+              <!-- CTA button (right-aligned) -->
+              <rect class="ui-el ui-btn-ghost" id="ui-b2" x="238" y="252" width="56" height="16" rx="3"/>
+
+              <!-- Success check inside button -->
+              <polyline class="ui-check" id="ui-check" points="257,260 262,265 271,255"/>
+
+              <!-- ═══ PHASE 4 — UI comes alive ═══ -->
+              <rect class="ui-hover-hl" id="ui-hl-card" x="66" y="182" width="68" height="56" rx="3"
+                    fill="var(--c-obj)" opacity="0"/>
+              <rect class="ui-btn-fill" id="ui-btn-fill" x="238" y="252" width="56" height="16" rx="3"
+                    fill="var(--c-int)" opacity="0"/>
+
+              <!-- Celebration particles -->
+              <circle class="ui-particle" id="ui-p1" cx="266" cy="256" r="2.5" fill="var(--c-sign)"/>
+              <circle class="ui-particle" id="ui-p2" cx="266" cy="256" r="3"   fill="var(--c-obj)"/>
+              <circle class="ui-particle" id="ui-p3" cx="266" cy="256" r="2"   fill="var(--c-int)"/>
+
+              <!-- Cursor last = topmost in SVG paint order -->
+              <g id="ui-cursor" opacity="0">
+                <path d="M 0 0 L 0 14 L 4 11 L 7 17 L 9 16 L 6 10 L 11 10 Z"
+                      fill="var(--ink)" stroke="var(--paper)" stroke-width="0.5"/>
+              </g>
+            </svg>
+          </div>
+          <button class="hero-replay" id="hero-replay" aria-label="Replay animation">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">scroll to explore</div>
+    </section>
+
+    <!-- 02 ABOUT -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="inner">
+        <div class="section-label" aria-hidden="true">
+          <span>About</span>
+        </div>
+        <div class="about-grid">
+          <div class="about-visual">
+            <img
+              src="img/sc.avif"
+              alt="Portrait of Stefano Carotenuto"
+              width="480"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="about-portrait"
+            >
+
+          </div>
+          <h2 id="about-heading" class="about-heading">
+            Simplifying <i>complexity</i> <br>through <i>design</i> <br>and <i>research.</i>
+          </h2>
+          <p class="about-desc">
+            👋 Hey! I'm Stefano, based in Milan. At the Italian National Research Council I design digital products and interfaces throughout their lifecycle — from user research to interaction design. My work sits at the intersection of UX, visual design, and semiotics — turning institutional complexity into something people can actually use.
+          </p>
+          <div class="about-tags" role="list" aria-label="Areas of expertise">
+            <span class="tag tag-obj"  role="listitem">Information Architecture</span>
+            <span class="tag tag-obj"  role="listitem">User Centered Design</span>
+            <span class="tag tag-obj"  role="listitem">User Experience</span>
+            <span class="tag tag-sign" role="listitem">Interaction Design</span>
+            <span class="tag tag-sign" role="listitem">Communication</span>
+            <span class="tag tag-sign" role="listitem">Semiotics</span>
+            <span class="tag tag-int"  role="listitem">AI Prototyping</span>
+            <span class="tag tag-int"  role="listitem">Accessibility</span>
+            <span class="tag tag-int"  role="listitem">Analytics</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 WORK -->
+    <section id="work" aria-labelledby="work-heading">
+      <div class="inner">
+        <div class="section-label" aria-hidden="true">
+          <span>Selected Works</span>
+        </div>
+        <h2 id="work-heading" class="visually-hidden">Selected Work</h2>
+        <div class="work-list">
+
+          <!-- PUBDSU -->
+          <div class="work-item">
+            <div class="work-link">
+              <div class="work-media mockup-desktop browser-mockup">
+                <div class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+                  <span class="browser-url">dsu.cnr.it/pubdsu</span>
+                </div>
+                <picture>
+                  <source media="(max-width: 767px)" srcset="img/w-pubdsu-mobile.avif" width="390" height="844">
+                  <img src="img/w-pubdsu-shot.avif" alt="Screenshot of the PUBDSU research publications section" width="1280" height="800" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work1-title">PUBDSU</h3>
+                <p class="work-org">CNR-DSU — 2026</p>
+                <p class="work-tagline">A searchable archive that brings the department's entire research output into one place — with live search, filtering, and detailed records.</p>
+                <ul class="work-highlights" role="list">
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                    Live search with instant results and filters by author, type, and keyword
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                    Detailed single-page view for each publication
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    Built for open data distribution and future interoperability
+                  </li>
+                </ul>
+                <a class="work-cta" href="https://www.dsu.cnr.it/pubdsu" target="_blank" rel="noopener noreferrer">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- DSU Annual Conference -->
+          <div class="work-item">
+            <div class="work-link">
+              <div class="work-media mockup-desktop browser-mockup">
+                <div class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+                  <span class="browser-url">dsu.cnr.it/conferenza-dsu-2026</span>
+                </div>
+                <picture>
+                  <source media="(max-width: 767px)" srcset="img/w-confdsu-mobile.avif" width="390" height="844">
+                  <img src="img/w-confdsu-shot.avif" alt="Screenshot of the DSU Annual Conference minisite" width="1280" height="800" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work2-title">DSU Annual Conference</h3>
+                <p class="work-org">CNR-DSU — 2025</p>
+                <p class="work-tagline">A dedicated minisite with its own visual identity — narrative storytelling, searchable abstracts, and everything attendees need in one place.</p>
+                <ul class="work-highlights" role="list">
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+                    Searchable abstract database browsable by title and author
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+                    Narrative content structure with integrated video to tell the event story
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    Programme, registration, and contributions unified for the research community
+                  </li>
+                </ul>
+                <a class="work-cta" href="https://www.dsu.cnr.it/conferenza-dsu-2026" target="_blank" rel="noopener noreferrer">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEMIOTICA -->
+          <div class="work-item">
+            <div class="work-link">
+              <div class="work-media mockup-desktop browser-mockup">
+                <div class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+                  <span class="browser-url">stefanocarotenuto.github.io/semio-viz</span>
+                </div>
+                <picture>
+                  <source media="(max-width: 767px)" srcset="img/w-semioviz-mobile.avif" width="390" height="844">
+                  <img src="img/w-semioviz-shot.avif" alt="Screenshot of Semio-Viz, an interactive map of semiotic theory" width="1280" height="800" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work3-title">Semio-Viz</h3>
+                <p class="work-org">Personal project — 2026</p>
+                <p class="work-tagline">An interactive visualization mapping five semiotic traditions with ~56 statements, ~90 connections, and 13 inline SVG diagrams.</p>
+                <ul class="work-highlights" role="list">
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+                    Interactive cards with colored connection lines (agreement / critique) across five author columns
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                   WCAG 2.2 AA compliant, with dark/light theme and keyword search
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    Fully bilingual (IT / EN)
+                  </li>
+                </ul>
+                <a class="work-cta" href="https://stefanocarotenuto.github.io/semio-viz/" target="_blank" rel="noopener noreferrer">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- WeMED -->
+          <div class="work-item">
+            <div class="work-link">
+              <div class="work-media mockup-desktop browser-mockup">
+                <div class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+                  <span class="browser-url">wemed.cnr.it</span>
+                </div>
+                <picture>
+                  <source media="(max-width: 767px)" srcset="img/w-wemed-mobile.avif" width="390" height="844">
+                  <img src="img/w-wemed-shot.avif" alt="Screenshot of the WeMED platform" width="1280" height="800" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work4-title">WeMed</h3>
+                <p class="work-org">CNR-ISMed · Istat — 2024 — Present</p>
+                <p class="work-tagline">UX design for a Mediterranean socioeconomic research platform — from user surveys to a redesigned dashboard for exploring comparative data.</p>
+                <ul class="work-highlights" role="list">
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    User research through surveys to inform interface decisions
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+                    Dashboard redesign for navigating about 150 indicators across 12 thematic areas and 26 countries
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    Making comparative Mediterranean data accessible to researchers and policymakers
+                  </li>
+                </ul>
+                <a class="work-cta" href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CNR-DSU website -->
+          <div class="work-item">
+            <div class="work-link">
+              <div class="work-media mockup-desktop browser-mockup">
+                <div class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+                  <span class="browser-url">dsu.cnr.it</span>
+                </div>
+                <picture>
+                  <source media="(max-width: 767px)" srcset="img/w-cnrdsu-mobile.avif" width="390" height="844">
+                  <img src="img/w-cnrdsu-shot.avif" alt="Screenshot of the CNR-DSU department website" width="1280" height="800" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work5-title">CNR-DSU Website</h3>
+                <p class="work-org">CNR-DSU — 2023 — Present</p>
+                <p class="work-tagline">Digital communication strategy and web presence for CNR's Department of Social Sciences and Humanities.</p>
+                <ul class="work-highlights" role="list">
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+                    Overhauled information architecture for clearer institutional navigation
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+                    Analytics-driven iteration improving engagement and content discoverability
+                  </li>
+                  <li>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                    Unified digital presence across institutional media channels
+                  </li>
+                </ul>
+                <a class="work-cta" href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 CV -->
+    <section id="cv" aria-labelledby="cv-heading">
+      <div class="inner">
+        <div class="section-label" aria-hidden="true">
+          <span>Curriculum Vitae</span>
+        </div>
+        <h2 id="cv-heading" class="visually-hidden">Curriculum Vitae</h2>
+        <div class="cv-layout">
+
+          <div class="cv-tabs" role="tablist" aria-label="CV sections">
+            <button class="cv-tab active" role="tab" aria-selected="true"  aria-controls="panel-exp" id="tab-exp">Experience</button>
+            <button class="cv-tab"        role="tab" aria-selected="false" aria-controls="panel-edu" id="tab-edu">Education</button>
+          </div>
+
+          <div>
+            <div class="cv-panel active" id="panel-exp" role="tabpanel" aria-labelledby="tab-exp">
+              <div class="cv-timeline">
+                <div class="cv-entry current">
+                  <p class="cv-year">2023 — Present</p>
+                  <h3 class="cv-role">Head of Communication (CTER)</h3>
+                  <p class="cv-org">National Research Council — Dept. of Social Sciences and Humanities, Cultural Heritage (CNR-DSU) · Milan</p>
+                  <p class="cv-detail">Digital strategy, web management, social media, stakeholder communications, and analytics for CNR-DSU. Communication Officer for the department within the CNR national network.</p>
+                </div>
+                <div class="cv-entry">
+                  <p class="cv-year">2024 — Present</p>
+                  <h3 class="cv-role">UX Designer (CTER)</h3>
+                  <p class="cv-org">Mediterranean Digital Humanities Lab, CNR-ISMed · Milan</p>
+                  <p class="cv-detail">UI/UX design for the WeMed research platform. Interface architecture, user flows, accessibility compliance, and design system documentation.</p>
+                </div>
+                <div class="cv-entry">
+                  <p class="cv-year">2010 — 2024</p>
+                  <h3 class="cv-role">UX Design & Communication (CTER)</h3>
+                  <p class="cv-org">National Research Council — CNR-ISGI and CNR-IRISS · Naples and Milan</p>
+                  <p class="cv-detail">Fourteen years of digital strategy, UX design, and institutional communications across multiple CNR research institutes in Naples and Milan.</p>
+                </div>
+
+                <div class="cv-entry">
+                  <p class="cv-year">1999 — 2010</p>
+                  <h3 class="cv-role">Web Design & Communication</h3>
+                  <p class="cv-org">Independent & Small Studios · Naples Area</p>
+                  <p class="cv-detail">Self-taught web design and communication, starting from an unlikely classroom: building sites for online gaming teams to organise and coordinate matches. That practical foundation extended to web and communication work for small businesses and associations across the Naples area.</p>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="cv-panel" id="panel-edu" role="tabpanel" aria-labelledby="tab-edu">
+              <div class="cv-timeline">
+                <div class="cv-entry current">
+                  <p class="cv-year">2025 — Present</p>
+                  <h3 class="cv-role">MA in Semiotics</h3>
+                  <p class="cv-org">Alma Mater Studiorum - Università di Bologna</p>
+                  <p class="cv-detail">Research focus on digital semiotics, visual communication, and the theory of meaning in institutional and media contexts.</p>
+                </div>
+                <div class="cv-entry">
+                  <p class="cv-year">2023</p>
+                  <h3 class="cv-role">Google UX Design Professional Certificate</h3>
+                  <p class="cv-org">Google · Coursera</p>
+                  <p class="cv-detail">Seven-course program covering the full UX design process: user research, wireframing, prototyping, and usability testing.</p>
+                </div>
+                <div class="cv-entry">
+                  <p class="cv-year">2022 — 2025</p>
+                  <h3 class="cv-role">BA in Innovative Communication in Multimedia and Digital environments</h3>
+                  <p class="cv-org">IUL University - Florence</p>
+                  <p class="cv-detail">Graduated cum laude in media theory, digital communication, and institutional communications.</p>
+                </div>
+                <div class="cv-entry">
+                  <p class="cv-year">2011 — 2012</p>
+                  <h3 class="cv-role">Graphic Design and Advertising Course</h3>
+                  <p class="cv-org">New Media Art and Design School - Naples</p>
+                  <p class="cv-detail">Practical training in visual communication, typography, and advertising design — brand campaigns, brochure and poster production, and typographic composition.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 05 PHOTOGRAPHY -->
+    <section id="photography" aria-labelledby="photo-heading">
+      <div class="inner">
+        <div class="section-label" aria-hidden="true">
+          <span>Photography</span>
+        </div>
+        <div class="photo-layout">
+
+          <div class="photo-intro">
+            <h2 id="photo-heading">
+              Street.<br>Observation.<br>Chance.
+            </h2>
+            <p>
+              When I'm not designing stuff, I walk and photograph. <i>Street photography</i> is where I train my eye for framing, timing, and the unexpected.
+            </p>
+            <p>
+              Recognised by Magnum photographers <i>Martin Parr</i> and <i>Steve McCurry</i>. Exhibited at the HistoryMiami Museum during <i>Art Basel Miami</i>, featured in <i>Corriere della Sera Style Magazine</i>. Co-author of <cite>10 Street Photography</cite> (Psicografici Editore, 2023).
+            </p>
+            <nav class="photo-social" aria-label="Photography CV">
+              <a href="https://www.dropbox.com/scl/fi/q4da6wywybyb0oocwphnd/Photography-Resume-Stefano-Carotenuto.pdf?rlkey=w8fn8a2os7mlmak4pw2qkwkbh&dl=0" target="_blank" rel="noopener noreferrer" aria-label="Download photography CV as PDF (opens in new tab)">Download photography resume <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            </nav>
+          </div>
+
+          <div>
+            <div id="photo-slider" class="splide" role="group" aria-roledescription="carousel" aria-label="Photography portfolio">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 1 of 8">
+                    <img src="img/01.avif" alt="Children chasing soap bubbles in Piazza del Plebiscito, Naples, with a military parade and the Royal Palace in the background" width="800" height="533" loading="eager" decoding="async" fetchpriority="high" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 2 of 8">
+                    <img src="img/02.avif" alt="Man clapping amid coloured smoke and international flags at a street market celebration, baby watching from a stroller" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 3 of 8">
+                    <img src="img/03.avif" alt="Family in matching red plaid shirts posing for a photo in front of the Golden Gate Bridge, San Francisco" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 4 of 8">
+                    <img src="img/04.avif" alt="Passengers on a ferry photographing the Statue of Liberty under dramatic storm clouds at sunset, New York" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 5 of 8">
+                    <img src="img/05.avif" alt="Woman laughing with arm raised as a seagull swoops past, photographer capturing the moment on a seaside terrace" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 6 of 8">
+                    <img src="img/06.avif" alt="Tourists photographing the ornate glass ceiling inside Galleria Umberto I, Naples" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 7 of 8">
+                    <img src="img/07.avif" alt="Boy mid-dive into the sea from a pier crowded with colourful wooden boats and sunbathers" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 8 of 8">
+                    <img src="img/08.avif" alt="Child crawling beneath translucent coloured panels of an outdoor art installation" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="photo-counter" aria-live="polite" aria-atomic="true">
+              <span id="photo-count">1&thinsp;/&thinsp;8</span>
+              <div class="photo-nav">
+                <button class="photo-nav-btn" id="photo-prev" aria-label="Previous photo">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button class="photo-nav-btn" id="photo-next" aria-label="Next photo">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER / CONTACT -->
+  <footer class="site-footer" id="contact" role="contentinfo">
+    <p class="footer-copy">© 2026 Stefano Carotenuto · Milan, Italy</p>
+    <nav aria-label="Contact and social links">
+      <ul class="footer-links">
+        <li><a href="#" id="email-link">Email</a></li>
+        <li><a href="https://github.com/stefanocarotenuto" target="_blank" rel="noopener noreferrer" aria-label="GitHub (opens in new tab)">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/stefanocarotenuto/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/stefcarotenu" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in new tab)">Instagram</a></li>
+        <li><a href="https://www.flickr.com/people/stefano_carotenuto/" target="_blank" rel="noopener noreferrer" aria-label="Flickr (opens in new tab)">Flickr</a></li>
+      </ul>
+    </nav>
+    <p class="footer-privacy">Privacy & cookie policy: This site does not use profiling cookies or third-party tracking. No personal data is collected.</p>
+  </footer>
+
+  <!-- Splide JS (locale) -->
+  <script src="js/splide.min.js"></script>
+
+  <!-- Script sito -->
+  <script src="js/app.min.js"></script>
+
+</body>
+</html>
