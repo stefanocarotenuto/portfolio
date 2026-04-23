@@ -324,7 +324,7 @@ section[id] {
   font-size: var(--fs-sm);
   font-weight: var(--fw-medium);
   letter-spacing: 0.04em;
-  color: var(--paper);
+  color: var(--ink);
   background: var(--c-coral);
   border: var(--border);
 }
@@ -359,7 +359,7 @@ section[id] {
 
 .btn--on-dark {
   background: var(--c-coral);
-  color: var(--paper);
+  color: var(--ink);
   border: var(--bw-2) solid var(--paper);
   box-shadow: 4px 4px 0 var(--paper);
 }
@@ -794,7 +794,7 @@ section[id] {
 
 .work-item {
   --accent: var(--c-coral);
-  --accent-ink: var(--paper);
+  --accent-ink: var(--ink);
   position: relative;
   border: var(--border-thick);
   box-shadow: var(--shadow-lg);
@@ -804,7 +804,7 @@ section[id] {
               box-shadow var(--dur-base) var(--ease);
 }
 
-.work-item[data-accent='coral']   { --accent: var(--c-coral);   --accent-ink: var(--paper); }
+.work-item[data-accent='coral']   { --accent: var(--c-coral);   --accent-ink: var(--ink); }
 .work-item[data-accent='mustard'] { --accent: var(--c-mustard); --accent-ink: var(--ink); }
 .work-item[data-accent='mint']    { --accent: var(--c-mint);    --accent-ink: var(--ink); }
 
@@ -984,7 +984,7 @@ section[id] {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   background: var(--c-coral);
-  color: var(--paper);
+  color: var(--ink);
   border: var(--bw-2) solid var(--paper);
   box-shadow: 4px 4px 0 var(--paper);
   transition: transform var(--dur-fast) var(--ease),
