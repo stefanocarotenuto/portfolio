@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stefano Carotenuto — Designing digital experiences</title>
+  <meta name="description" content="Stefano Carotenuto — generalist UX designer and street photographer based in Milan. Designing digital experiences at the intersection of communication, visual design, and research.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+
+  <!-- Canonical URL — update with final domain -->
+  <link rel="canonical" href="https://www.stefanocarotenuto.it/">
+
+  <!-- Font preloads — critical above-the-fold weights -->
+  <link rel="preload" href="fonts/CormorantGaramond-Light.woff2"       as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/CormorantGaramond-LightItalic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/CormorantGaramond-Regular.woff2"     as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/DMMono-Light.woff2"                  as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/DMMono-Regular.woff2"                as="font" type="font/woff2" crossorigin>
+
+  <!-- Splide CSS (locale) -->
+  <link rel="stylesheet" href="css/splide-core.min.css">
+
+  <!-- Stili sito -->
+  <link rel="stylesheet" href="css/style.min.css">
+
+  <!-- Preload LCP image (first photo in slider) -->
+  <link rel="preload" href="img/01.avif" as="image" type="image/avif">
+
+  <!-- Structured data — Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Stefano Carotenuto",
+    "url": "https://www.stefanocarotenuto.it",
+    "jobTitle": "Research Technician - CTER",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "National Research Council — CNR",
+      "url": "https://www.dsu.cnr.it"
+    },
+    "knowsAbout": ["UX Design", "Information Architecture", "Visual Design", "Digital Communication", "Street Photography"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Milan",
+      "addressCountry": "IT"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/stefanocarotenuto/",
+      "https://www.instagram.com/stefcarotenu",
+      "https://www.flickr.com/people/stefano_carotenuto/"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header" role="banner" id="site-header">
+    <a href="#hero" class="site-logo" aria-label="Stefano Carotenuto — home">
+      Stefano Carotenuto
+    </a>
+
+    <nav aria-label="Main navigation">
+      <ul class="site-nav" id="site-nav">
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#photography" class="nav-aside">Photography</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+    </button>
+  </header>
+
+  <div class="page-progress" aria-hidden="true">
+    <span class="progress-dot active" data-target="hero"></span>
+    <span class="progress-dot"        data-target="about"></span>
+    <span class="progress-dot"        data-target="work"></span>
+    <span class="progress-dot"        data-target="photography" data-dark></span>
+  </div>
+
+  <main id="main-content">
+
+    <!-- 01 HERO -->
+    <section id="hero" aria-labelledby="hero-heading">
+      <div class="hero-inner inner">
+        <h1 class="hero-keywords" id="hero-heading">
+          <span class="visually-hidden">Designing digital experiences</span>
+          <span class="hero-kw" data-color="coral" aria-hidden="true"><span class="hero-kw-text">Designing</span></span>
+          <span class="hero-kw" data-color="mustard" aria-hidden="true"><span class="hero-kw-text">digital</span></span>
+          <span class="hero-kw" data-color="cobalt" aria-hidden="true"><span class="hero-kw-text">experiences</span></span>
+        </h1>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">scroll to explore</div>
+    </section>
+
+
+    <!-- 02 ABOUT -->
+    <section id="about" aria-labelledby="about-heading">
+      <div class="inner">
+        <div class="section-label" data-num="01" aria-hidden="true">
+          <span>About</span>
+        </div>
+        <div class="about-grid">
+          <div class="about-visual">
+            <img
+              src="img/sc.avif"
+              alt="Portrait of Stefano Carotenuto"
+              width="480"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="about-portrait"
+            >
+
+          </div>
+          <h2 id="about-heading" class="about-heading">
+            Simplifying <i>complexity</i> <br>through <i>design</i> <br>and <i>research.</i>
+          </h2>
+          <p class="about-desc">
+            👋 Hey! I'm Stefano — generalist UX designer based in Milan, Italy. I'm currently working at the Italian National Research Council.
+          </p>
+          <div class="about-tags" role="list" aria-label="Areas of expertise">
+            <span class="tag" role="listitem">Usability</span>
+            <span class="tag" role="listitem">User Experience Design</span>
+            <span class="tag" role="listitem">Digital Communication</span>
+            <span class="tag" role="listitem">Analytics</span>
+            <span class="tag" role="listitem">AI Prototyping</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 WORK -->
+    <section id="work" aria-labelledby="work-heading">
+      <div class="inner">
+        <div class="section-label" data-num="02" aria-hidden="true">
+          <span>Selected Works</span>
+        </div>
+        <h2 id="work-heading" class="visually-hidden">Selected Work</h2>
+        <div class="work-list">
+
+          <!-- PUBDSU -->
+          <div class="work-item" data-accent="coral">
+            <div class="work-link">
+              <div class="work-media browser-mockup">
+                <div class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+                  <span class="browser-url">dsu.cnr.it/pubdsu</span>
+                </div>
+                <picture>
+                  <source media="(max-width: 767px)" srcset="img/w-pubdsu-mobile.avif" width="390" height="844">
+                  <img src="img/w-pubdsu-shot.avif" alt="Screenshot of the PUBDSU research publications section" width="1280" height="800" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work1-title">PUBDSU</h3>
+                <p class="work-org">CNR-DSU — 2026</p>
+                <p class="work-tagline">A searchable archive that brings the department's entire research output into one place — with live search, filtering, and detailed records.</p>
+                <a class="work-cta" href="https://www.dsu.cnr.it/pubdsu" target="_blank" rel="noopener noreferrer">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- WeMED -->
+          <div class="work-item" data-accent="mustard">
+            <div class="work-link">
+              <div class="work-media browser-mockup">
+                <div class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+                  <span class="browser-url">wemed.cnr.it</span>
+                </div>
+                <picture>
+                  <source media="(max-width: 767px)" srcset="img/w-wemed-mobile.avif" width="390" height="844">
+                  <img src="img/w-wemed-shot.avif" alt="Screenshot of the WeMED platform" width="1280" height="800" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work2-title">WeMed</h3>
+                <p class="work-org">CNR-ISMed · Istat — 2024 — Present</p>
+                <p class="work-tagline">UX design for a Mediterranean socioeconomic research platform — from user surveys to a redesigned dashboard for exploring comparative data.</p>
+                <a class="work-cta" href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- CNR-DSU website -->
+          <div class="work-item" data-accent="mint">
+            <div class="work-link">
+              <div class="work-media browser-mockup">
+                <div class="browser-chrome" aria-hidden="true">
+                  <span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span>
+                  <span class="browser-url">dsu.cnr.it</span>
+                </div>
+                <picture>
+                  <source media="(max-width: 767px)" srcset="img/w-cnrdsu-mobile.avif" width="390" height="844">
+                  <img src="img/w-cnrdsu-shot.avif" alt="Screenshot of the CNR-DSU department website" width="1280" height="800" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="work-body">
+                <h3 class="work-title" id="work4-title">CNR-DSU Website</h3>
+                <p class="work-org">CNR-DSU — 2023 — Present</p>
+                <p class="work-tagline">Digital communication strategy and web presence for CNR's Department of Social Sciences and Humanities.</p>
+                <a class="work-cta" href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">
+                  Visit project
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 05 PHOTOGRAPHY -->
+    <section id="photography" aria-labelledby="photo-heading">
+      <div class="inner">
+        <div class="section-label" data-num="03" aria-hidden="true">
+          <span>Photography</span>
+        </div>
+        <div class="photo-layout">
+
+          <div class="photo-intro">
+            <h2 id="photo-heading">
+              Street.<br>Observation.<br>Chance.
+            </h2>
+            <p>
+              When I'm not designing stuff, I walk and photograph. <i>Street photography</i> is where I train my eye for framing, timing, and the unexpected.
+            </p>
+            <p>
+              Recognised by Magnum photographers <i>Martin Parr</i> and <i>Steve McCurry</i>. Exhibited at the HistoryMiami Museum during <i>Art Basel Miami</i>, featured in <i>Corriere della Sera Style Magazine</i>. Co-author of <i>10 Street Photography</i> (Psicografici Editore, 2023).
+            </p>
+            <nav class="photo-social" aria-label="Photography links">
+              <a href="https://www.flaneurat.work/" target="_blank" rel="noopener noreferrer" aria-label="Visit Flâneur at Work, a visual diary of my photography (opens in new tab)">Browse my visual diary <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+              <a href="https://www.dropbox.com/scl/fi/q4da6wywybyb0oocwphnd/Photography-Resume-Stefano-Carotenuto.pdf?rlkey=w8fn8a2os7mlmak4pw2qkwkbh&dl=0" target="_blank" rel="noopener noreferrer" aria-label="Download photography CV as PDF (opens in new tab)">Download photography resume <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
+            </nav>
+          </div>
+
+          <div>
+            <div id="photo-slider" class="splide" role="group" aria-roledescription="carousel" aria-label="Photography portfolio">
+              <div class="splide__track">
+                <ul class="splide__list">
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 1 of 8">
+                    <img src="img/01.avif" alt="Children chasing soap bubbles in Piazza del Plebiscito, Naples, with a military parade and the Royal Palace in the background" width="800" height="533" loading="eager" decoding="async" fetchpriority="high" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 2 of 8">
+                    <img src="img/02.avif" alt="Man clapping amid coloured smoke and international flags at a street market celebration, baby watching from a stroller" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 3 of 8">
+                    <img src="img/03.avif" alt="Family in matching red plaid shirts posing for a photo in front of the Golden Gate Bridge, San Francisco" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 4 of 8">
+                    <img src="img/04.avif" alt="Passengers on a ferry photographing the Statue of Liberty under dramatic storm clouds at sunset, New York" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 5 of 8">
+                    <img src="img/05.avif" alt="Woman laughing with arm raised as a seagull swoops past, photographer capturing the moment on a seaside terrace" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 6 of 8">
+                    <img src="img/06.avif" alt="Tourists photographing the ornate glass ceiling inside Galleria Umberto I, Naples" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 7 of 8">
+                    <img src="img/07.avif" alt="Boy mid-dive into the sea from a pier crowded with colourful wooden boats and sunbathers" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                  <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 8 of 8">
+                    <img src="img/08.avif" alt="Child crawling beneath translucent coloured panels of an outdoor art installation" width="800" height="533" loading="lazy" decoding="async" draggable="false">
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="photo-counter" aria-live="polite" aria-atomic="true">
+              <span id="photo-count">1&thinsp;/&thinsp;8</span>
+              <div class="photo-nav">
+                <button class="photo-nav-btn" id="photo-prev" aria-label="Previous photo">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button class="photo-nav-btn" id="photo-next" aria-label="Next photo">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER / CONTACT -->
+  <footer class="site-footer" id="contact" role="contentinfo">
+    <p class="footer-copy">© 2026 Stefano Carotenuto · Milan, Italy</p>
+    <nav aria-label="Contact and social links">
+      <ul class="footer-links">
+        <li><a href="#" id="email-link">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/stefanocarotenuto/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn (opens in new tab)">LinkedIn</a></li>
+        <li><a href="https://www.instagram.com/stefcarotenu" target="_blank" rel="noopener noreferrer" aria-label="Instagram (opens in new tab)">Instagram</a></li>
+      </ul>
+    </nav>
+    <p class="footer-privacy">Privacy & cookie policy: This site does not use profiling cookies or third-party tracking. No personal data is collected.</p>
+  </footer>
+
+  <!-- Splide JS (locale) -->
+  <script src="js/splide.min.js"></script>
+
+  <!-- Script sito -->
+  <script src="js/app.min.js"></script>
+
+</body>
+</html>
