@@ -12,21 +12,55 @@
   <!-- Canonical URL — update with final domain -->
   <link rel="canonical" href="https://www.stefanocarotenuto.it/">
 
-  <!-- Font preloads — critical above-the-fold weights -->
-  <link rel="preload" href="fonts/CormorantGaramond-Light.woff2"       as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/CormorantGaramond-LightItalic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/CormorantGaramond-Regular.woff2"     as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/DMMono-Light.woff2"                  as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/DMMono-Regular.woff2"                as="font" type="font/woff2" crossorigin>
+  <!-- Font preloads — only critical above-the-fold weights used by hero (SemiBold/600) and header (DM Mono 500) -->
+  <link rel="preload" href="fonts/CormorantGaramond-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/DMMono-Medium.woff2"              as="font" type="font/woff2" crossorigin>
 
-  <!-- Splide CSS (locale) -->
-  <link rel="stylesheet" href="css/splide-core.min.css">
+  <!-- Critical CSS inlined to unblock first paint -->
+  <style>
+    @font-face{font-family:'Cormorant Garamond';src:url('fonts/CormorantGaramond-SemiBold.woff2') format('woff2'),url('fonts/CormorantGaramond-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
+    @font-face{font-family:'DM Mono';src:url('fonts/DMMono-Medium.woff2') format('woff2'),url('fonts/DMMono-Medium.ttf') format('truetype');font-weight:500;font-style:normal;font-display:swap}
+    :root{--paper:#FAF6EC;--ink:#111;--muted:#5A5A5A;--c-coral:#FF4D2E;--c-mustard:#F5B700;--c-cobalt:#2B49FF;--ff-serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;--ff-mono:'DM Mono',ui-monospace,Menlo,Consolas,monospace;--fs-xs:.75rem;--fs-sm:.9375rem;--fs-base:1.0625rem;--fs-display:clamp(3.5rem,18vw,11rem);--fw-medium:500;--fw-bold:600;--lh-snug:1.18;--lh-base:1.55;--s0:.25rem;--s1:.5rem;--s2:.75rem;--s3:1rem;--s4:1.5rem;--s6:3rem;--s7:4rem;--bw-2:2px;--border:2px solid var(--ink);--shadow-sm:4px 4px 0 var(--ink);--container:min(92vw,1200px);--header-h:56px;--gutter:var(--s3);--ease:cubic-bezier(0.25,1,0.5,1);--dur-fast:180ms;--dur-base:280ms;--z-header:100;--z-nav:95}
+    @media (min-width:720px){:root{--header-h:64px;--gutter:var(--s4)}}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{margin:0;padding-top:var(--header-h);background:var(--paper);color:var(--ink);font-family:var(--ff-serif);font-size:var(--fs-base);font-weight:400;line-height:var(--lh-base);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none;padding:0;margin:0}
+    button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+    .inner{width:var(--container);margin:0 auto}
+    .site-header{position:fixed;top:0;left:0;right:0;z-index:var(--z-header);display:flex;align-items:center;justify-content:space-between;gap:var(--s3);padding:0 var(--gutter);height:var(--header-h);background:var(--paper);border-bottom:var(--border)}
+    .site-logo{font-family:var(--ff-mono);font-size:var(--fs-sm);font-weight:var(--fw-medium);letter-spacing:.06em;text-transform:uppercase}
+    .nav-toggle{display:inline-flex;width:2.25rem;height:2.25rem;align-items:center;justify-content:center;border:var(--border);background:var(--paper);box-shadow:var(--shadow-sm)}
+    .nav-toggle svg{width:var(--s4);height:var(--s4)}
+    .site-nav{position:fixed;inset:var(--header-h) 0 0 0;z-index:var(--z-nav);display:flex;flex-direction:column;padding:var(--s4);background:var(--paper);border-top:var(--border);transform:translateY(-110%);transition:transform var(--dur-base) var(--ease)}
+    .site-nav.open{transform:translateY(0)}
+    .site-nav a{display:block;padding:var(--s3) 0;font-family:var(--ff-mono);font-size:1.5rem;border-bottom:1px solid var(--ink)}
+    @media (min-width:720px){.nav-toggle{display:none}.site-nav{position:static;inset:auto;z-index:auto;flex-direction:row;gap:2rem;padding:0;background:transparent;border-top:0;transform:none;transition:none}.site-nav a{display:inline-block;padding:var(--s0) 0;font-size:var(--fs-sm);font-weight:var(--fw-medium);letter-spacing:.04em;border-bottom:0}}
+    #hero{position:relative;min-height:calc(100svh - var(--header-h));display:flex;align-items:center;padding:var(--s6) 0;overflow:hidden}
+    .hero-keywords{margin:0;font-family:var(--ff-serif);font-size:var(--fs-display);font-weight:var(--fw-bold);line-height:var(--lh-snug);letter-spacing:-.03em;display:flex;flex-wrap:wrap;gap:0 var(--s2)}
+    .hero-kw{position:relative;display:inline-block;overflow:hidden;padding:.05em var(--s1) .2em;opacity:0;animation:kwAppear 0s linear forwards;animation-delay:var(--kw-delay,0ms)}
+    .hero-kw::before{content:'';position:absolute;inset:0;background:var(--kw-bg,var(--c-coral));transform-origin:left center;transform:scaleX(0);animation:kwBlock 400ms var(--ease) forwards;animation-delay:var(--kw-delay,0ms)}
+    .hero-kw-text{position:relative;display:inline-block;color:var(--ink);clip-path:inset(0 100% 0 0);animation:kwReveal 200ms var(--ease) forwards;animation-delay:calc(var(--kw-delay,0ms) + 200ms)}
+    .hero-kw[data-color='coral']{--kw-bg:var(--c-coral);--kw-delay:100ms}
+    .hero-kw[data-color='mustard']{--kw-bg:var(--c-mustard);--kw-delay:300ms}
+    .hero-kw[data-color='cobalt']{--kw-bg:var(--c-cobalt);--kw-delay:500ms}
+    .hero-scroll-hint{position:absolute;bottom:var(--s4);left:50%;transform:translateX(-50%);font-family:var(--ff-mono);font-size:var(--fs-xs);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);opacity:0;animation:fadeIn var(--dur-base) var(--ease) 1100ms forwards}
+    @keyframes kwAppear{to{opacity:1}}
+    @keyframes kwBlock{0%{transform:scaleX(0);transform-origin:left center}50%{transform:scaleX(1);transform-origin:left center}51%{transform:scaleX(1);transform-origin:right center}100%{transform:scaleX(0);transform-origin:right center}}
+    @keyframes kwReveal{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+    @keyframes fadeIn{to{opacity:1}}
+    @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:1ms!important;animation-iteration-count:1!important;transition-duration:1ms!important}.hero-kw{opacity:1}.hero-kw::before{display:none}.hero-kw-text{clip-path:none}.hero-scroll-hint{opacity:1}}
+  </style>
 
-  <!-- Stili sito -->
-  <link rel="stylesheet" href="css/style.min.css">
-
-  <!-- Preload LCP image (first photo in slider) -->
-  <link rel="preload" href="img/01.avif" as="image" type="image/avif">
+  <!-- Full stylesheets — loaded async so they don't block the first paint -->
+  <link rel="preload" href="css/style.min.css"        as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="css/splide-core.min.css"  as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/splide-core.min.css">
+  </noscript>
 
   <!-- Structured data — Person -->
   <script type="application/ld+json">

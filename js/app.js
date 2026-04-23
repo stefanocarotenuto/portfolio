@@ -16,45 +16,64 @@
     link.textContent = 'Email';
   }
 
-  /* ─── PHOTOGRAPHY SLIDER (Splide) ─────────────────── */
+  /* ─── PHOTOGRAPHY SLIDER (Splide, lazy-mounted) ───── */
   function initSlider() {
     const root = document.getElementById('photo-slider');
     const countEl = document.getElementById('photo-count');
-    if (!root || typeof Splide === 'undefined') return;
+    if (!root) return;
 
-    const splide = new Splide(root, {
-      type:       'slide',
-      perPage:    1,
-      perMove:    1,
-      gap:        0,
-      speed:      420,
-      easing:     'cubic-bezier(0.25,1,0.5,1)',
-      pagination: false,
-      arrows:     false,
-      keyboard:   'global',
-      i18n: {
-        prev:   'Previous photo',
-        next:   'Next photo',
-        slideX: 'Go to photo %s',
-      },
-    });
+    let mounted = false;
 
-    const prev = document.getElementById('photo-prev');
-    const next = document.getElementById('photo-next');
-    prev?.addEventListener('click', () => splide.go('<'));
-    next?.addEventListener('click', () => splide.go('>'));
+    function mount() {
+      if (mounted || typeof Splide === 'undefined') return;
+      mounted = true;
 
-    function updateCount(i) {
-      if (!countEl) return;
-      countEl.textContent = (i + 1) + ' / ' + splide.length;
+      const splide = new Splide(root, {
+        type:       'slide',
+        perPage:    1,
+        perMove:    1,
+        gap:        0,
+        speed:      420,
+        easing:     'cubic-bezier(0.25,1,0.5,1)',
+        pagination: false,
+        arrows:     false,
+        keyboard:   'global',
+        i18n: {
+          prev:   'Previous photo',
+          next:   'Next photo',
+          slideX: 'Go to photo %s',
+        },
+      });
+
+      const prev = document.getElementById('photo-prev');
+      const next = document.getElementById('photo-next');
+      prev?.addEventListener('click', () => splide.go('<'));
+      next?.addEventListener('click', () => splide.go('>'));
+
+      function updateCount(i) {
+        if (!countEl) return;
+        countEl.textContent = (i + 1) + ' / ' + splide.length;
+      }
+
+      splide.on('move',  updateCount);
+      splide.on('moved', updateCount);
+      splide.mount();
+
+      if (countEl) {
+        countEl.textContent = '1 / ' + splide.length;
+      }
     }
 
-    splide.on('move',  updateCount);
-    splide.on('moved', updateCount);
-    splide.mount();
-
-    if (countEl) {
-      countEl.textContent = '1 / ' + splide.length;
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries, obs) => {
+        if (entries.some(e => e.isIntersecting)) {
+          obs.disconnect();
+          mount();
+        }
+      }, { rootMargin: '300px 0px' });
+      io.observe(root);
+    } else {
+      mount();
     }
   }
 
