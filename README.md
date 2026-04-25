@@ -1,6 +1,6 @@
 # stefanocarotenuto.it
 
-Personal portfolio of **Stefano Carotenuto** — generalist UX designer and street photographer based in Milan, Italy.
+Personal portfolio of **Stefano Carotenuto** — UI/UX designer and street photographer based in Milan, Italy.
 
 ## Live
 
