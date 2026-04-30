@@ -28,11 +28,9 @@ Single-page site built with vanilla HTML, CSS, and JavaScript.
 ├── index.html          # Single-page markup
 ├── css/
 │   ├── style.css       # Source stylesheet — mobile-first, token-based
-│   ├── style.min.css   # Minified (production)
 │   └── splide-core.min.css
 ├── js/
 │   ├── app.js          # Email, Splide init, scroll spy, smooth scroll, mobile nav
-│   ├── app.min.js      # Minified (production)
 │   └── splide.min.js
 ├── fonts/              # Self-hosted WOFF2 + TTF
 ├── icons/              # UI SVG icons

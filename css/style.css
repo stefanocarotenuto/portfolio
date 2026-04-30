@@ -800,18 +800,11 @@ section[id] {
   box-shadow: var(--shadow-lg);
   background: var(--accent);
   color: var(--accent-ink);
-  transition: transform var(--dur-base) var(--ease),
-              box-shadow var(--dur-base) var(--ease);
 }
 
 .work-item[data-accent='coral']   { --accent: var(--c-coral);   --accent-ink: var(--ink); }
 .work-item[data-accent='mustard'] { --accent: var(--c-mustard); --accent-ink: var(--ink); }
 .work-item[data-accent='mint']    { --accent: var(--c-mint);    --accent-ink: var(--ink); }
-
-.work-item:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 12px 12px 0 var(--ink);
-}
 
 .work-link {
   display: grid;
