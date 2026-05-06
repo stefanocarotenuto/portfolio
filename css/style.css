@@ -325,7 +325,7 @@ section[id] {
   font-weight: var(--fw-medium);
   letter-spacing: 0.04em;
   color: var(--ink);
-  background: var(--c-coral);
+  background: #fff;
   border: var(--border);
 }
 
