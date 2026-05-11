@@ -7,88 +7,35 @@
 /* ─── FONTS ─────────────────────────────────────────────── */
 @font-face {
   font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-Light.woff2') format('woff2'),
-       url('../fonts/CormorantGaramond-Light.ttf')   format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-LightItalic.woff2') format('woff2'),
-       url('../fonts/CormorantGaramond-LightItalic.ttf')   format('truetype');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-Regular.woff2') format('woff2'),
-       url('../fonts/CormorantGaramond-Regular.ttf')   format('truetype');
+  src: url('../fonts/CormorantGaramond-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-Italic.woff2') format('woff2'),
-       url('../fonts/CormorantGaramond-Italic.ttf')   format('truetype');
+  src: url('../fonts/CormorantGaramond-Italic.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-Medium.woff2') format('woff2'),
-       url('../fonts/CormorantGaramond-Medium.ttf')   format('truetype');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-MediumItalic.woff2') format('woff2'),
-       url('../fonts/CormorantGaramond-MediumItalic.ttf')   format('truetype');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-SemiBold.woff2') format('woff2'),
-       url('../fonts/CormorantGaramond-SemiBold.ttf')   format('truetype');
+  src: url('../fonts/CormorantGaramond-SemiBold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-SemiBoldItalic.woff2') format('woff2'),
-       url('../fonts/CormorantGaramond-SemiBoldItalic.ttf')   format('truetype');
+  src: url('../fonts/CormorantGaramond-SemiBoldItalic.woff2') format('woff2');
   font-weight: 600;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'DM Mono';
-  src: url('../fonts/DMMono-Light.woff2') format('woff2'),
-       url('../fonts/DMMono-Light.ttf')   format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'DM Mono';
-  src: url('../fonts/DMMono-Regular.woff2') format('woff2'),
-       url('../fonts/DMMono-Regular.ttf')   format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'DM Mono';
-  src: url('../fonts/DMMono-Medium.woff2') format('woff2'),
-       url('../fonts/DMMono-Medium.ttf')   format('truetype');
+  src: url('../fonts/DMMono-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -111,10 +58,10 @@
 
   /* Type scale (fluid) */
   --fs-xs:        0.75rem;
-  --fs-sm:        0.9375rem;   /* header logo/nav — bumped for presence */
+  --fs-sm:        0.9375rem;
   --fs-base:      1.0625rem;
-  --fs-md:        1.3125rem;   /* body copy: about-desc, photo-intro p */
-  --fs-lg:        1.5rem;      /* taglines: work-tagline */
+  --fs-md:        1.3125rem;
+  --fs-lg:        1.5rem;
   --fs-2xl:       clamp(1.75rem, 5vw, 2.75rem);
   --fs-3xl:       clamp(2.25rem, 8vw, 4rem);
   --fs-display:   clamp(3.5rem, 18vw, 11rem);
@@ -171,7 +118,6 @@
   --z-skip:       999;
 }
 
-/* Desktop-up: bigger header, more gutter */
 @media (min-width: 720px) {
   :root {
     --header-h:   64px;
@@ -329,67 +275,7 @@ section[id] {
   border: var(--border);
 }
 
-/* ─── COMPONENT: button (CTA) ───────────────────────────── */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s1);
-  padding: var(--s2) var(--s3);
-  font-family: var(--ff-mono);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  border: var(--border);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--dur-fast) var(--ease),
-              box-shadow var(--dur-fast) var(--ease);
-}
-
-.btn:hover,
-.btn:focus-visible {
-  transform: translate(-3px, -3px);
-  box-shadow: var(--shadow-md);
-}
-
-.btn--dark {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.btn--on-dark {
-  background: var(--c-coral);
-  color: var(--ink);
-  border: var(--bw-2) solid var(--paper);
-  box-shadow: 4px 4px 0 var(--paper);
-}
-.btn--on-dark:hover,
-.btn--on-dark:focus-visible {
-  box-shadow: 6px 6px 0 var(--paper);
-}
-
-.btn--on-dark-alt {
-  background: var(--c-mustard);
-  color: var(--ink);
-  border: var(--bw-2) solid var(--paper);
-  box-shadow: 4px 4px 0 var(--paper);
-}
-.btn--on-dark-alt:hover,
-.btn--on-dark-alt:focus-visible {
-  box-shadow: 6px 6px 0 var(--paper);
-}
-
-.btn svg {
-  width: var(--s3);
-  height: var(--s3);
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* Legacy aliases — keep existing HTML classes working */
+/* ─── COMPONENT: work CTA ───────────────────────────────── */
 .work-cta {
   margin-top: var(--s2);
   align-self: flex-start;
@@ -706,7 +592,6 @@ section[id] {
   animation: fadeIn var(--dur-base) var(--ease) 1100ms forwards;
 }
 
-
 @media (min-width: 720px) {
   #hero { padding: var(--s7) 0 var(--s6); }
   .hero-keywords { gap: 0 var(--s3); }
@@ -802,9 +687,8 @@ section[id] {
   color: var(--accent-ink);
 }
 
-.work-item[data-accent='coral']   { --accent: var(--c-coral);   --accent-ink: var(--ink); }
-.work-item[data-accent='mustard'] { --accent: var(--c-mustard); --accent-ink: var(--ink); }
-.work-item[data-accent='mint']    { --accent: var(--c-mint);    --accent-ink: var(--ink); }
+.work-item[data-accent='mustard'] { --accent: var(--c-mustard); }
+.work-item[data-accent='mint']    { --accent: var(--c-mint); }
 
 .work-link {
   display: grid;
@@ -952,11 +836,6 @@ section[id] {
 .photo-intro i {
   font-style: italic;
   color: var(--c-mustard);
-}
-
-.photo-intro cite {
-  color: var(--c-coral);
-  font-style: italic;
 }
 
 .photo-social {
