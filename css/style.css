@@ -1001,7 +1001,7 @@ section[id] {
   max-width: 60ch;
   font-size: var(--fs-sm);
   font-style: italic;
-  color: var(--muted);
+  color: var(--ink);
 }
 
 @media (min-width: 720px) {
