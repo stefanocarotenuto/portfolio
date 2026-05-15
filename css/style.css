@@ -1,11 +1,6 @@
 /* stefanocarotenuto.it */
 
 @font-face {
-  font-family: 'Cormorant Garamond';
-  src: url('../fonts/CormorantGaramond-Regular.woff2') format('woff2');
-  font-weight: 400; font-style: normal; font-display: swap;
-}
-@font-face {
   font-family: 'DM Mono';
   src: url('../fonts/DMMono-Medium.woff2') format('woff2');
   font-weight: 500; font-style: normal; font-display: swap;
@@ -18,7 +13,7 @@
   --accent: #c8a96e;   /* 7.1:1 */
   --border: #252320;
 
-  --serif:  'Cormorant Garamond', Georgia, serif;
+  --serif:  Georgia, 'Times New Roman', serif;
   --mono:   'DM Mono', ui-monospace, Menlo, monospace;
 
   --xs:     0.75rem;
