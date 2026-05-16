@@ -1,172 +1,126 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Stefano Carotenuto</title>
-  <meta name="description" content="Stefano Carotenuto — designer e fotografo di strada, con base a Milano.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stefano Carotenuto</title>
+<meta name="description" content="Stefano Carotenuto — designer e fotografo di strada, con base a Milano.">
 
-  <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
-  <link rel="canonical" href="https://www.stefanocarotenuto.it/">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="canonical" href="https://www.stefanocarotenuto.it/">
 
-  <link rel="preconnect" href="https://use.typekit.net" crossorigin>
-  <link rel="preconnect" href="https://p.typekit.net" crossorigin>
-  <link rel="stylesheet" href="https://use.typekit.net/arh5vys.css">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="preconnect" href="https://p.typekit.net" crossorigin>
+<link rel="stylesheet" href="https://use.typekit.net/arh5vys.css">
 
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/splide-core.min.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/splide-core.min.css">
 
-  <script>
-    (function () {
-      var html = document.documentElement;
-      function ready() { html.classList.add('fonts-loaded'); }
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(ready);
-        setTimeout(ready, 300);
-      } else {
-        ready();
-      }
-    })();
-  </script>
+<script>
+(function () {
+  var html = document.documentElement;
+  function ready() { html.classList.add('fonts-loaded'); }
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(ready);
+    setTimeout(ready, 300);
+  } else { ready(); }
+})();
+</script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Stefano Carotenuto",
-    "url": "https://www.stefanocarotenuto.it",
-    "jobTitle": "Research Technician — CTER",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "National Research Council — CNR",
-      "url": "https://www.cnr.it"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Milan",
-      "addressCountry": "IT"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/in/stefanocarotenuto/",
-      "https://www.instagram.com/stefcarotenu",
-      "https://www.flickr.com/people/stefano_carotenuto/"
-    ]
-  }
-  </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Stefano Carotenuto",
+  "url": "https://www.stefanocarotenuto.it",
+  "jobTitle": "Research Technician — CTER",
+  "worksFor": { "@type": "Organization", "name": "National Research Council — CNR", "url": "https://www.cnr.it" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Milan", "addressCountry": "IT" },
+  "sameAs": [
+    "https://www.linkedin.com/in/stefanocarotenuto/",
+    "https://www.instagram.com/stefcarotenu",
+    "https://www.flickr.com/people/stefano_carotenuto/"
+  ]
+}
+</script>
 </head>
 
 <body>
 
-  <a class="skip-link" href="#main-content" data-i18n="skip">Vai al contenuto</a>
+<a class="skip-link" href="#main-content" data-i18n="skip">Vai al contenuto</a>
 
+<main id="main-content">
 
-  <main id="main-content">
+  <div class="utility-bar">
+    <div class="lang-toggle" role="group" aria-label="Lingua">
+      <button type="button" data-lang="it" aria-pressed="true">IT</button>
+      <span class="sep" aria-hidden="true">/</span>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+    <button id="toggle-theme" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+    </button>
+  </div>
 
-    <div class="page-wrap">
+  <section class="about" aria-labelledby="about-heading">
+    <h1 data-i18n="name">Stefano Carotenuto</h1>
+    <p class="tagline" data-i18n="intro">Designer e fotografo di strada, con base a Milano.</p>
 
-      <div class="utility-bar">
-        <div class="lang-toggle" role="group" aria-label="Lingua">
-          <button type="button" data-lang="it" aria-pressed="true">IT</button>
-          <span class="sep" aria-hidden="true">/</span>
-          <button type="button" data-lang="en" aria-pressed="false">EN</button>
-        </div>
-        <button id="toggle-theme" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-        </button>
-      </div>
+    <h2 id="about-heading" data-i18n="about-heading">Su di me</h2>
+    <p data-i18n="role">Al Consiglio Nazionale delle Ricerche (CNR) attualmente mi occupo di curare la strategia di comunicazione digitale del <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Dipartimento di Scienze umane e sociali, patrimonio culturale<span class="vh"> (apre in una nuova scheda)</span></a>.</p>
+    <p data-i18n="wemed">Ho inoltre contribuito alla progettazione di <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMED<span class="vh"> (apre in una nuova scheda)</span></a>, piattaforma per esplorare gli indicatori socioeconomici dell'area del Mediterraneo, sviluppata in collaborazione tra CNR-ISMed e Istat.</p>
+    <nav class="contact-links" aria-label="Contatti">
+      <a href="mailto:stefano.carotenuto@gmail.com" id="email-link" data-i18n="link-email">Email</a>
+      <a href="https://www.linkedin.com/in/stefanocarotenuto/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="vh"> (apre in una nuova scheda)</span></a>
+      <a href="https://www.instagram.com/stefcarotenu" target="_blank" rel="noopener noreferrer">Instagram<span class="vh"> (apre in una nuova scheda)</span></a>
+    </nav>
+  </section>
 
-      <!-- ABOUT -->
-      <section class="about" aria-labelledby="about-heading">
-        <h1 data-i18n="name">Stefano Carotenuto</h1>
-        <p class="tagline" data-i18n="intro">
-          Designer e fotografo di strada, con base a Milano.
-        </p>
-
-        <h2 id="about-heading" data-i18n="about-heading">Su di me</h2>
-        <p data-i18n="role">
-          Al Consiglio Nazionale delle Ricerche (CNR) attualmente mi occupo di curare la strategia di comunicazione digitale del <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Dipartimento di Scienze umane e sociali, patrimonio culturale<span class="visually-hidden"> (apre in una nuova scheda)</span></a>.
-        </p>
-        <p data-i18n="wemed">
-          Ho inoltre contribuito alla progettazione di <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMED<span class="visually-hidden"> (apre in una nuova scheda)</span></a>, piattaforma per esplorare gli indicatori socioeconomici dell'area del Mediterraneo, sviluppata in collaborazione tra CNR-ISMed e Istat.
-        </p>
-        <nav class="contact-links" aria-label="Contatti">
-          <a href="mailto:stefano.carotenuto@gmail.com" id="email-link" data-i18n="link-email">Email</a>
-          <a href="https://www.linkedin.com/in/stefanocarotenuto/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (apre in una nuova scheda)</span></a>
-          <a href="https://www.instagram.com/stefcarotenu" target="_blank" rel="noopener noreferrer">Instagram<span class="visually-hidden"> (apre in una nuova scheda)</span></a>
-        </nav>
-      </section>
-
-      <!-- PHOTOGRAPHY -->
-      <section class="photography" aria-labelledby="photo-heading">
-
-        <div>
-          <h2 id="photo-heading" data-i18n="photo-heading">Fotografia di strada</h2>
-          <p data-i18n="photo-intro">
-            Nel tempo libero cammino e fotografo.
-          </p>
-          <p data-i18n="photo-bio">
-            Il mio lavoro è stato riconosciuto dai fotografi Magnum Martin Parr e Steve McCurry. Ho esposto allo HistoryMiami Museum durante Art Basel Miami e alcune mie fotografie sono state pubblicate su riviste come Style Magazine del Corriere della Sera.
-          </p>
-          <nav class="photo-links" aria-label="Photography links">
-            <a href="https://www.flaneurat.work/" target="_blank" rel="noopener noreferrer" data-i18n="link-diary">Vai al mio diario fotografico<span class="visually-hidden"> (apre in una nuova scheda)</span></a>
-            <a href="https://www.dropbox.com/scl/fi/q4da6wywybyb0oocwphnd/Photography-Resume-Stefano-Carotenuto.pdf?rlkey=w8fn8a2os7mlmak4pw2qkwkbh&dl=0" target="_blank" rel="noopener noreferrer" data-i18n="link-cv">Scarica il curriculum fotografico<span class="visually-hidden"> (apre in una nuova scheda)</span></a>
-          </nav>
-        </div>
-
-        <div>
-          <div id="photo-slider" class="splide" role="group" aria-roledescription="carousel" aria-label="Photography portfolio">
-            <div class="splide__track">
-              <ul class="splide__list">
-                <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 1 of 8">
-                  <img src="img/01.avif" alt="Children chasing soap bubbles in Piazza del Plebiscito, Naples" width="800" height="533" loading="lazy" decoding="async" draggable="false">
-                </li>
-                <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 2 of 8">
-                  <img src="img/02.avif" alt="Man clapping amid coloured smoke at a street market celebration" width="800" height="533" loading="lazy" decoding="async" draggable="false">
-                </li>
-                <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 3 of 8">
-                  <img src="img/03.avif" alt="Family in matching red plaid shirts in front of the Golden Gate Bridge" width="800" height="533" loading="lazy" decoding="async" draggable="false">
-                </li>
-                <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 4 of 8">
-                  <img src="img/04.avif" alt="Passengers photographing the Statue of Liberty under storm clouds, New York" width="800" height="533" loading="lazy" decoding="async" draggable="false">
-                </li>
-                <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 5 of 8">
-                  <img src="img/05.avif" alt="Woman laughing as a seagull swoops past on a seaside terrace" width="800" height="533" loading="lazy" decoding="async" draggable="false">
-                </li>
-                <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 6 of 8">
-                  <img src="img/06.avif" alt="Tourists photographing the glass ceiling inside Galleria Umberto I, Naples" width="800" height="533" loading="lazy" decoding="async" draggable="false">
-                </li>
-                <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 7 of 8">
-                  <img src="img/07.avif" alt="Boy mid-dive into the sea from a pier with colourful boats" width="800" height="533" loading="lazy" decoding="async" draggable="false">
-                </li>
-                <li class="splide__slide" role="group" aria-roledescription="slide" aria-label="Photo 8 of 8">
-                  <img src="img/08.avif" alt="Child crawling beneath translucent coloured panels of an art installation" width="800" height="533" loading="lazy" decoding="async" draggable="false">
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="photo-controls">
-            <span id="photo-count" aria-live="polite" aria-atomic="true">1 / 8</span>
-            <div>
-              <button id="photo-prev" aria-label="Previous photo">←</button>
-              <button id="photo-next" aria-label="Next photo">→</button>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
+  <section class="photography" aria-labelledby="photo-heading">
+    <div>
+      <h2 id="photo-heading" data-i18n="photo-heading">Fotografia di strada</h2>
+      <p data-i18n="photo-intro">Nel tempo libero cammino e fotografo.</p>
+      <p data-i18n="photo-bio">Il mio lavoro è stato riconosciuto dai fotografi Magnum Martin Parr e Steve McCurry. Ho esposto allo HistoryMiami Museum durante Art Basel Miami e alcune mie fotografie sono state pubblicate su riviste come Style Magazine del Corriere della Sera.</p>
+      <nav class="photo-links" aria-label="Photography links">
+        <a href="https://www.flaneurat.work/" target="_blank" rel="noopener noreferrer" data-i18n="link-diary">Vai al mio diario fotografico<span class="vh"> (apre in una nuova scheda)</span></a>
+        <a href="https://www.dropbox.com/scl/fi/q4da6wywybyb0oocwphnd/Photography-Resume-Stefano-Carotenuto.pdf?rlkey=w8fn8a2os7mlmak4pw2qkwkbh&dl=0" target="_blank" rel="noopener noreferrer" data-i18n="link-cv">Scarica il curriculum fotografico<span class="vh"> (apre in una nuova scheda)</span></a>
+      </nav>
     </div>
 
-  </main>
+    <div>
+      <div id="photo-slider" class="splide" aria-label="Photography portfolio">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide"><img src="img/01.avif" alt="Children chasing soap bubbles in Piazza del Plebiscito, Naples" width="800" height="533" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="splide__slide"><img src="img/02.avif" alt="Man clapping amid coloured smoke at a street market celebration" width="800" height="533" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="splide__slide"><img src="img/03.avif" alt="Family in matching red plaid shirts in front of the Golden Gate Bridge" width="800" height="533" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="splide__slide"><img src="img/04.avif" alt="Passengers photographing the Statue of Liberty under storm clouds, New York" width="800" height="533" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="splide__slide"><img src="img/05.avif" alt="Woman laughing as a seagull swoops past on a seaside terrace" width="800" height="533" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="splide__slide"><img src="img/06.avif" alt="Tourists photographing the glass ceiling inside Galleria Umberto I, Naples" width="800" height="533" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="splide__slide"><img src="img/07.avif" alt="Boy mid-dive into the sea from a pier with colourful boats" width="800" height="533" loading="lazy" decoding="async" draggable="false"></li>
+            <li class="splide__slide"><img src="img/08.avif" alt="Child crawling beneath translucent coloured panels of an art installation" width="800" height="533" loading="lazy" decoding="async" draggable="false"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="photo-controls">
+        <span id="photo-count" aria-live="polite" aria-atomic="true">1 / 8</span>
+        <div>
+          <button id="photo-prev" aria-label="Previous photo">←</button>
+          <button id="photo-next" aria-label="Next photo">→</button>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer role="contentinfo">
-    <p data-i18n="footer-credit">© 2026 Stefano Carotenuto · Milano, Italia</p>
-    <p class="footer-privacy" data-i18n="privacy">Questo sito non usa cookie né raccoglie dati personali. Carica il font Supria Sans tramite Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/typekit.html" target="_blank" rel="noopener noreferrer">informativa Adobe<span class="visually-hidden"> (apre in una nuova scheda)</span></a>).</p>
-  </footer>
+</main>
 
-  <script src="js/splide.min.js"></script>
-  <script src="js/app.js"></script>
+<footer role="contentinfo">
+  <p data-i18n="footer-credit">© 2026 Stefano Carotenuto · Milano, Italia</p>
+  <p class="footer-privacy" data-i18n="privacy">Questo sito non usa cookie né raccoglie dati personali. Carica il font Supria Sans tramite Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/typekit.html" target="_blank" rel="noopener noreferrer">informativa Adobe<span class="vh"> (apre in una nuova scheda)</span></a>).</p>
+</footer>
+
+<script src="js/splide.min.js"></script>
+<script src="js/app.js"></script>
 
 </body>
 </html>

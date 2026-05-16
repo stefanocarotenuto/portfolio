@@ -8,7 +8,7 @@
     const links = document.querySelectorAll('a[target="_blank"]');
     links.forEach((a) => {
       if (a.querySelector('.ext-icon')) return;
-      const sr = a.querySelector('.visually-hidden');
+      const sr = a.querySelector('.vh');
       const icon = document.createRange().createContextualFragment(EXT_ICON);
       if (sr) a.insertBefore(icon, sr);
       else a.appendChild(icon);
@@ -87,16 +87,16 @@
     'name':           'Stefano Carotenuto',
     'about-heading':  'About me',
     'intro':          'Designer and street photographer based in Milan.',
-    'role':           'At the Italian National Research Council (CNR) I currently work on the digital communication strategy for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences and Humanities, Cultural Heritage<span class="visually-hidden"> (opens in new tab)</span></a>.',
-    'wemed':          'I also contributed to the design of <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMED<span class="visually-hidden"> (opens in new tab)</span></a>, a data platform for exploring socioeconomic indicators across the Mediterranean, developed in collaboration between CNR-ISMed and Istat.',
+    'role':           'At the Italian National Research Council (CNR) I currently work on the digital communication strategy for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences and Humanities, Cultural Heritage<span class="vh"> (opens in new tab)</span></a>.',
+    'wemed':          'I also contributed to the design of <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMED<span class="vh"> (opens in new tab)</span></a>, a data platform for exploring socioeconomic indicators across the Mediterranean, developed in collaboration between CNR-ISMed and Istat.',
     'photo-heading':  'Street photography',
     'photo-intro':    'When I’m not in front of a screen, I walk and photograph.',
     'photo-bio':      'My work has been recognised by Magnum photographers Martin Parr and Steve McCurry. I’ve exhibited at the HistoryMiami Museum during Art Basel Miami 2019 and my photographs have been published in magazines such as Corriere della Sera Style Magazine.',
-    'link-diary':     'Have a look at my visual diary<span class="visually-hidden"> (opens in new tab)</span>',
-    'link-cv':        'Download Photography resume<span class="visually-hidden"> (opens in new tab)</span>',
+    'link-diary':     'Have a look at my visual diary<span class="vh"> (opens in new tab)</span>',
+    'link-cv':        'Download Photography resume<span class="vh"> (opens in new tab)</span>',
     'footer-credit':  '© 2026 Stefano Carotenuto · Milan, Italy',
     'link-email':     'Email',
-    'privacy':        'This site uses no cookies and collects no personal data. It loads Supria Sans via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/typekit.html" target="_blank" rel="noopener noreferrer">Adobe privacy policy<span class="visually-hidden"> (opens in new tab)</span></a>).',
+    'privacy':        'This site uses no cookies and collects no personal data. It loads Supria Sans via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/typekit.html" target="_blank" rel="noopener noreferrer">Adobe privacy policy<span class="vh"> (opens in new tab)</span></a>).',
   };
 
   const IT = {};
