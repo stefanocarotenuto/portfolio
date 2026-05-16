@@ -16,7 +16,7 @@ Single-page site built with vanilla HTML, CSS, and JavaScript. No build step, no
 
 - HTML5, CSS custom properties, modular type scale (ratio 1.2)
 - [Splide](https://splidejs.com/) — lightweight carousel for the photography section
-- [Adobe Caslon Pro](https://fonts.adobe.com/fonts/adobe-caslon) (serif body, italic tagline) + [Input Mono](https://fonts.adobe.com/fonts/input) (mono labels) — served via Adobe Fonts (Typekit kit `arh5vys`)
+- [Adobe Caslon Pro](https://fonts.adobe.com/fonts/adobe-caslon) — single typeface (Regular, Italic, Semibold). Served via Adobe Fonts (Typekit kit `arh5vys`)
 - [Iconoir](https://iconoir.com) — `arrow-up-right` icon, inlined as SVG and injected by JS into all external links
 - Schema.org structured data (JSON-LD, `Person`)
 - Hosted on GitHub Pages with a custom domain

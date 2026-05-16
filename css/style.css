@@ -12,7 +12,6 @@ html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
   --border-strong:#4a463f;
 
   --serif:  adobe-caslon-pro, 'Iowan Old Style', Charter, Georgia, serif;
-  --mono:   input-mono, ui-monospace, Menlo, monospace;
 
 
   --t-eyebrow: 0.78rem;     
@@ -92,7 +91,7 @@ button {
   position: absolute; top: -4rem; left: var(--s); z-index: 999;
   padding: 0.75rem var(--s);
   background: var(--fg); color: var(--bg);
-  font-family: var(--mono); font-style: italic; font-size: var(--t-eyebrow);
+  font-family: var(--serif); font-style: italic; font-size: var(--t-meta);
   transition: top 0.15s ease;
 }
 .skip-link:focus,
@@ -252,9 +251,9 @@ button {
   align-items: center;
   justify-content: space-between;
   margin-top: var(--s);
-  font-family: var(--mono);
+  font-family: var(--serif);
   font-style: italic;
-  font-size: var(--t-eyebrow);
+  font-size: var(--t-meta);
   letter-spacing: 0;
   color: var(--fg-dim);
   font-variant-numeric: tabular-nums;
@@ -296,8 +295,8 @@ footer p {
 
 .footer-privacy {
   margin-top: 0.25rem;
-  font-size: var(--t-eyebrow);
-  font-family: var(--mono);
+  font-size: var(--t-meta);
+  font-family: var(--serif);
   font-style: italic;
   letter-spacing: 0;
   color: var(--fg-dim);
