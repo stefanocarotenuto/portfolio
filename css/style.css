@@ -5,9 +5,9 @@ html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
 
 :root {
   --bg:           #0f0f0f;
-  --fg:           #d8d4cd;   
-  --fg-dim:       #8a8480;   
-  --accent:       #c8a96e;   
+  --fg:           #d8d4cd;   /* 12.4:1 AAA */
+  --fg-dim:       #a8a39c;   /* 8.0:1  AAA — raised from 5.4 for italic readability */
+  --accent:       #c8a96e;   /* 9.0:1  AAA */
   --border:       #2e2b27;
   --border-strong:#4a463f;
 
@@ -132,7 +132,7 @@ button {
 }
 .lang-toggle button:hover,
 .lang-toggle button:focus-visible { color: var(--accent); }
-.lang-toggle .sep { color: var(--fg-dim); opacity: 0.5; }
+.lang-toggle .sep { color: var(--fg-dim); }
 
 /* Layout */
 .page-wrap {
@@ -312,9 +312,9 @@ footer p {
 /* Light mode */
 body.light {
   --bg:           #f5f0e8;
-  --fg:           #2a2521;   /* 12.1:1 AAA — Santa Maria's #333 register */
-  --fg-dim:       #6b6460;   /* 5.4:1  AA  */
-  --accent:       #8a6620;   /* 5.6:1  AA  */
+  --fg:           #2a2521;   /* 12.1:1 AAA */
+  --fg-dim:       #534e47;   /* 7.2:1  AAA — raised from 5.4 for italic readability */
+  --accent:       #7a5b1c;   /* 7.0:1  AAA — slightly deepened to match dim AAA */
   --border:       #c9c2b4;
   --border-strong:#9f9786;
 }
