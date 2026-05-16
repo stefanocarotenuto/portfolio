@@ -1,41 +1,36 @@
 /* stefanocarotenuto.it */
 
-/* Web fonts served via Adobe Fonts (see <link> in index.html):
-   - adobe-caslon-pro  (serif body, italic tagline, H1 in mono replaced below)
-   - input-mono        (mono labels, H1, eyebrows) */
-
 html:not(.fonts-loaded) body { opacity: 0; }
 html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
 
 :root {
   --bg:           #0f0f0f;
-  --fg:           #e2ddd6;   
+  --fg:           #d8d4cd;   
   --fg-dim:       #8a8480;   
   --accent:       #c8a96e;   
-  --border:       #2e2b27;   
-  --border-strong:#4a463f;   
+  --border:       #2e2b27;
+  --border-strong:#4a463f;
 
   --serif:  adobe-caslon-pro, 'Iowan Old Style', Charter, Georgia, serif;
   --mono:   input-mono, ui-monospace, Menlo, monospace;
 
-  /* Modular scale, ratio 1.2 (minor third), base 1.125rem.
-     Base lifted from 1.0625 to compensate Caslon's lower x-height vs Source Serif. */
-  --t-eyebrow: 0.78rem;     /* base / 1.2² ≈ 12.5px — mono labels */
-  --t-meta:    0.9375rem;   /* base / 1.2  ≈ 15px   — caption/footer */
-  --t-body:    1.125rem;    /* base        = 18px   — body */
-  --t-lead:    1.35rem;     /* base × 1.2  ≈ 21.6px — lead/tagline */
-  --t-h1:      clamp(1.35rem, 2.6vw, 1.62rem);    /* mono uppercase */
-  --t-h2:      0.78rem;                            /* mono uppercase eyebrow */
 
-  --lh-tight:  1.25;
-  --lh-body:   1.55;
+  --t-eyebrow: 0.78rem;     
+  --t-meta:    0.9375rem;   
+  --t-body:    1.125rem;    
+  --t-lead:    1.35rem;    
+  --t-h1:      clamp(1.35rem, 2.6vw, 1.62rem);    
+  --t-h2:      0.78rem;                            
+
+  --lh-tight:  1.2;
+  --lh-body:   calc(1em + 0.5rem);
 
   --s:      1rem;
   --m:      2rem;
   --l:      3rem;
   --xl:     4.5rem;
 
-  --wrap:   min(90vw, 620px);
+  --wrap:   min(90vw, 660px);   /* ~66ch on Caslon at 18px */
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -97,7 +92,7 @@ button {
   position: absolute; top: -4rem; left: var(--s); z-index: 999;
   padding: 0.75rem var(--s);
   background: var(--fg); color: var(--bg);
-  font-family: var(--mono); font-size: var(--t-eyebrow);
+  font-family: var(--mono); font-style: italic; font-size: var(--t-eyebrow);
   transition: top 0.15s ease;
 }
 .skip-link:focus,
@@ -115,9 +110,10 @@ button {
 .lang-toggle {
   display: inline-flex;
   align-items: center;
-  font-family: var(--mono);
-  font-size: var(--t-eyebrow);
-  letter-spacing: 0.08em;
+  font-family: var(--serif);
+  font-size: var(--t-meta);
+  font-weight: 600;
+  letter-spacing: 0;
   color: var(--fg-dim);
 }
 
@@ -125,7 +121,7 @@ button {
   min-height: 44px;
   padding: 0 0.5rem;
   color: var(--fg-dim);
-  letter-spacing: 0.08em;
+  letter-spacing: 0;
   transition: color 0.15s ease;
 }
 .lang-toggle button[aria-pressed="true"] {
@@ -154,11 +150,10 @@ button {
 
 .about h1 {
   margin: 0 0 var(--s);
-  font-family: var(--mono);
+  font-family: var(--serif);
   font-size: var(--t-h1);
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0;
   color: var(--accent);
   line-height: var(--lh-tight);
 }
@@ -167,17 +162,16 @@ button {
   margin: 0 0 var(--l);
   font-size: var(--t-lead);
   font-style: italic;
-  line-height: var(--lh-body);
-  color: var(--fg);
+  line-height: var(--lh-tight);
+  color: var(--fg-dim);
 }
 
 .about h2 {
   margin: 0 0 var(--m);
-  font-family: var(--mono);
-  font-size: var(--t-h2);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-size: var(--t-meta);
+  font-weight: 600;
+  letter-spacing: 0;
   color: var(--fg-dim);
   line-height: var(--lh-tight);
 }
@@ -195,9 +189,10 @@ button {
   flex-wrap: wrap;
   gap: var(--m);
   margin-top: var(--l);
-  font-family: var(--mono);
-  font-size: var(--t-eyebrow);
-  letter-spacing: 0.08em;
+  font-family: var(--serif);
+  font-size: var(--t-body);
+  font-weight: 600;
+  letter-spacing: 0;
 }
 
 .contact-links a {
@@ -213,11 +208,10 @@ button {
 
 .photography h2 {
   margin: 0 0 var(--m);
-  font-family: var(--mono);
-  font-size: var(--t-h2);
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--serif);
+  font-size: var(--t-meta);
+  font-weight: 600;
+  letter-spacing: 0;
   color: var(--fg-dim);
   line-height: var(--lh-tight);
 }
@@ -236,10 +230,10 @@ button {
 }
 
 .photo-links a {
-  font-family: var(--mono);
-  font-size: var(--t-eyebrow);
-  font-weight: 500;
-  letter-spacing: 0.08em;
+  font-family: var(--serif);
+  font-size: var(--t-body);
+  font-weight: 600;
+  letter-spacing: 0;
   padding: 0.4rem 0;
 }
 
@@ -259,8 +253,9 @@ button {
   justify-content: space-between;
   margin-top: var(--s);
   font-family: var(--mono);
+  font-style: italic;
   font-size: var(--t-eyebrow);
-  letter-spacing: 0.06em;
+  letter-spacing: 0;
   color: var(--fg-dim);
   font-variant-numeric: tabular-nums;
 }
@@ -303,7 +298,8 @@ footer p {
   margin-top: 0.25rem;
   font-size: var(--t-eyebrow);
   font-family: var(--mono);
-  letter-spacing: 0.04em;
+  font-style: italic;
+  letter-spacing: 0;
   color: var(--fg-dim);
 }
 .footer-privacy a {
@@ -316,11 +312,11 @@ footer p {
 /* Light mode */
 body.light {
   --bg:           #f5f0e8;
-  --fg:           #1a1614;   
-  --fg-dim:       #6b6460;   
-  --accent:       #8a6620;   
-  --border:       #c9c2b4;   
-  --border-strong:#9f9786;   
+  --fg:           #2a2521;   /* 12.1:1 AAA — Santa Maria's #333 register */
+  --fg-dim:       #6b6460;   /* 5.4:1  AA  */
+  --accent:       #8a6620;   /* 5.6:1  AA  */
+  --border:       #c9c2b4;
+  --border-strong:#9f9786;
 }
 
 /* Theme toggle */
