@@ -16,7 +16,7 @@ Single-page site built with vanilla HTML, CSS, and JavaScript. No build step, no
 
 - HTML5, CSS custom properties, modular type scale (ratio 1.2)
 - [Splide](https://splidejs.com/) — lightweight carousel for the photography section
-- [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4) (body) + [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) (labels) — self-hosted WOFF2, latin subset (~62KB total, preloaded)
+- [Adobe Caslon Pro](https://fonts.adobe.com/fonts/adobe-caslon) (serif body, italic tagline) + [Input Mono](https://fonts.adobe.com/fonts/input) (mono labels) — served via Adobe Fonts (Typekit kit `arh5vys`)
 - [Iconoir](https://iconoir.com) — `arrow-up-right` icon, inlined as SVG and injected by JS into all external links
 - Schema.org structured data (JSON-LD, `Person`)
 - Hosted on GitHub Pages with a custom domain
@@ -27,7 +27,7 @@ Single-page site built with vanilla HTML, CSS, and JavaScript. No build step, no
 - **EN / IT language toggle** — full content i18n via a JS dictionary, persisted in `localStorage`, auto-detected from `navigator.language`
 - **Anti-FOUT** — `document.fonts.ready` API hides body until web fonts are applied (with a 300ms safety fallback), eliminating the font-swap flicker
 - **Accessibility** — skip link, 44×44px touch targets, `aria-pressed` on toggles, `aria-live` slide counter, focus-visible outlines, `prefers-reduced-motion` respected
-- **Performance** — `preload` on the three font files, AVIF photos with `loading="lazy"`, no runtime CSS or JS dependencies beyond Splide
+- **Performance** — `preconnect` to Adobe Fonts CDN, AVIF photos with `loading="lazy"`, no runtime JS dependencies beyond Splide
 
 ## Project structure
 
@@ -40,7 +40,7 @@ Single-page site built with vanilla HTML, CSS, and JavaScript. No build step, no
 ├── js/
 │   ├── app.js              # Slider, theme toggle, lang toggle, external link icons
 │   └── splide.min.js
-├── fonts/                  # Self-hosted WOFF2 (Source Serif 4, DM Mono, Cormorant)
+├── fonts/                  # (empty — fonts now served from Adobe Fonts)
 ├── icons/                  # UI SVG icons
 ├── img/                    # AVIF photography
 ├── favicon.ico

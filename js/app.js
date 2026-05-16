@@ -96,7 +96,7 @@
     'link-cv':        'Download Photography resume<span class="visually-hidden"> (opens in new tab)</span>',
     'footer-credit':  '© 2026 Stefano Carotenuto · Milan, Italy',
     'link-email':     'Email',
-    'privacy':        'This site uses no cookies and collects no personal data.',
+    'privacy':        'This site uses no cookies and collects no personal data. It loads Adobe Caslon Pro and Input Mono via Adobe Fonts (<a href="https://www.adobe.com/privacy/policy.html" target="_blank" rel="noopener noreferrer">Adobe privacy policy<span class="visually-hidden"> (opens in new tab)</span></a>).',
   };
 
   const IT = {};

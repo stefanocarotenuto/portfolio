@@ -1,28 +1,8 @@
 /* stefanocarotenuto.it */
 
-@font-face {
-  font-family: 'JetBrains Mono';
-  src: url('../fonts/JetBrainsMono-Medium.woff2') format('woff2');
-  font-weight: 500; font-style: normal; font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Serif 4';
-  src: url('../fonts/SourceSerif4-Regular.woff2') format('woff2');
-  font-weight: 400; font-style: normal; font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Serif 4';
-  src: url('../fonts/SourceSerif4-Italic.woff2') format('woff2');
-  font-weight: 400; font-style: italic; font-display: swap;
-}
-
-@font-face {
-  font-family: 'Source Serif 4';
-  src: url('../fonts/SourceSerif4-Semibold.woff2') format('woff2');
-  font-weight: 600; font-style: normal; font-display: swap;
-}
+/* Web fonts served via Adobe Fonts (see <link> in index.html):
+   - adobe-caslon-pro  (serif body, italic tagline, H1 in mono replaced below)
+   - input-mono        (mono labels, H1, eyebrows) */
 
 html:not(.fonts-loaded) body { opacity: 0; }
 html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
@@ -35,16 +15,17 @@ html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
   --border:       #2e2b27;   
   --border-strong:#4a463f;   
 
-  --serif:  'Source Serif 4', Charter, 'Iowan Old Style', Georgia, serif;
-  --mono:   'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --serif:  adobe-caslon-pro, 'Iowan Old Style', Charter, Georgia, serif;
+  --mono:   input-mono, ui-monospace, Menlo, monospace;
 
-  /* Modular scale, ratio 1.2 (minor third), base 1.0625rem */
-  --t-eyebrow: 0.7375rem;   /* base / 1.2² ≈ 11.8px — mono labels */
-  --t-meta:    0.885rem;    /* base / 1.2   ≈ 14.2px — caption/footer */
-  --t-body:    1.0625rem;   /* base         = 17px   — body */
-  --t-lead:    1.275rem;    /* base × 1.2   ≈ 20.4px — lead paragraph */
-  --t-h1:      clamp(1.275rem, 2.6vw, 1.53rem);   /* mono uppercase */
-  --t-h2:      0.7375rem;                         /* mono uppercase eyebrow */
+  /* Modular scale, ratio 1.2 (minor third), base 1.125rem.
+     Base lifted from 1.0625 to compensate Caslon's lower x-height vs Source Serif. */
+  --t-eyebrow: 0.78rem;     /* base / 1.2² ≈ 12.5px — mono labels */
+  --t-meta:    0.9375rem;   /* base / 1.2  ≈ 15px   — caption/footer */
+  --t-body:    1.125rem;    /* base        = 18px   — body */
+  --t-lead:    1.35rem;     /* base × 1.2  ≈ 21.6px — lead/tagline */
+  --t-h1:      clamp(1.35rem, 2.6vw, 1.62rem);    /* mono uppercase */
+  --t-h2:      0.78rem;                            /* mono uppercase eyebrow */
 
   --lh-tight:  1.25;
   --lh-body:   1.55;
@@ -325,6 +306,12 @@ footer p {
   letter-spacing: 0.04em;
   color: var(--fg-dim);
 }
+.footer-privacy a {
+  color: var(--fg-dim);
+  text-decoration-thickness: 1px;
+}
+.footer-privacy a:hover,
+.footer-privacy a:focus-visible { color: var(--fg); }
 
 /* Light mode */
 body.light {
