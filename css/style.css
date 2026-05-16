@@ -5,14 +5,14 @@ html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
 
 :root {
   --bg:           #0f0f0f;
-  --fg:           #d8d4cd;   /* 12.4:1 AAA */
-  --fg-dim:       #a8a39c;   /*  8.0:1 AAA */
-  --accent:       #c8a96e;   /*  9.0:1 AAA */
-  --border-strong:#4a463f;   /*  3.0:1 non-text */
+  --fg:           #d8d4cd;   
+  --fg-dim:       #a8a39c;   
+  --accent:       #c8a96e;   
+  --border-strong:#4a463f;   
 
   --sans: "supria-sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 
-  /* Scale 1.2, base 1.125rem (~18px). eyebrow 12.5 / meta 15 / body 18 / lead 21.6 / h1 21.6–26 */
+
   --t-eyebrow: 0.78rem;
   --t-meta:    0.9375rem;
   --t-body:    1.125rem;
@@ -171,9 +171,9 @@ footer p { margin: 0; font-size: var(--t-meta); color: var(--fg-dim); }
 
 body.light {
   --bg:           #f5f0e8;
-  --fg:           #2a2521;   /* 12.1:1 AAA */
-  --fg-dim:       #534e47;   /*  7.2:1 AAA */
-  --accent:       #7a5b1c;   /*  7.0:1 AAA */
+  --fg:           #2a2521;   
+  --fg-dim:       #534e47;   
+  --accent:       #7a5b1c;   
   --border-strong:#9f9786;
 }
 
