@@ -6,21 +6,20 @@ html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
 :root {
   --bg:           #0f0f0f;
   --fg:           #d8d4cd;   /* 12.4:1 AAA */
-  --fg-dim:       #a8a39c;   /* 8.0:1  AAA — raised from 5.4 for italic readability */
+  --fg-dim:       #a8a39c;   /* 8.0:1  AAA — raised from 5.4 for dim text readability */
   --accent:       #c8a96e;   /* 9.0:1  AAA */
   --border:       #2e2b27;
   --border-strong:#4a463f;
 
-  --serif:  adobe-caslon-pro, 'Iowan Old Style', Charter, Georgia, serif;
+  --sans:   "supria-sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 
-
- 
-  --t-eyebrow: 0.885rem;   
-  --t-meta:    1.0625rem;   
-  --t-body:    1.275rem;     
-  --t-lead:    1.53rem;      
-  --t-h1:      clamp(1.53rem, 3vw, 1.836rem);   
-  --t-h2:      1.0625rem;   
+  /* Scale ratio 1.2, base 1.125rem (~18px) — Supria has high x-height */
+  --t-eyebrow: 0.78rem;     /* ~12.5px — rare */
+  --t-meta:    0.9375rem;   /* ~15px   — captions, footer, photo controls, privacy */
+  --t-body:    1.125rem;    /* ~18px   — body */
+  --t-lead:    1.35rem;     /* ~21.6px — tagline */
+  --t-h1:      clamp(1.35rem, 3vw, 1.62rem);  /* ~21.6–26px — name */
+  --t-h2:      0.78rem;     /* ~12.5px — section labels uppercase */
 
   --lh-tight:  1.2;
   --lh-body:   calc(1em + 0.5rem);
@@ -41,11 +40,10 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: var(--t-body);
   line-height: var(--lh-body);
-  font-feature-settings: "kern", "liga", "onum", "pnum";
-  font-variant-numeric: oldstyle-nums proportional-nums;
+  font-feature-settings: "kern", "liga";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -92,7 +90,7 @@ button {
   position: absolute; top: -4rem; left: var(--s); z-index: 999;
   padding: 0.75rem var(--s);
   background: var(--fg); color: var(--bg);
-  font-family: var(--serif); font-style: italic; font-size: var(--t-meta);
+  font-family: var(--sans); font-size: var(--t-meta);
   transition: top 0.15s ease;
 }
 .skip-link:focus,
@@ -110,9 +108,9 @@ button {
 .lang-toggle {
   display: inline-flex;
   align-items: center;
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: var(--t-meta);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0;
   color: var(--fg-dim);
 }
@@ -150,9 +148,9 @@ button {
 
 .about h1 {
   margin: 0 0 var(--s);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: var(--t-h1);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0;
   color: var(--accent);
   line-height: var(--lh-tight);
@@ -161,17 +159,18 @@ button {
 .about .tagline {
   margin: 0 0 var(--l);
   font-size: var(--t-lead);
-  font-style: italic;
+  font-weight: 400;
   line-height: var(--lh-tight);
   color: var(--fg-dim);
 }
 
 .about h2 {
   margin: 0 0 var(--m);
-  font-family: var(--serif);
-  font-size: var(--t-meta);
-  font-weight: 600;
-  letter-spacing: 0;
+  font-family: var(--sans);
+  font-size: var(--t-h2);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--fg-dim);
   line-height: var(--lh-tight);
 }
@@ -189,9 +188,9 @@ button {
   flex-wrap: wrap;
   gap: var(--m);
   margin-top: var(--l);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: var(--t-body);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0;
 }
 
@@ -208,10 +207,11 @@ button {
 
 .photography h2 {
   margin: 0 0 var(--m);
-  font-family: var(--serif);
-  font-size: var(--t-meta);
-  font-weight: 600;
-  letter-spacing: 0;
+  font-family: var(--sans);
+  font-size: var(--t-h2);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--fg-dim);
   line-height: var(--lh-tight);
 }
@@ -230,9 +230,9 @@ button {
 }
 
 .photo-links a {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: var(--t-body);
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0;
   padding: 0.4rem 0;
 }
@@ -252,8 +252,7 @@ button {
   align-items: center;
   justify-content: space-between;
   margin-top: var(--s);
-  font-family: var(--serif);
-  font-style: italic;
+  font-family: var(--sans);
   font-size: var(--t-meta);
   letter-spacing: 0;
   color: var(--fg-dim);
@@ -297,8 +296,7 @@ footer p {
 .footer-privacy {
   margin-top: 0.25rem;
   font-size: var(--t-meta);
-  font-family: var(--serif);
-  font-style: italic;
+  font-family: var(--sans);
   letter-spacing: 0;
   color: var(--fg-dim);
 }
@@ -313,7 +311,7 @@ footer p {
 body.light {
   --bg:           #f5f0e8;
   --fg:           #2a2521;   /* 12.1:1 AAA */
-  --fg-dim:       #534e47;   /* 7.2:1  AAA — raised from 5.4 for italic readability */
+  --fg-dim:       #534e47;   /* 7.2:1  AAA — raised from 5.4 for dim text readability */
   --accent:       #7a5b1c;   /* 7.0:1  AAA — slightly deepened to match dim AAA */
   --border:       #c9c2b4;
   --border-strong:#9f9786;
