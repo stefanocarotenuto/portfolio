@@ -14,12 +14,13 @@ html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
   --serif:  adobe-caslon-pro, 'Iowan Old Style', Charter, Georgia, serif;
 
 
-  --t-eyebrow: 0.78rem;     
-  --t-meta:    0.9375rem;   
-  --t-body:    1.125rem;    
-  --t-lead:    1.35rem;    
-  --t-h1:      clamp(1.35rem, 2.6vw, 1.62rem);    
-  --t-h2:      0.78rem;                            
+ 
+  --t-eyebrow: 0.885rem;   
+  --t-meta:    1.0625rem;   
+  --t-body:    1.275rem;     
+  --t-lead:    1.53rem;      
+  --t-h1:      clamp(1.53rem, 3vw, 1.836rem);   
+  --t-h2:      1.0625rem;   
 
   --lh-tight:  1.2;
   --lh-body:   calc(1em + 0.5rem);
@@ -29,7 +30,7 @@ html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
   --l:      3rem;
   --xl:     4.5rem;
 
-  --wrap:   min(90vw, 660px);   /* ~66ch on Caslon at 18px */
+  --wrap:   min(90vw, 660px); 
 }
 
 *, *::before, *::after { box-sizing: border-box; }
