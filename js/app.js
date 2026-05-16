@@ -86,7 +86,7 @@
     'skip':           'Skip to content',
     'name':           'Stefano Carotenuto',
     'about-heading':  'About me',
-    'intro':          'Designer and street photographer based in Milan.',
+    'intro':          'Designer and street photographer. I live and work in Milan.',
     'role':           'At the Italian National Research Council (CNR) I currently work on the digital communication strategy for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences and Humanities, Cultural Heritage<span class="vh"> (opens in new tab)</span></a>.',
     'wemed':          'I also contributed to the design of <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMED<span class="vh"> (opens in new tab)</span></a>, a data platform for exploring socioeconomic indicators across the Mediterranean, developed in collaboration between CNR-ISMed and Istat.',
     'photo-heading':  'Street photography',
