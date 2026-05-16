@@ -1,8 +1,8 @@
 /* stefanocarotenuto.it */
 
 @font-face {
-  font-family: 'DM Mono';
-  src: url('../fonts/DMMono-Medium.woff2') format('woff2');
+  font-family: 'JetBrains Mono';
+  src: url('../fonts/JetBrainsMono-Medium.woff2') format('woff2');
   font-weight: 500; font-style: normal; font-display: swap;
 }
 
@@ -36,7 +36,7 @@ html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
   --border-strong:#4a463f;   
 
   --serif:  'Source Serif 4', Charter, 'Iowan Old Style', Georgia, serif;
-  --mono:   'DM Mono', ui-monospace, Menlo, monospace;
+  --mono:   'JetBrains Mono', ui-monospace, Menlo, monospace;
 
   /* Modular scale, ratio 1.2 (minor third), base 1.0625rem */
   --t-eyebrow: 0.7375rem;   /* base / 1.2² ≈ 11.8px — mono labels */

@@ -16,7 +16,7 @@ Single-page site built with vanilla HTML, CSS, and JavaScript. No build step, no
 
 - HTML5, CSS custom properties, modular type scale (ratio 1.2)
 - [Splide](https://splidejs.com/) — lightweight carousel for the photography section
-- [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4) (body) + [DM Mono](https://fonts.google.com/specimen/DM+Mono) (labels) — self-hosted WOFF2, latin subset (~62KB total, preloaded)
+- [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4) (body) + [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) (labels) — self-hosted WOFF2, latin subset (~62KB total, preloaded)
 - [Iconoir](https://iconoir.com) — `arrow-up-right` icon, inlined as SVG and injected by JS into all external links
 - Schema.org structured data (JSON-LD, `Person`)
 - Hosted on GitHub Pages with a custom domain
