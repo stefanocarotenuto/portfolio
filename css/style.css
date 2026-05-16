@@ -143,7 +143,7 @@ button {
 .about {
   margin-bottom: var(--xl);
   padding-bottom: var(--xl);
-  border-bottom: 1px solid var(--border-strong);
+  border-bottom: 3px solid var(--border-strong);
 }
 
 .about h1 {
