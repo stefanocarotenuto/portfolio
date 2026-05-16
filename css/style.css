@@ -6,27 +6,55 @@
   font-weight: 500; font-style: normal; font-display: swap;
 }
 
-:root {
-  --bg:     #0f0f0f;
-  --fg:     #e2ddd6;   /* 12:1 */
-  --fg-dim: #8a8480;   /* 5.1:1 — raised from 4.5 for small text */
-  --accent: #c8a96e;   /* 7.1:1 */
-  --border: #252320;
+@font-face {
+  font-family: 'Source Serif 4';
+  src: url('../fonts/SourceSerif4-Regular.woff2') format('woff2');
+  font-weight: 400; font-style: normal; font-display: swap;
+}
 
-  --serif:  Georgia, 'Times New Roman', serif;
+@font-face {
+  font-family: 'Source Serif 4';
+  src: url('../fonts/SourceSerif4-Italic.woff2') format('woff2');
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+
+@font-face {
+  font-family: 'Source Serif 4';
+  src: url('../fonts/SourceSerif4-Semibold.woff2') format('woff2');
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+
+html:not(.fonts-loaded) body { opacity: 0; }
+html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
+
+:root {
+  --bg:           #0f0f0f;
+  --fg:           #e2ddd6;   /* 13.7:1 AAA */
+  --fg-dim:       #8a8480;   /* 5.4:1  AA  */
+  --accent:       #c8a96e;   /* 9.0:1  AAA */
+  --border:       #2e2b27;   /* 1.6:1 — hairline decorative */
+  --border-strong:#4a463f;   /* 3.0:1 — UI separators */
+
+  --serif:  'Source Serif 4', Charter, 'Iowan Old Style', Georgia, serif;
   --mono:   'DM Mono', ui-monospace, Menlo, monospace;
 
-  --xs:     0.75rem;
-  --base:   1.125rem;
-  --md:     1.25rem;
-  --h2:     clamp(1.75rem, 4.5vw, 2.5rem);
+  /* Modular scale, ratio 1.2 (minor third), base 1.0625rem */
+  --t-eyebrow: 0.7375rem;   /* base / 1.2² ≈ 11.8px — mono labels */
+  --t-meta:    0.885rem;    /* base / 1.2   ≈ 14.2px — caption/footer */
+  --t-body:    1.0625rem;   /* base         = 17px   — body */
+  --t-lead:    1.275rem;    /* base × 1.2   ≈ 20.4px — lead paragraph */
+  --t-h1:      clamp(1.275rem, 2.6vw, 1.53rem);   /* mono uppercase */
+  --t-h2:      0.7375rem;                         /* mono uppercase eyebrow */
+
+  --lh-tight:  1.25;
+  --lh-body:   1.55;
 
   --s:      1rem;
   --m:      2rem;
   --l:      3rem;
   --xl:     4.5rem;
 
-  --wrap:   min(90vw, 680px);
+  --wrap:   min(90vw, 620px);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -38,10 +66,13 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--serif);
-  font-size: var(--base);
-  line-height: 1.7;
+  font-size: var(--t-body);
+  line-height: var(--lh-body);
+  font-feature-settings: "kern", "liga", "onum", "pnum";
+  font-variant-numeric: oldstyle-nums proportional-nums;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -50,9 +81,22 @@ a {
   color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.5px;
 }
 a:hover, a:focus-visible { text-decoration: none; }
+
+/* External link arrow (Iconoir arrow-up-right, inserted via JS) */
+.ext-icon {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-left: 0.2em;
+  vertical-align: baseline;
+  transform: translateY(0.05em);
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
 
 button {
   font: inherit; color: inherit;
@@ -72,11 +116,46 @@ button {
   position: absolute; top: -4rem; left: var(--s); z-index: 999;
   padding: 0.75rem var(--s);
   background: var(--fg); color: var(--bg);
-  font-family: var(--mono); font-size: var(--xs);
+  font-family: var(--mono); font-size: var(--t-eyebrow);
   transition: top 0.15s ease;
 }
 .skip-link:focus,
 .skip-link:focus-visible { top: 0.75rem; }
+
+/* Top utility bar (lang + theme) */
+.utility-bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-bottom: var(--m);
+}
+
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: var(--t-eyebrow);
+  letter-spacing: 0.08em;
+  color: var(--fg-dim);
+}
+
+.lang-toggle button {
+  min-height: 44px;
+  padding: 0 0.5rem;
+  color: var(--fg-dim);
+  letter-spacing: 0.08em;
+  transition: color 0.15s ease;
+}
+.lang-toggle button[aria-pressed="true"] {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
+.lang-toggle button:hover,
+.lang-toggle button:focus-visible { color: var(--accent); }
+.lang-toggle .sep { color: var(--fg-dim); opacity: 0.5; }
 
 /* Layout */
 .page-wrap {
@@ -89,22 +168,29 @@ button {
 .about {
   margin-bottom: var(--xl);
   padding-bottom: var(--xl);
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-strong);
 }
 
 .about h1 {
   margin: 0 0 var(--m);
   font-family: var(--mono);
-  font-size: var(--md);
+  font-size: var(--t-h1);
   font-weight: 500;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
+  line-height: var(--lh-tight);
 }
 
 .about p {
   margin: 0 0 var(--s);
-  font-size: var(--md);
+  font-size: var(--t-lead);
+  line-height: var(--lh-body);
+  hanging-punctuation: first last;
+}
+.about p:first-of-type {
+  font-style: italic;
+  color: var(--fg);
 }
 .about p:last-child { margin-bottom: 0; }
 
@@ -118,16 +204,17 @@ button {
 .photography h2 {
   margin: 0 0 var(--m);
   font-family: var(--mono);
-  font-size: var(--xs);
+  font-size: var(--t-h2);
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--fg-dim);
+  line-height: var(--lh-tight);
 }
 
 .photography p {
   margin: 0 0 var(--s);
-  font-size: var(--md);
+  font-size: var(--t-body);
 }
 .photography p:last-of-type { margin-bottom: 0; }
 
@@ -140,10 +227,9 @@ button {
 
 .photo-links a {
   font-family: var(--mono);
-  font-size: var(--xs);
+  font-size: var(--t-eyebrow);
   font-weight: 500;
   letter-spacing: 0.08em;
-  /* min touch target via padding without affecting layout */
   padding: 0.4rem 0;
 }
 
@@ -163,9 +249,10 @@ button {
   justify-content: space-between;
   margin-top: var(--s);
   font-family: var(--mono);
-  font-size: var(--xs);
+  font-size: var(--t-eyebrow);
   letter-spacing: 0.06em;
   color: var(--fg-dim);
+  font-variant-numeric: tabular-nums;
 }
 
 .photo-controls div {
@@ -174,13 +261,12 @@ button {
 }
 
 .photo-controls button {
-  /* 44×44px minimum touch target (WCAG 2.5.5) */
   min-width: 44px;
   min-height: 44px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--base);
+  font-size: var(--t-body);
   color: var(--fg-dim);
   transition: color 0.15s ease;
   line-height: 1;
@@ -194,7 +280,10 @@ footer {
   width: var(--wrap);
   margin: 0 auto;
   padding: var(--m) 0 var(--l);
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--border-strong);
+}
+
+.footer-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -204,44 +293,47 @@ footer {
 
 footer p {
   margin: 0;
-  font-size: var(--base);
+  font-size: var(--t-meta);
+  color: var(--fg-dim);
+}
+
+.footer-privacy {
+  margin-top: var(--s);
+  font-size: var(--t-eyebrow);
+  font-family: var(--mono);
+  letter-spacing: 0.04em;
+  color: var(--fg-dim);
 }
 
 footer nav {
   display: flex;
   gap: 0;
   font-family: var(--mono);
-  font-size: var(--xs);
+  font-size: var(--t-eyebrow);
   letter-spacing: 0.06em;
 }
 
-/* 44px touch targets on footer links */
 footer nav a {
   padding: 0.75rem var(--m) 0.75rem 0;
   color: var(--accent);
-  text-decoration: underline; 
+  text-decoration: underline;
   text-underline-offset: 4px;
-  text-decoration-thickness: 1px;
+  text-decoration-thickness: 1.5px;
 }
 footer nav a:hover,
 footer nav a:focus-visible { text-decoration: none; }
 
 /* Light mode */
 body.light {
-  --bg:     #f5f0e8;
-  --fg:     #1a1614;   /* 14:1 */
-  --fg-dim: #6b6460;   /* 5.2:1 */
-  --accent: #8a6620;   /* 7:1 — AA all sizes */
-  --border: #ddd8ce;
+  --bg:           #f5f0e8;
+  --fg:           #1a1614;   
+  --fg-dim:       #6b6460;   
+  --accent:       #8a6620;   
+  --border:       #c9c2b4;   
+  --border-strong:#9f9786;   
 }
 
 /* Theme toggle */
-.theme-toggle-wrap {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: var(--m);
-}
-
 #toggle-theme {
   min-width: 44px;
   min-height: 44px;

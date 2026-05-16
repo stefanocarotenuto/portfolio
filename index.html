@@ -1,18 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stefano Carotenuto</title>
-  <meta name="description" content="Stefano Carotenuto — designer and photographer based in Milan.">
+  <meta name="description" content="Stefano Carotenuto — designer e fotografo di strada, con base a Milano.">
 
   <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
   <link rel="canonical" href="https://www.stefanocarotenuto.it/">
 
+  <link rel="preload" href="fonts/SourceSerif4-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/SourceSerif4-Italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/DMMono-Medium.woff2" as="font" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/splide-core.min.css">
+
+  <script>
+    (function () {
+      var html = document.documentElement;
+      function ready() { html.classList.add('fonts-loaded'); }
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(ready);
+        setTimeout(ready, 300);
+      } else {
+        ready();
+      }
+    })();
+  </script>
 
   <script type="application/ld+json">
   {
@@ -20,7 +35,7 @@
     "@type": "Person",
     "name": "Stefano Carotenuto",
     "url": "https://www.stefanocarotenuto.it",
-    "jobTitle": "Research Technician - CTER",
+    "jobTitle": "Research Technician — CTER",
     "worksFor": {
       "@type": "Organization",
       "name": "National Research Council — CNR",
@@ -42,30 +57,35 @@
 
 <body>
 
-  <a class="skip-link" href="#main-content">Skip to content</a>
+  <a class="skip-link" href="#main-content" data-i18n="skip">Vai al contenuto</a>
 
 
   <main id="main-content">
 
     <div class="page-wrap">
 
-      <div class="theme-toggle-wrap">
-        <button id="toggle-theme" aria-pressed="false" aria-label="Switch to light mode">
+      <div class="utility-bar">
+        <div class="lang-toggle" role="group" aria-label="Lingua">
+          <button type="button" data-lang="it" aria-pressed="true">IT</button>
+          <span class="sep" aria-hidden="true">/</span>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button id="toggle-theme" aria-pressed="false" aria-label="Switch to light mode" title="Switch to light mode">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         </button>
       </div>
 
       <!-- ABOUT -->
       <section class="about" aria-label="About">
-        <h1>Stefano Carotenuto</h1>
-        <p>
-          Designer and street photographer based in Milan.
+        <h1 data-i18n="name">Stefano Carotenuto</h1>
+        <p data-i18n="intro">
+          Designer e fotografo di strada, con base a Milano.
         </p>
-        <p>
-          At the Italian National Research Council (CNR) I work on the digital communication strategy for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social sciences and humanities, cultural heritage<span class="visually-hidden"> (opens in new tab)</span></a>.
+        <p data-i18n="role">
+          Al Consiglio Nazionale delle Ricerche (CNR) curo attualmente la strategia di comunicazione digitale del <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Dipartimento di Scienze umane e sociali, patrimonio culturale<span class="visually-hidden"> (apre in una nuova scheda)</span></a>.
         </p>
-        <p>
-          I also contributed to the design of <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMED<span class="visually-hidden"> (opens in new tab)</span></a>, a data platform for exploring socioeconomic indicators across the Mediterranean, developed in collaboration between CNR-ISMed and Istat.
+        <p data-i18n="wemed">
+          Ho inoltre contribuito al design di <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMED<span class="visually-hidden"> (apre in una nuova scheda)</span></a>, una piattaforma per esplorare gli indicatori socioeconomici del Mediterraneo, sviluppata in collaborazione tra CNR-ISMed e Istat.
         </p>
       </section>
 
@@ -73,16 +93,16 @@
       <section class="photography" aria-labelledby="photo-heading">
 
         <div>
-          <h2 id="photo-heading">Street photography</h2>
-          <p>
-            When I'm not in front of a screen, I walk and photograph.
+          <h2 id="photo-heading" data-i18n="photo-heading">Fotografia di strada</h2>
+          <p data-i18n="photo-intro">
+            Quando non sono davanti a uno schermo, cammino e fotografo.
           </p>
-          <p>
-            My work has been recognised by Magnum photographers Martin Parr and Steve McCurry. I have exhibited at the HistoryMiami Museum during Art Basel Miami and been featured in magazines such as Corriere della Sera Style Magazine.
+          <p data-i18n="photo-bio">
+            Il mio lavoro è stato riconosciuto dai fotografi Magnum Martin Parr e Steve McCurry. Ho esposto allo HistoryMiami Museum durante Art Basel Miami 2019 e alcune mie fotografie sono state pubblicate su riviste come Style Magazine del Corriere della Sera.
           </p>
           <nav class="photo-links" aria-label="Photography links">
-            <a href="https://www.flaneurat.work/" target="_blank" rel="noopener noreferrer">Have a look at my visual diary ↗<span class="visually-hidden"> (opens in new tab)</span></a>
-            <a href="https://www.dropbox.com/scl/fi/q4da6wywybyb0oocwphnd/Photography-Resume-Stefano-Carotenuto.pdf?rlkey=w8fn8a2os7mlmak4pw2qkwkbh&dl=0" target="_blank" rel="noopener noreferrer">Download Photography resume ↗<span class="visually-hidden"> (opens in new tab)</span></a>
+            <a href="https://www.flaneurat.work/" target="_blank" rel="noopener noreferrer" data-i18n="link-diary">Sfoglia il mio diario visivo<span class="visually-hidden"> (apre in una nuova scheda)</span></a>
+            <a href="https://www.dropbox.com/scl/fi/q4da6wywybyb0oocwphnd/Photography-Resume-Stefano-Carotenuto.pdf?rlkey=w8fn8a2os7mlmak4pw2qkwkbh&dl=0" target="_blank" rel="noopener noreferrer" data-i18n="link-cv">Scarica il curriculum fotografico<span class="visually-hidden"> (apre in una nuova scheda)</span></a>
           </nav>
         </div>
 
@@ -134,12 +154,15 @@
   </main>
 
   <footer role="contentinfo">
-    <p>© 2026 Stefano Carotenuto · Milan, Italy</p>
-    <nav aria-label="Contact links">
-      <a href="#" id="email-link">Email</a>
-      <a href="https://www.linkedin.com/in/stefanocarotenuto/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a>
-      <a href="https://www.instagram.com/stefcarotenu" target="_blank" rel="noopener noreferrer">Instagram<span class="visually-hidden"> (opens in new tab)</span></a>
-    </nav>
+    <div class="footer-row">
+      <p data-i18n="footer-credit">© 2026 Stefano Carotenuto · Milano, Italia</p>
+      <nav aria-label="Contact links">
+        <a href="mailto:stefano.carotenuto@gmail.com" id="email-link" data-i18n="link-email">Email</a>
+        <a href="https://www.linkedin.com/in/stefanocarotenuto/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (apre in una nuova scheda)</span></a>
+        <a href="https://www.instagram.com/stefcarotenu" target="_blank" rel="noopener noreferrer">Instagram<span class="visually-hidden"> (apre in una nuova scheda)</span></a>
+      </nav>
+    </div>
+    <p class="footer-privacy" data-i18n="privacy">Questo sito non usa cookie né raccoglie dati personali.</p>
   </footer>
 
   <script src="js/splide.min.js"></script>
