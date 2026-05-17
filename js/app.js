@@ -32,11 +32,7 @@
     });
   }
 
-  /* ─── LANGUAGE TOGGLE (IT default in HTML, EN overlay) ───
-     Italian content lives in the HTML (source of truth, also seen by
-     no-JS visitors and search engines). English is applied as an overlay
-     from the EN dictionary below. The original IT strings are snapshotted
-     from the DOM at boot, so switching IT → EN → IT is lossless. */
+
   const EN = {
     'skip':              'Skip to content',
     'name':              'Stefano Carotenuto',
