@@ -34,18 +34,18 @@
 
 
   const EN = {
-    'skip':              'Skip to content',
-    'name':              'Stefano Carotenuto',
-    'intro':             'Designer and street photographer. I live and work in Milan.',
-    'about-heading':     'At a glance',
-    'role':              'I work at the Italian National Research Council (CNR), where I currently lead the digital communication strategy of the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences, Humanities and Cultural Heritage<span class="vh"> (opens in new tab)</span></a>.',
-    'link-email-work':   'Work email',
-    'photo-heading':     'On the street',
-    'photo-intro':       'In my spare time, I photograph as I wander.',
-    'photo-bio':         'My photographs have been recognised by Magnum photographers Martin Parr and Steve McCurry. I’ve exhibited at the HistoryMiami Museum during Art Basel Miami and some of my work has appeared in magazines such as Corriere della Sera Style Magazine. <a href="https://www.flaneurat.work/" target="_blank" rel="noopener noreferrer">Have a look at my photo diary<span class="vh"> (opens in new tab)</span></a>',
+    'skip':                'Skip to content',
+    'name':                'Stefano Carotenuto',
+    'intro':               'Designer and street photographer.',
+    'about-heading':       'At a glance',
+    'role':                'Born and raised in Naples, now based in Milan. At the Italian National Research Council (CNR), I lead the digital communication strategy for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences, Humanities and Cultural Heritage<span class="vh"> (opens in new tab)</span></a>.',
+    'link-email-work':     'Work email',
+    'photo-heading':       'On the street',
+    'photo-intro':         'In my spare time, I take photographs as I walk.',
+    'photo-bio':           'My work has been praised by Magnum photographers Martin Parr and Steve McCurry. I’ve exhibited at the HistoryMiami Museum during Art Basel Miami, and some of my photographs have appeared in magazines such as Corriere della Sera’s Style Magazine. <a href="https://www.flaneurat.work/" target="_blank" rel="noopener noreferrer">Browse my photo diary<span class="vh"> (opens in new tab)</span></a>',
     'link-email-personal': 'Personal email',
-    'footer-credit':     '© 2026 Stefano Carotenuto · Milan, Italy',
-    'privacy':           'This site uses no cookies and collects no personal data. The Supria Sans font is loaded via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/adobe-fonts.html" target="_blank" rel="noopener noreferrer">privacy policy<span class="vh"> (opens in new tab)</span></a>).',
+    'footer-credit':       '© 2026 Stefano Carotenuto · Milan, Italy',
+    'privacy':             'This site uses no cookies and collects no personal data. The typeface, Supria Sans, is served via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/adobe-fonts.html" target="_blank" rel="noopener noreferrer">privacy policy<span class="vh"> (opens in new tab)</span></a>).',
   };
 
   const IT = {};
