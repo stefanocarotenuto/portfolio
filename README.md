@@ -29,7 +29,6 @@ Total payload at first paint: **~42 KB** (HTML + CSS + JS + Typekit CSS + 1 WOFF
 
 - **Dark / light theme toggle** — palettes verified for WCAG **AAA** contrast across all text (12.4:1 body / 8.0:1 dim / 9.0:1 accent in dark mode; 12.1 / 7.2 / 7.0 in light mode)
 - **IT / EN language toggle** — Italian is the source language (lives in the HTML, also visible to no-JS visitors and search engines); English is applied as a runtime overlay from a JS dictionary, persisted in `localStorage`, auto-detected from `navigator.language`
-- **Anti-FOUT** — `document.fonts.ready` API hides body until web fonts are applied (with a 300ms safety fallback), eliminating the font-swap flicker
 - **Accessibility** — semantic landmarks (`<header>`, `<section>`, `<nav>`, `<footer>`), skip link, 44×44px touch targets, `aria-pressed` on toggles, focus-visible outlines, `prefers-reduced-motion` respected
 - **Privacy** — no cookies, no analytics, no tracking. Only Adobe Fonts CDN is contacted for the typeface
 

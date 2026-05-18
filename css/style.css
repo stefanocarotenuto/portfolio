@@ -1,8 +1,5 @@
 /* stefanocarotenuto.it */
 
-html:not(.fonts-loaded) body { opacity: 0; }
-html.fonts-loaded body { opacity: 1; transition: opacity 0.15s ease-in; }
-
 :root {
   --bg:     #0f0f0f;
   --fg:     #d8d4cd;   /* 12.4:1 AAA */
