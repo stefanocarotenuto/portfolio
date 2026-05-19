@@ -2,9 +2,9 @@
 
 :root {
   --bg:     #0f0f0f;
-  --fg:     #d8d4cd;   /* 12.4:1 AAA */
-  --fg-dim: #a8a39c;   /*  8.0:1 AAA */
-  --accent: #c8a96e;   /*  9.0:1 AAA */
+  --fg:     #d8d4cd;
+  --fg-dim: #a8a39c;
+  --accent: #c8a96e;
 
   --sans: "supria-sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
 
@@ -15,10 +15,10 @@
   --t-lead:    1.35rem;
   --t-h1:      clamp(1.35rem, 3vw, 1.62rem);
 
-  --lh-tight: 1.2;
+  --lh-tight: 1.1;
   --lh-body:  calc(1em + 0.5rem);
 
-  --s: 1rem;  --m: 2rem;  --l: 3rem;  --xl: 4.5rem;
+  --s: 1rem;  --m: 2rem;  --l: 3rem;  --xl: 4.5rem;  --xxl: 6rem;
   --wrap: min(90vw, 660px);
 }
 
@@ -34,6 +34,7 @@ body {
   line-height: var(--lh-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  isolation: isolate;
 }
 
 img { max-width: 100%; height: auto; display: block; }
@@ -80,15 +81,16 @@ main {
   width: var(--wrap);
   margin: 0 auto;
   padding: var(--xl) 0 0;
+  background: var(--bg);
 }
 
 @media (min-width: 768px) {
   main {
-    margin-left: var(--xl);
+    margin-left: var(--xxl);
     margin-right: auto;
   }
   footer {
-    margin-left: var(--xl) !important;
+    margin-left: var(--xxl) !important;
     margin-right: auto;
   }
 }
@@ -139,6 +141,7 @@ main {
 footer {
   width: var(--wrap); margin: 0 auto;
   padding: var(--xl) 0 var(--l);
+  background: var(--bg);
 }
 footer p { margin: 0; font-size: var(--t-meta); color: var(--fg-dim); }
 .footer-privacy { margin-top: 0.25rem; }
@@ -146,10 +149,21 @@ footer p { margin: 0; font-size: var(--t-meta); color: var(--fg-dim); }
 .footer-privacy a:hover, .footer-privacy a:focus-visible { color: var(--fg); }
 
 body.light {
-  --bg:     #f5f0e8;
-  --fg:     #2a2521;   /* 12.1:1 AAA */
-  --fg-dim: #534e47;   /*  7.2:1 AAA */
-  --accent: #7a5b1c;   /*  7.0:1 AAA */
+  --bg:     #fff;
+  --fg:     #2a2521;   
+  --fg-dim: #534e47;   
+  --accent: #0b66c2;  
+}
+
+#neural-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+@media (min-width: 768px) {
+  #neural-bg { display: block; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -157,4 +171,5 @@ body.light {
     transition-duration: 1ms !important;
     scroll-behavior: auto !important;
   }
+  #neural-bg { display: none !important; }
 }

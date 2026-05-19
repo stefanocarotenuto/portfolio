@@ -38,7 +38,8 @@
     'name':                'Stefano Carotenuto',
     'intro':               'Designer and street photographer.',
     'about-heading':       'At a glance',
-    'role':                'Born and raised in Naples, now based in Milan. At the Italian National Research Council (CNR), I lead the digital communication strategy for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences, Humanities and Cultural Heritage<span class="vh"> (opens in new tab)</span></a>.',
+    'born':                'Born and raised in Naples, now based in Milan.',
+    'role':                'At the Italian National Research Council (CNR), I lead the digital communication strategy for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences, Humanities and Cultural Heritage<span class="vh"> (opens in new tab)</span></a>.',
     'link-email-work':     'Work email',
     'photo-heading':       'On the street',
     'photo-intro':         'In my spare time, I take photographs as I walk.',
@@ -79,11 +80,278 @@
     });
   }
 
+  /* ─── NEURAL-NETWORK BACKGROUND ──────────────────── */
+  function initNeuralBg() {
+    const canvas = document.getElementById('neural-bg');
+    if (!canvas) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const ctx = canvas.getContext('2d');
+    const MAX_DIST = 130;
+    const MOUSE_INFLUENCE = 130;
+    const MOUSE_TRIGGER = 28;
+    let nodes = [];
+    let pulses = [];
+    let halos = [];
+    let raf = 0;
+    let running = false;
+    let accent = '#c8a96e';
+    let strip = { x: 0, w: window.innerWidth };
+    let mouse = { x: -9999, y: -9999, active: false };
+
+    function readAccent() {
+      const v = getComputedStyle(document.body).getPropertyValue('--accent').trim();
+      if (v) accent = v;
+    }
+
+    function rgba(hex, a) {
+      const h = hex.replace('#', '');
+      const r = parseInt(h.slice(0, 2), 16);
+      const g = parseInt(h.slice(2, 4), 16);
+      const b = parseInt(h.slice(4, 6), 16);
+      return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+    }
+
+    function setSize() {
+      const dpr = window.devicePixelRatio || 1;
+      const w = window.innerWidth, h = window.innerHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function measureStrip() {
+      const main = document.querySelector('main');
+      if (!main) {
+        strip = { x: 0, w: window.innerWidth };
+        return;
+      }
+      const rect = main.getBoundingClientRect();
+      strip = { x: Math.round(rect.right + 32), w: window.innerWidth };
+    }
+
+    function initNodes() {
+      const h = window.innerHeight;
+      const stripW = strip.w - strip.x;
+      if (stripW < 80) { nodes = []; pulses = []; halos = []; return; }
+      const target = Math.max(30, Math.min(140, Math.round(stripW * h / 7000)));
+      nodes = [];
+      for (let i = 0; i < target; i++) {
+        nodes.push({
+          x: strip.x + Math.random() * stripW,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.12,
+          vy: (Math.random() - 0.5) * 0.12,
+          size: 0.9 + Math.random() * 1.4,
+          fire: 0,
+          cooldown: Math.random() * 120,
+        });
+      }
+      pulses = [];
+      halos = [];
+    }
+
+    function fireNode(idx) {
+      const a = nodes[idx];
+      if (!a || a.cooldown > 0) return;
+      a.fire = 1;
+      a.cooldown = 140 + Math.random() * 100;
+      halos.push({ x: a.x, y: a.y, age: 0, max: 55 });
+      const cands = [];
+      for (let j = 0; j < nodes.length; j++) {
+        if (j === idx) continue;
+        const b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < MAX_DIST * MAX_DIST) cands.push(j);
+      }
+      // shuffle
+      for (let k = cands.length - 1; k > 0; k--) {
+        const r = Math.floor(Math.random() * (k + 1));
+        [cands[k], cands[r]] = [cands[r], cands[k]];
+      }
+      const n = Math.min(cands.length, 1 + Math.floor(Math.random() * 2));
+      for (let k = 0; k < n; k++) {
+        pulses.push({
+          from: idx,
+          to: cands[k],
+          t: 0,
+          speed: 0.012 + Math.random() * 0.018,
+        });
+      }
+    }
+
+    function frame() {
+      const w = window.innerWidth, h = window.innerHeight;
+      ctx.clearRect(0, 0, w, h);
+      readAccent();
+
+      for (const n of nodes) {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < strip.x) { n.x = strip.x; n.vx *= -1; }
+        if (n.x > strip.w) { n.x = strip.w; n.vx *= -1; }
+        if (n.y < 0) { n.y = 0; n.vy *= -1; }
+        if (n.y > h) { n.y = h; n.vy *= -1; }
+        if (n.fire > 0) n.fire = Math.max(0, n.fire - 0.014);
+        if (n.cooldown > 0) n.cooldown -= 1;
+      }
+
+      // mouse influence: brighten and optionally fire nearby nodes
+      if (mouse.active) {
+        for (let i = 0; i < nodes.length; i++) {
+          const n = nodes[i];
+          const dx = n.x - mouse.x, dy = n.y - mouse.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < MOUSE_INFLUENCE * MOUSE_INFLUENCE) {
+            const d = Math.sqrt(d2);
+            const f = (1 - d / MOUSE_INFLUENCE) * 0.55;
+            if (n.fire < f) n.fire = f;
+            if (d < MOUSE_TRIGGER) fireNode(i);
+          }
+        }
+      }
+
+      // faint connection web
+      ctx.lineWidth = 0.8;
+      for (let i = 0; i < nodes.length; i++) {
+        const a = nodes[i];
+        for (let j = i + 1; j < nodes.length; j++) {
+          const b = nodes[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < MAX_DIST * MAX_DIST) {
+            const d = Math.sqrt(d2);
+            ctx.strokeStyle = rgba(accent, (1 - d / MAX_DIST) * 0.05);
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // firing halos (expanding ring)
+      for (let i = halos.length - 1; i >= 0; i--) {
+        const ho = halos[i];
+        ho.age += 1;
+        if (ho.age >= ho.max) { halos.splice(i, 1); continue; }
+        const t = ho.age / ho.max;
+        const r = 3 + t * 18;
+        ctx.strokeStyle = rgba(accent, (1 - t) * 0.15);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(ho.x, ho.y, r, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // pulses with lit traveled path
+      for (let i = pulses.length - 1; i >= 0; i--) {
+        const p = pulses[i];
+        p.t += p.speed;
+        const a = nodes[p.from], b = nodes[p.to];
+        if (!a || !b) { pulses.splice(i, 1); continue; }
+        if (p.t >= 1) {
+          if (Math.random() < 0.2) fireNode(p.to);
+          pulses.splice(i, 1);
+          continue;
+        }
+        const x = a.x + (b.x - a.x) * p.t;
+        const y = a.y + (b.y - a.y) * p.t;
+        const lit = ctx.createLinearGradient(a.x, a.y, x, y);
+        lit.addColorStop(0, rgba(accent, 0));
+        lit.addColorStop(0.7, rgba(accent, 0.06));
+        lit.addColorStop(1, rgba(accent, 0.28));
+        ctx.strokeStyle = lit;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        const grad = ctx.createRadialGradient(x, y, 0, x, y, 10);
+        grad.addColorStop(0, rgba(accent, 0.4));
+        grad.addColorStop(0.45, rgba(accent, 0.12));
+        grad.addColorStop(1, rgba(accent, 0));
+        ctx.fillStyle = grad;
+        ctx.fillRect(x - 10, y - 10, 20, 20);
+        ctx.fillStyle = rgba(accent, 0.55);
+        ctx.beginPath();
+        ctx.arc(x, y, 1.2, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // nodes (with firing glow)
+      for (const n of nodes) {
+        if (n.fire > 0.05) {
+          const gr = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, 9);
+          gr.addColorStop(0, rgba(accent, 0.3 * n.fire));
+          gr.addColorStop(1, rgba(accent, 0));
+          ctx.fillStyle = gr;
+          ctx.fillRect(n.x - 9, n.y - 9, 18, 18);
+        }
+        ctx.fillStyle = rgba(accent, 0.22 + 0.4 * n.fire);
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.size * (1 + 0.35 * n.fire), 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // spontaneous firing
+      if (Math.random() < 0.007 && nodes.length > 0) {
+        fireNode(Math.floor(Math.random() * nodes.length));
+      }
+
+      raf = requestAnimationFrame(frame);
+    }
+
+    function start() {
+      if (running) return;
+      if (window.innerWidth < 768) return;
+      running = true;
+      setSize();
+      measureStrip();
+      initNodes();
+      readAccent();
+      raf = requestAnimationFrame(frame);
+    }
+
+    function stop() {
+      running = false;
+      cancelAnimationFrame(raf);
+    }
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        stop();
+        start();
+      }, 150);
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stop();
+      else start();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      mouse.active = e.clientX >= strip.x;
+    });
+    window.addEventListener('mouseout', (e) => {
+      if (!e.relatedTarget) mouse.active = false;
+    });
+
+    start();
+  }
+
   /* ─── BOOT ────────────────────────────────────────── */
   function boot() {
     initLang();
     initTheme();
     decorateExtLinks();
+    initNeuralBg();
   }
 
   if (document.readyState === 'loading') {

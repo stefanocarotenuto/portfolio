@@ -23,12 +23,11 @@ Built with vanilla HTML, CSS and JavaScript. No build step, no framework, no run
 - Schema.org structured data (JSON-LD, `Person`)
 - Hosted on GitHub Pages with a custom domain
 
-Total payload at first paint: **~42 KB** (HTML + CSS + JS + Typekit CSS + 1 WOFF2 latin subset).
-
 ## Features
 
-- **Dark / light theme toggle** — palettes verified for WCAG **AAA** contrast across all text (12.4:1 body / 8.0:1 dim / 9.0:1 accent in dark mode; 12.1 / 7.2 / 7.0 in light mode)
-- **IT / EN language toggle** — Italian is the source language (lives in the HTML, also visible to no-JS visitors and search engines); English is applied as a runtime overlay from a JS dictionary, persisted in `localStorage`, auto-detected from `navigator.language`
+- **Dark / light theme toggle**
+- **IT / EN language toggle** 
+- **Neural-network background**
 - **Accessibility** — semantic landmarks (`<header>`, `<section>`, `<nav>`, `<footer>`), skip link, 44×44px touch targets, `aria-pressed` on toggles, focus-visible outlines, `prefers-reduced-motion` respected
 - **Privacy** — no cookies, no analytics, no tracking. Only Adobe Fonts CDN is contacted for the typeface
 
@@ -36,11 +35,11 @@ Total payload at first paint: **~42 KB** (HTML + CSS + JS + Typekit CSS + 1 WOFF
 
 ```
 .
-├── index.html        # Single-page markup, IT primary
+├── index.html        # Single-page markup, IT primary; <canvas id="neural-bg"> for the animation
 ├── css/
 │   └── style.css     # Design tokens, modular scale, dark/light themes
 ├── js/
-│   └── app.js        # Theme toggle, lang toggle, external-link icons
+│   └── app.js        # Theme toggle, lang toggle, external-link icons, neural-network animation
 ├── fonts/            # (empty — fonts served from Adobe Fonts)
 ├── icons/            # Iconoir SVG references (kept as design source)
 ├── img/              # (empty — gallery removed in favour of external diary)
