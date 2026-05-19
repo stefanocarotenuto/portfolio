@@ -82,6 +82,17 @@ main {
   padding: var(--xl) 0 0;
 }
 
+@media (min-width: 768px) {
+  main {
+    margin-left: var(--xl);
+    margin-right: auto;
+  }
+  footer {
+    margin-left: var(--xl) !important;
+    margin-right: auto;
+  }
+}
+
 .utility-bar { display: flex; align-items: center; justify-content: flex-end; gap: 0.5rem; margin-bottom: var(--m); }
 
 .lang-toggle { display: inline-flex; align-items: center; font-size: var(--t-meta); color: var(--fg-dim); }

@@ -67,22 +67,14 @@
     document.querySelectorAll('.lang-toggle button[data-lang]').forEach((btn) => {
       btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false');
     });
-    try { localStorage.setItem('lang', lang); } catch (_) {}
     decorateExtLinks();
   }
 
   function initLang() {
     snapshotIT();
-    let saved = null;
-    try { saved = localStorage.getItem('lang'); } catch (_) {}
-    const lang = saved || ((navigator.language || 'it').toLowerCase().startsWith('en') ? 'en' : 'it');
-    if (lang === 'en') {
-      applyLang('en');
-    } else {
-      document.documentElement.setAttribute('lang', 'it');
-    }
+    document.documentElement.setAttribute('lang', 'it');
     document.querySelectorAll('.lang-toggle button[data-lang]').forEach((btn) => {
-      btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false');
+      btn.setAttribute('aria-pressed', btn.dataset.lang === 'it' ? 'true' : 'false');
       btn.addEventListener('click', () => applyLang(btn.dataset.lang));
     });
   }
