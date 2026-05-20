@@ -38,7 +38,7 @@
     'name':                'Stefano Carotenuto',
     'intro':               'Designer and street photographer.',
     'about-heading':       'At a glance',
-    'born':                'Born and raised in Naples, now based in Milan.',
+    'short-bio':           'Born and raised in Naples, now based in Milan.',
     'role':                'At the Italian National Research Council (CNR), I lead the digital communication strategy for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences, Humanities and Cultural Heritage<span class="vh"> (opens in new tab)</span></a>.',
     'link-email-work':     'Work email',
     'photo-heading':       'On the street',
