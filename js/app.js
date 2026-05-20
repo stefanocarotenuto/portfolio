@@ -19,6 +19,8 @@
   const ICON_SUN  = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>';
   const ICON_MOON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
 
+  let onThemeChange = null;
+
   function initTheme() {
     const btn = document.getElementById('toggle-theme');
     if (!btn) return;
@@ -29,6 +31,7 @@
       btn.setAttribute('aria-label', label);
       btn.setAttribute('title', label);
       btn.innerHTML = light ? ICON_MOON : ICON_SUN;
+      if (onThemeChange) onThemeChange();
     });
   }
 
@@ -73,10 +76,20 @@
 
   function initLang() {
     snapshotIT();
-    document.documentElement.setAttribute('lang', 'it');
+
+    let stored = null;
+    try { stored = localStorage.getItem('lang'); } catch (e) {}
+    const nav = (navigator.language || 'it').toLowerCase();
+    const detected = nav.startsWith('en') ? 'en' : 'it';
+    const initial = stored === 'en' || stored === 'it' ? stored : detected;
+
+    applyLang(initial);
+
     document.querySelectorAll('.lang-toggle button[data-lang]').forEach((btn) => {
-      btn.setAttribute('aria-pressed', btn.dataset.lang === 'it' ? 'true' : 'false');
-      btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+      btn.addEventListener('click', () => {
+        applyLang(btn.dataset.lang);
+        try { localStorage.setItem('lang', btn.dataset.lang); } catch (e) {}
+      });
     });
   }
 
@@ -95,21 +108,23 @@
     let halos = [];
     let raf = 0;
     let running = false;
-    let accent = '#c8a96e';
+    let accentPrefix = 'rgba(200,169,110,';
     let strip = { x: 0, w: window.innerWidth };
     let mouse = { x: -9999, y: -9999, active: false };
 
     function readAccent() {
       const v = getComputedStyle(document.body).getPropertyValue('--accent').trim();
-      if (v) accent = v;
-    }
-
-    function rgba(hex, a) {
-      const h = hex.replace('#', '');
+      if (!v || v[0] !== '#') return;
+      let h = v.slice(1);
+      if (h.length === 3) h = h[0] + h[0] + h[1] + h[1] + h[2] + h[2];
       const r = parseInt(h.slice(0, 2), 16);
       const g = parseInt(h.slice(2, 4), 16);
       const b = parseInt(h.slice(4, 6), 16);
-      return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+      accentPrefix = 'rgba(' + r + ',' + g + ',' + b + ',';
+    }
+
+    function rgba(a) {
+      return accentPrefix + a + ')';
     }
 
     function setSize() {
@@ -186,7 +201,6 @@
     function frame() {
       const w = window.innerWidth, h = window.innerHeight;
       ctx.clearRect(0, 0, w, h);
-      readAccent();
 
       for (const n of nodes) {
         n.x += n.vx; n.y += n.vy;
@@ -223,7 +237,7 @@
           const d2 = dx * dx + dy * dy;
           if (d2 < MAX_DIST * MAX_DIST) {
             const d = Math.sqrt(d2);
-            ctx.strokeStyle = rgba(accent, (1 - d / MAX_DIST) * 0.05);
+            ctx.strokeStyle = rgba((1 - d / MAX_DIST) * 0.05);
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
@@ -239,7 +253,7 @@
         if (ho.age >= ho.max) { halos.splice(i, 1); continue; }
         const t = ho.age / ho.max;
         const r = 3 + t * 18;
-        ctx.strokeStyle = rgba(accent, (1 - t) * 0.15);
+        ctx.strokeStyle = rgba((1 - t) * 0.15);
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.arc(ho.x, ho.y, r, 0, Math.PI * 2);
@@ -260,9 +274,9 @@
         const x = a.x + (b.x - a.x) * p.t;
         const y = a.y + (b.y - a.y) * p.t;
         const lit = ctx.createLinearGradient(a.x, a.y, x, y);
-        lit.addColorStop(0, rgba(accent, 0));
-        lit.addColorStop(0.7, rgba(accent, 0.06));
-        lit.addColorStop(1, rgba(accent, 0.28));
+        lit.addColorStop(0, rgba(0));
+        lit.addColorStop(0.7, rgba(0.06));
+        lit.addColorStop(1, rgba(0.28));
         ctx.strokeStyle = lit;
         ctx.lineWidth = 1;
         ctx.beginPath();
@@ -270,12 +284,12 @@
         ctx.lineTo(x, y);
         ctx.stroke();
         const grad = ctx.createRadialGradient(x, y, 0, x, y, 10);
-        grad.addColorStop(0, rgba(accent, 0.4));
-        grad.addColorStop(0.45, rgba(accent, 0.12));
-        grad.addColorStop(1, rgba(accent, 0));
+        grad.addColorStop(0, rgba(0.4));
+        grad.addColorStop(0.45, rgba(0.12));
+        grad.addColorStop(1, rgba(0));
         ctx.fillStyle = grad;
         ctx.fillRect(x - 10, y - 10, 20, 20);
-        ctx.fillStyle = rgba(accent, 0.55);
+        ctx.fillStyle = rgba(0.55);
         ctx.beginPath();
         ctx.arc(x, y, 1.2, 0, Math.PI * 2);
         ctx.fill();
@@ -285,12 +299,12 @@
       for (const n of nodes) {
         if (n.fire > 0.05) {
           const gr = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, 9);
-          gr.addColorStop(0, rgba(accent, 0.3 * n.fire));
-          gr.addColorStop(1, rgba(accent, 0));
+          gr.addColorStop(0, rgba(0.3 * n.fire));
+          gr.addColorStop(1, rgba(0));
           ctx.fillStyle = gr;
           ctx.fillRect(n.x - 9, n.y - 9, 18, 18);
         }
-        ctx.fillStyle = rgba(accent, 0.22 + 0.4 * n.fire);
+        ctx.fillStyle = rgba(0.22 + 0.4 * n.fire);
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.size * (1 + 0.35 * n.fire), 0, Math.PI * 2);
         ctx.fill();
@@ -311,7 +325,6 @@
       setSize();
       measureStrip();
       initNodes();
-      readAccent();
       raf = requestAnimationFrame(frame);
     }
 
@@ -343,20 +356,15 @@
       if (!e.relatedTarget) mouse.active = false;
     });
 
+    readAccent();
+    onThemeChange = readAccent;
     start();
   }
 
   /* ─── BOOT ────────────────────────────────────────── */
-  function boot() {
-    initLang();
-    initTheme();
-    decorateExtLinks();
-    initNeuralBg();
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', boot);
-  } else {
-    boot();
-  }
+  // Script is loaded with `defer`, so the DOM is ready when this runs.
+  initLang();
+  initTheme();
+  decorateExtLinks();
+  initNeuralBg();
 })();
