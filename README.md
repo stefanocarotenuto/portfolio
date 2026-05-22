@@ -27,7 +27,6 @@ Built with vanilla HTML, CSS and JavaScript. No build step, no framework, no run
 
 - **Dark / light theme toggle** — palette swap via `body.light` class
 - **IT / EN language toggle** — Italian is the source language in the HTML; English is a runtime overlay from a JS dictionary, auto-detected from `navigator.language` and persisted in `localStorage`
-- **Neural-network background** — `<canvas>` animation in the empty strip to the right of the text column (≥768px). Nodes drift and connect, occasionally firing pulses that may cascade; cursor proximity brightens and triggers nearby neurons. Pauses when the tab is hidden; disabled entirely under `prefers-reduced-motion`
 - **Accessibility** — semantic landmarks (`<header>`, `<section>`, `<nav>`, `<footer>`), skip link, 44×44px touch targets, `aria-pressed` on toggles, focus-visible outlines, `prefers-reduced-motion` respected
 - **Privacy** — no cookies, no analytics, no tracking. Only Adobe Fonts CDN is contacted for the typeface
 
@@ -35,11 +34,11 @@ Built with vanilla HTML, CSS and JavaScript. No build step, no framework, no run
 
 ```
 .
-├── index.html        # Single-page markup, IT primary; <canvas id="neural-bg"> for the animation
+├── index.html        # Single-page markup, IT primary
 ├── css/
 │   └── style.css     # Design tokens, modular scale, dark/light themes
 ├── js/
-│   └── app.js        # Theme toggle, lang toggle, external-link icons, neural-network animation
+│   └── app.js        # Theme toggle, lang toggle, external-link icons
 ├── fonts/            # (empty — fonts served from Adobe Fonts)
 ├── icons/            # Iconoir SVG references (kept as design source)
 ├── img/              # (empty — gallery removed in favour of external diary)
