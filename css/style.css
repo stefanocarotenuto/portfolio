@@ -119,6 +119,10 @@ main {
   font-size: var(--t-lead); font-weight: 400;
   line-height: var(--lh-tight); color: var(--fg-dim);
 }
+.identity .bio {
+  margin: var(--m) 0 0;
+  hanging-punctuation: first last;
+}
 .about h2, .photography h2 {
   margin: 0 0 var(--s);
   font-size: var(--t-eyebrow); font-weight: 700;
