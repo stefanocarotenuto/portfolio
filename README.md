@@ -8,10 +8,7 @@ Personal page of **Stefano Carotenuto** — Designer and street photographer bas
 
 ## Overview
 
-Single-page editorial website. No carousel, no gallery, no images on page — the site is a typographic
-business card linking to the photography work hosted on [flaneurat.work](https://www.flaneurat.work/).
-
-Built with vanilla HTML, CSS and JavaScript. No build step, no framework, no runtime dependencies.
+Single-page website.
 
 **Sections**: identity (name + tagline), about (CNR work), street photography (bio + diary link).
 
@@ -41,7 +38,6 @@ Built with vanilla HTML, CSS and JavaScript. No build step, no framework, no run
 │   └── app.js        # Theme toggle, lang toggle, external-link icons
 ├── fonts/            # (empty — fonts served from Adobe Fonts)
 ├── icons/            # Iconoir SVG references (kept as design source)
-├── img/              # (empty — gallery removed in favour of external diary)
 ├── favicon.ico
 ├── robots.txt
 ├── sitemap.xml

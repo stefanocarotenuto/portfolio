@@ -22,20 +22,31 @@
   function initTheme() {
     const btn = document.getElementById('toggle-theme');
     if (!btn) return;
-    btn.addEventListener('click', () => {
-      const light = document.body.classList.toggle('light');
+    const root = document.documentElement;
+    const meta = document.querySelector('meta[name="theme-color"]');
+
+    function render(light) {
       const label = light ? 'Switch to dark mode' : 'Switch to light mode';
       btn.setAttribute('aria-pressed', light);
       btn.setAttribute('aria-label', label);
       btn.setAttribute('title', label);
       btn.innerHTML = light ? ICON_MOON : ICON_SUN;
+      if (meta) meta.setAttribute('content', light ? '#ffffff' : '#000000');
+    }
+
+    // The inline <head> script may have applied the stored theme before paint.
+    render(root.classList.contains('light'));
+
+    btn.addEventListener('click', () => {
+      const light = root.classList.toggle('light');
+      render(light);
+      try { localStorage.setItem('theme', light ? 'light' : 'dark'); } catch (e) {}
     });
   }
 
 
   const EN = {
     'skip':                'Skip to content',
-    'name':                'Stefano Carotenuto',
     'intro':               'Designer and street photographer.',
     'about-heading':       'At the CNR',
     'short-bio':           'Born and raised in Naples, now based in Milan. With a degree in digital communication, I work in user experience design.',
