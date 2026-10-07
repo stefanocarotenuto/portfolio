@@ -259,19 +259,20 @@ main { padding-top: var(--m); }
    a ogni pubblicazione, sempre agli stessi indirizzi (teaser/1..5): qui non
    va mai toccato niente. 3:2 come gli scatti. Se il diario non risponde
    resta il fondo --photo-edge invece dell'icona di immagine rotta.
-   Nascosta ai lettori di schermo e fuori dal tab: le foto non hanno
-   descrizione e la frase sopra porta gia` al diario. Sotto i 480px restano
-   le prime tre. Nasconderle non basta: Chrome scarica lo stesso le immagini
-   lazy in display:none (misurato). Per questo la 4 e la 5 hanno in index.html
-   una <source media="(max-width: 480px)"> che punta a una GIF vuota in data
-   URI: il browser sceglie quella e non chiede niente al diario. Le due soglie,
-   qui e li`, vanno cambiate insieme. */
+   Didascalia e foto sono UN link solo: la didascalia gli da` il nome per gli
+   screen reader, le foto (alt="", come sul diario) sono il bersaglio grande.
+   Sotto i 480px restano le prime tre. Nasconderle non basta: Chrome scarica
+   lo stesso le immagini lazy in display:none (misurato). Per questo la 4 e
+   la 5 hanno in index.html una <source media="(max-width: 480px)"> che punta
+   a una GIF vuota in data URI: il browser sceglie quella e non chiede niente
+   al diario. Le due soglie, qui e li`, vanno cambiate insieme. */
 .diary-teaser { margin-top: var(--m); }
 .diary-teaser a {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0.5rem;
 }
+.diary-teaser-label { grid-column: 1 / -1; margin-bottom: 0.25rem; }
 .diary-teaser img {
   width: 100%;
   aspect-ratio: 3 / 2;
@@ -281,9 +282,20 @@ main { padding-top: var(--m); }
 }
 .diary-teaser a:hover img { opacity: 0.8; }
 
+/* Da 900px la colonna del testo e` lunga 660px e cinque foto ci starebbero
+   a ~124px l'una. La fila esce dalla misura e arriva al margine destro della
+   pagina, dove finiscono anche i filetti: ~160px a foto. I file da 360px
+   bastano anche a 2x. */
+@media (min-width: 900px) {
+  .diary-teaser { width: calc(var(--page) - 11rem - var(--xl)); }
+  .diary-teaser a { gap: 0.75rem; }
+}
+
+/* nth-of-type e non nth-child: il primo figlio del link e` la didascalia,
+   e nth-child conterebbe anche quella. */
 @media (max-width: 480px) {
   .diary-teaser a { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .diary-teaser picture:nth-child(n + 4) { display: none; }
+  .diary-teaser picture:nth-of-type(n + 4) { display: none; }
 }
 
 /* ─── Colophon ────────────────────────────────────────── */

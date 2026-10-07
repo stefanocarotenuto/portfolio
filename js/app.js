@@ -12,11 +12,14 @@
      UAX #14 vieta l'interruzione prima e dopo di se'. Uno spazio
      successivo resta comunque un punto di a capo valido. */
   const WJ = '\u2060';
+  // Scende anche nei discendenti: nell'anteprima del diario il testo del link
+  // sta in uno span di didascalia, non direttamente dentro <a>.
   function lastTextNodeBefore(parent, stop) {
     let last = null;
-    for (const node of parent.childNodes) {
-      if (node === stop) break;
-      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) last = node;
+    const walker = document.createTreeWalker(parent, NodeFilter.SHOW_TEXT);
+    for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+      if (stop && stop.contains(node)) break;
+      if (node.textContent.trim()) last = node;
     }
     return last;
   }
@@ -40,7 +43,7 @@
         keep.appendChild(icon);
         keep.appendChild(document.createTextNode(WJ));
         textNode.textContent = textNode.textContent.slice(0, tail.index);
-        a.insertBefore(keep, textNode.nextSibling);
+        textNode.parentNode.insertBefore(keep, textNode.nextSibling);
         return;
       }
 
@@ -90,9 +93,10 @@
     'lab':                 'At the Institute for Studies on the Mediterranean (CNR-ISMed) I’m part of the Mediterranean Digital Humanities Lab, which builds digital projects for the humanities — among them <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMed<span class="vh"> (opens in new tab)</span></a>, a statistical platform on the Mediterranean developed with Istat.',
     'link-email-work':     'Work email',
     'photo-heading':       'On the street',
-    'photo-intro':         'In my spare time, I take photographs as I walk.',
-    'photo-bio':           'My work has been praised by Magnum photographers Martin Parr and Steve McCurry. I’ve exhibited at the HistoryMiami Museum during Art Basel Miami, and some of my photographs have appeared in magazines such as Corriere della Sera’s Style Magazine. <a href="https://www.flaneurat.work/" target="_blank" rel="noopener noreferrer">Browse my photo diary<span class="vh"> (opens in new tab)</span></a>',
+    'photo-intro':         'In my spare time I walk with a camera in my pocket.',
+    'photo-bio':           'My work has been praised by Magnum photographers Martin Parr and Steve McCurry. I’ve exhibited at the HistoryMiami Museum during Art Basel Miami, and some of my photographs have appeared in magazines such as Corriere della Sera’s Style Magazine.',
     'link-email-personal': 'Personal email',
+    'teaser-label':        'The latest from my photo diary, flaneurat.work<span class="vh"> (opens in new tab)</span>',
     'avatar-alt':          'Portrait of Stefano Carotenuto',
     'footer-credit':       '© 2026 Stefano Carotenuto · Milan, Italy',
     'privacy':             'This site uses no cookies and collects no personal data. The typeface, Supria Sans, is served via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/adobe-fonts.html" target="_blank" rel="noopener noreferrer">privacy policy<span class="vh"> (opens in new tab)</span></a>); the photo previews come from my diary, flaneurat.work.',
