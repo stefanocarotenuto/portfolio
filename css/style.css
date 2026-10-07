@@ -253,6 +253,39 @@ main { padding-top: var(--m); }
 }
 .contact-links a, .photo-links a { padding: 0.6rem 0; }
 
+/* ─── Anteprima del diario ────────────────────────────── */
+
+/* Le prime cinque foto di flaneurat.work. Le rigenera publish.sh del diario
+   a ogni pubblicazione, sempre agli stessi indirizzi (teaser/1..5): qui non
+   va mai toccato niente. 3:2 come gli scatti. Se il diario non risponde
+   resta il fondo --photo-edge invece dell'icona di immagine rotta.
+   Nascosta ai lettori di schermo e fuori dal tab: le foto non hanno
+   descrizione e la frase sopra porta gia` al diario. Sotto i 480px restano
+   le prime tre. Nasconderle non basta: Chrome scarica lo stesso le immagini
+   lazy in display:none (misurato). Per questo la 4 e la 5 hanno in index.html
+   una <source media="(max-width: 480px)"> che punta a una GIF vuota in data
+   URI: il browser sceglie quella e non chiede niente al diario. Le due soglie,
+   qui e li`, vanno cambiate insieme. */
+.diary-teaser { margin-top: var(--m); }
+.diary-teaser a {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+.diary-teaser img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  background: var(--photo-edge);
+  transition: opacity 0.15s ease;
+}
+.diary-teaser a:hover img { opacity: 0.8; }
+
+@media (max-width: 480px) {
+  .diary-teaser a { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .diary-teaser picture:nth-child(n + 4) { display: none; }
+}
+
 /* ─── Colophon ────────────────────────────────────────── */
 
 footer {
