@@ -4,7 +4,7 @@ Personal page of **Stefano Carotenuto** — Designer and street photographer bas
 
 ## Live
 
-[www.stefanocarotenuto.it](https://www.stefanocarotenuto.it)
+[stefanocarotenuto.it](https://stefanocarotenuto.it)
 
 ## Overview
 
@@ -40,7 +40,7 @@ Single-page website.
 ├── img/              # Portrait: cut-out avatar + full frame for Open Graph
 ├── fonts/            # (empty — fonts served from Adobe Fonts)
 ├── icons/            # Iconoir SVG references (kept as design source)
-├── favicon.ico
+├── favicon.ico       # Favicon set cut from the portrait (+ favicon-32.png, apple-touch-icon.png)
 ├── robots.txt
 ├── sitemap.xml
 └── CNAME
