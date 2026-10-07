@@ -4,12 +4,44 @@
   /* ─── EXTERNAL LINK ICON (Iconoir arrow-up-right) ─── */
   const EXT_ICON = '<svg class="ext-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 19L19 6M19 6v12.48M19 6H6.52" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
+  /* L'icona e' inline-block, e un browser puo' spezzare la riga su
+     entrambi i suoi lati. A sinistra basta legarla all'ultima parola
+     dentro uno span nowrap. A destra lo span non serve, perche' la
+     punteggiatura che segue sta fuori dal link e nessun elemento puo'
+     attraversare </a>: si chiude con un WORD JOINER (U+2060), che per
+     UAX #14 vieta l'interruzione prima e dopo di se'. Uno spazio
+     successivo resta comunque un punto di a capo valido. */
+  const WJ = '\u2060';
+  function lastTextNodeBefore(parent, stop) {
+    let last = null;
+    for (const node of parent.childNodes) {
+      if (node === stop) break;
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) last = node;
+    }
+    return last;
+  }
+
   function decorateExtLinks() {
     const links = document.querySelectorAll('a[target="_blank"]');
     links.forEach((a) => {
       if (a.querySelector('.ext-icon')) return;
       const sr = a.querySelector('.vh');
       const icon = document.createRange().createContextualFragment(EXT_ICON);
+
+      const textNode = lastTextNodeBefore(a, sr);
+      const tail = textNode && textNode.textContent.match(/(\S+)\s*$/);
+      if (tail) {
+        const keep = document.createElement('span');
+        keep.className = 'nowrap';
+        keep.textContent = tail[1];
+        keep.appendChild(icon);
+        keep.appendChild(document.createTextNode(WJ));
+        textNode.textContent = textNode.textContent.slice(0, tail.index);
+        a.insertBefore(keep, textNode.nextSibling);
+        return;
+      }
+
+      icon.appendChild(document.createTextNode(WJ));
       if (sr) a.insertBefore(icon, sr);
       else a.appendChild(icon);
     });
@@ -31,7 +63,7 @@
       btn.setAttribute('aria-label', label);
       btn.setAttribute('title', label);
       btn.innerHTML = light ? ICON_MOON : ICON_SUN;
-      if (meta) meta.setAttribute('content', light ? '#ffffff' : '#000000');
+      if (meta) meta.setAttribute('content', light ? '#ecedfb' : '#191a37');
     }
 
     // The inline <head> script may have applied the stored theme before paint.
@@ -49,14 +81,16 @@
     'skip':                'Skip to content',
     'intro':               'Designer and street photographer.',
     'about-heading':       'At the CNR',
-    'short-bio':           'Born and raised in Naples, now based in Milan. With a degree in digital communication, I work in user experience design.',
-    'role':                'At the Italian National Research Council (CNR), where I’ve worked since 2010, I’m currently head of institutional communication for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences, Humanities and Cultural Heritage<span class="vh"> (opens in new tab)</span></a>, designing its website and social media strategy.',
-    'lab':                 'At the Institute for Studies on the Mediterranean (ISMed) I’m part of the Mediterranean Digital Humanities Lab, which builds digital projects for the humanities — among them <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMed<span class="vh"> (opens in new tab)</span></a>, a statistical platform on the Mediterranean developed with Istat.',
+    'short-bio':           'Born and raised in Naples, now based in Milan. With a degree in digital communication, I design websites and services for public research.',
+    'role':                'At the Italian National Research Council (CNR) I’m head of institutional communication for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences, Humanities and Cultural Heritage<span class="vh"> (opens in new tab)</span></a>.',
+    'project':             'On behalf of the institute I lead the web and social media communication task of <a href="https://www.dsu.cnr.it/en/research-infrastructures/sshopencloud-it-fossr-h2iosc-alliance-for-the-sustainable-digital-development-of-southern-italy/" target="_blank" rel="noopener noreferrer">SSH OpenCloud-IT<span class="vh"> (opens in new tab)</span></a>, a research infrastructure for the social sciences and humanities.',
+    'lab':                 'At the Institute for Studies on the Mediterranean (CNR-ISMed) I’m part of the Mediterranean Digital Humanities Lab, which builds digital projects for the humanities — among them <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMed<span class="vh"> (opens in new tab)</span></a>, a statistical platform on the Mediterranean developed with Istat.',
     'link-email-work':     'Work email',
     'photo-heading':       'On the street',
     'photo-intro':         'In my spare time, I take photographs as I walk.',
     'photo-bio':           'My work has been praised by Magnum photographers Martin Parr and Steve McCurry. I’ve exhibited at the HistoryMiami Museum during Art Basel Miami, and some of my photographs have appeared in magazines such as Corriere della Sera’s Style Magazine. <a href="https://www.flaneurat.work/" target="_blank" rel="noopener noreferrer">Browse my photo diary<span class="vh"> (opens in new tab)</span></a>',
     'link-email-personal': 'Personal email',
+    'avatar-alt':          'Portrait of Stefano Carotenuto',
     'footer-credit':       '© 2026 Stefano Carotenuto · Milan, Italy',
     'privacy':             'This site uses no cookies and collects no personal data. The typeface, Supria Sans, is served via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/adobe-fonts.html" target="_blank" rel="noopener noreferrer">privacy policy<span class="vh"> (opens in new tab)</span></a>).',
   };
@@ -68,6 +102,9 @@
       const key = el.getAttribute('data-i18n');
       IT[key] = el.innerHTML.trim();
     });
+    document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+      IT[el.getAttribute('data-i18n-alt')] = el.getAttribute('alt');
+    });
   }
 
   function applyLang(lang) {
@@ -76,6 +113,10 @@
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
       if (dict[key] != null) el.innerHTML = dict[key];
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+      const key = el.getAttribute('data-i18n-alt');
+      if (dict[key] != null) el.setAttribute('alt', dict[key]);
     });
     document.querySelectorAll('.lang-toggle button[data-lang]').forEach((btn) => {
       btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false');

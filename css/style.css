@@ -3,10 +3,36 @@
 :root {
   color-scheme: dark;
 
-  --bg:     #000;
-  --fg:     #d8d4cd;
-  --fg-dim: #a8a39c;
-  --accent: #c8a96e;
+  /* Entrambi i temi sono tinti con la pervinca del ritratto
+     (h236 del fondo scatto): la pagina e la foto appartengono
+     alla stessa famiglia invece di convivere. Il nero e il
+     bianco puri sono spariti. */
+  --bg:     #191a37;
+  --fg:     #e4dfd5;
+  --fg-dim: #aeaabd;
+
+  /* Palette derivata dal ritratto in img/profile.jpg:
+     lo sfondo dello scatto e' pervinca hsl(236 28% 45-54%),
+     la camicia ocra hsl(38 69% 38-53%) — due famiglie quasi
+     complementari. --accent e' il colore interattivo (link,
+     focus, selezione) e passa sempre 4.5:1 sul proprio fondo;
+     --accent-warm e --accent-cool sono decorativi. */
+  --accent:      #dcb677;  /* ocra chiara   — 8.84:1 su --bg */
+  --accent-warm: #e6b249;  /* ocra camicia  — 8.70:1 su --bg */
+  --accent-cool: #a3a7e6;  /* pervinca      — 7.42:1 su --bg */
+
+  /* Il ritratto usa la maschera del PSD: il fondo dello scatto
+     e' ricostruito qui, cosi' segue il tema invece di restare
+     una costante. Stessa tinta e saturazione del gradiente
+     originale (core #9b98d0, edge #525589), solo portati verso
+     il fondo pagina. Il disco pesa ~1.5:1 sulla pagina in
+     entrambi i temi; prima faceva 3.1:1 sul nero e 6.8:1 sul
+     bianco, ed e' quello scarto che lo faceva sembrare
+     appiccicato. Il core resta piu' alto dell'edge perche'
+     i capelli scuri devono staccare dal fondo. */
+  --photo-core: #3c418d;
+  --photo-edge: #2f3268;
+
   --rule:   color-mix(in srgb, var(--fg) 18%, transparent);
 
   --sans: "supria-sans", -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
@@ -27,10 +53,19 @@
 
 html.light {
   color-scheme: light;
-  --bg:     #fff;
-  --fg:     #2a2521;
-  --fg-dim: #534e47;
-  --accent: #0b66c2;
+  --bg:     #ecedfb;
+  --fg:     #231e2d;
+  --fg-dim: #524c5f;
+
+  /* Stesse due famiglie, ruoli invertiti: sul bianco l'ocra
+     grezza si ferma a 2.25:1, quindi scende di luminosita' e
+     cede il ruolo interattivo alla pervinca scurita. */
+  --accent:      #3e3c78;  /* pervinca scura — 8.52:1 su --bg */
+  --accent-warm: #6d4b0d;  /* ocra scura     — 6.79:1 su --bg */
+  --accent-cool: #55599e;  /* pervinca media — 5.46:1 su --bg */
+
+  --photo-core: #cbcdee;
+  --photo-edge: #acafdf;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -73,6 +108,10 @@ button {
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
+
+/* Tiene l'ultima parola e la freccia sulla stessa riga (vedi
+   decorateExtLinks in js/app.js). */
+.nowrap { white-space: nowrap; }
 
 /* External link arrow (Iconoir arrow-up-right, inserted via JS) */
 .ext-icon {
@@ -126,13 +165,40 @@ main { padding-top: var(--m); }
 
 .identity { margin-bottom: var(--xl); }
 
+
+/* Ritratto scontornato su fondo ricostruito. Ora che il disco
+   si avvicina al colore di pagina in entrambi i temi, i suoi
+   bordi da soli non basterebbero: l'anello --accent-cool e'
+   quello che definisce la forma, e il primo box-shadow e' un
+   varco del colore di pagina che lo stacca dal disco. */
+.avatar {
+  display: block;
+  width: clamp(88px, 17vw, 112px);
+  aspect-ratio: 1;
+  margin: 0 0 var(--m);
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 37%,
+              var(--photo-core) 0%, var(--photo-edge) 72%);
+  box-shadow: 0 0 0 3px var(--bg), 0 0 0 4px var(--accent-cool);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  /* Ritaglio sul volto gia' cotto nel file 256px
+     (crop 853x853+110+0 sul PSD a 1024), cosi' il cerchio non
+     taglia la testa e il colletto ocra resta nell'inquadratura. */
+  object-fit: cover;
+}
+
 .identity h1 {
   margin: 0 0 var(--m);
   font-size: var(--t-display); font-weight: 700;
   line-height: var(--lh-tight); letter-spacing: -0.015em;
   text-wrap: balance;
 }
-.identity h1 .dot { color: var(--accent); }
+.identity h1 .dot { color: var(--accent-warm); }
 
 .identity .tagline {
   margin: 0;
@@ -159,11 +225,6 @@ main { padding-top: var(--m); }
   margin-bottom: var(--m);
 }
 
-.panel-num {
-  font-size: var(--t-eyebrow); font-weight: 700;
-  letter-spacing: 0.08em; color: var(--accent);
-  line-height: var(--lh-tight);
-}
 
 .panel h2 {
   margin: 0;
