@@ -89,7 +89,7 @@
     'about-heading':       'At the CNR',
     'short-bio':           'Born and raised in Naples, now based in Milan. With a degree in digital communication, I design websites and services for public research.',
     'role':                'At the Italian National Research Council (CNR) I’m <b>head of institutional communication</b> for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences, Humanities and Cultural Heritage<span class="vh"> (opens in new tab)</span></a>.',
-    'project':             'On behalf of the institute I <b>lead the web and social media communication task</b> of <span class="nowrap">SSH OpenCloud-IT</span>, a research infrastructure for the social sciences and humanities.',
+    'project':             'On behalf of the institute I <b>lead the web and social media communication task</b> of <span class="nowrap">SSHOpenCloud-IT</span>, a research infrastructure for the social sciences and humanities.',
     'lab':                 'At the Institute for Studies on the Mediterranean (CNR-ISMed) I’m part of the Mediterranean Digital Humanities Lab, which builds digital projects for the humanities — among them <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMed<span class="vh"> (opens in new tab)</span></a>, a statistical platform on the Mediterranean developed with Istat.',
     'link-email-work':     'Work email',
     'photo-heading':       'On the street',
@@ -100,7 +100,7 @@
     'link-linkedin':       'LinkedIn<span class="vh"> (opens in new tab)</span>',
     'avatar-alt':          'Portrait of Stefano Carotenuto',
     'footer-credit':       '© 2026 Stefano Carotenuto · Milan, Italy',
-    'privacy':             'This site uses no cookies and collects no personal data. The typeface, Supria Sans, is served via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/adobe-fonts.html" target="_blank" rel="noopener noreferrer">privacy policy<span class="vh"> (opens in new tab)</span></a>); the photo previews come from my diary, flaneurat.work.',
+    'privacy':             'This site uses no cookies and collects no personal data. The typeface, Supria Sans, is served via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/adobe-fonts.html" target="_blank" rel="noopener noreferrer">privacy policy<span class="vh"> (opens in new tab)</span></a>).',
   };
 
   const IT = {};
