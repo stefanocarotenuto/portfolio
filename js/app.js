@@ -88,7 +88,7 @@
     'intro':               'Designer and street photographer.',
     'about-heading':       'At the CNR',
     'short-bio':           'Born and raised in Naples, now based in Milan. With a degree in digital communication, I design websites and services for public research.',
-    'role':                'At the Italian National Research Council (CNR) I’m head of institutional communication for the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences, Humanities and Cultural Heritage<span class="vh"> (opens in new tab)</span></a>.',
+    'role':                'At the Italian National Research Council (CNR) I’m head of the institutional communication office of the <a href="https://www.dsu.cnr.it" target="_blank" rel="noopener noreferrer">Department of Social Sciences, Humanities and Cultural Heritage<span class="vh"> (opens in new tab)</span></a>.',
     'project':             'At the Institute for Studies on the Mediterranean (CNR-ISMed) I lead the web and social media communication task of <span class="nowrap">SSHOpenCloud-IT</span>, the PN&nbsp;RIC project putting social sciences and humanities data to work for the digital development of Southern Italy.',
     'lab':                 'At the same institute I’m part of the Mediterranean Digital Humanities Lab, which builds digital projects for the humanities — among them <a href="https://wemed.cnr.it" target="_blank" rel="noopener noreferrer">WeMed<span class="vh"> (opens in new tab)</span></a>, a statistical platform on the Mediterranean developed with Istat.',
     'link-email-work':     'Work email',
