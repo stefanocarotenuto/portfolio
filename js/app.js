@@ -12,8 +12,8 @@
      UAX #14 vieta l'interruzione prima e dopo di se'. Uno spazio
      successivo resta comunque un punto di a capo valido. */
   const WJ = '\u2060';
-  // Scende anche nei discendenti: nell'anteprima del diario il testo del link
-  // sta in uno span di didascalia, non direttamente dentro <a>.
+  // Scende anche nei discendenti: il testo di un link puo' stare dentro uno
+  // span, non solo direttamente dentro <a>.
   function lastTextNodeBefore(parent, stop) {
     let last = null;
     const walker = document.createTreeWalker(parent, NodeFilter.SHOW_TEXT);
@@ -96,7 +96,7 @@
     'photo-intro':         'In my spare time I walk with a camera in my pocket.',
     'photo-bio':           'My work has been praised by Magnum photographers Martin Parr and Steve McCurry. I’ve exhibited at the HistoryMiami Museum during Art Basel Miami, and some of my photographs have appeared in magazines such as Corriere della Sera’s Style Magazine.',
     'link-email-personal': 'Personal email',
-    'teaser-label':        'The latest from my photo diary, flaneurat.work<span class="vh"> (opens in new tab)</span>',
+    'link-diary':          'Photo diary<span class="vh"> (opens in new tab)</span>',
     'avatar-alt':          'Portrait of Stefano Carotenuto',
     'footer-credit':       '© 2026 Stefano Carotenuto · Milan, Italy',
     'privacy':             'This site uses no cookies and collects no personal data. The typeface, Supria Sans, is served via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/adobe-fonts.html" target="_blank" rel="noopener noreferrer">privacy policy<span class="vh"> (opens in new tab)</span></a>); the photo previews come from my diary, flaneurat.work.',

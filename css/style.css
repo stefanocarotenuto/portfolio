@@ -259,8 +259,10 @@ main { padding-top: var(--m); }
    a ogni pubblicazione, sempre agli stessi indirizzi (teaser/1..5): qui non
    va mai toccato niente. 3:2 come gli scatti. Se il diario non risponde
    resta il fondo --photo-edge invece dell'icona di immagine rotta.
-   Didascalia e foto sono UN link solo: la didascalia gli da` il nome per gli
-   screen reader, le foto (alt="", come sul diario) sono il bersaglio grande.
+   Nessuna didascalia: il diario e` il primo link in grassetto della fila
+   sotto, come LinkedIn nel pannello CNR. Per questo la fila e` nascosta ai
+   lettori di schermo e fuori dal tab: le foto non hanno descrizione (alt="",
+   come sul diario) e il link vero, con un nome, e` subito sotto.
    Sotto i 480px restano le prime tre. Nasconderle non basta: Chrome scarica
    lo stesso le immagini lazy in display:none (misurato). Per questo la 4 e
    la 5 hanno in index.html una <source media="(max-width: 480px)"> che punta
@@ -272,7 +274,6 @@ main { padding-top: var(--m); }
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0.5rem;
 }
-.diary-teaser-label { grid-column: 1 / -1; margin-bottom: 0.25rem; }
 .diary-teaser img {
   width: 100%;
   aspect-ratio: 3 / 2;
@@ -291,8 +292,8 @@ main { padding-top: var(--m); }
   .diary-teaser a { gap: 0.75rem; }
 }
 
-/* nth-of-type e non nth-child: il primo figlio del link e` la didascalia,
-   e nth-child conterebbe anche quella. */
+/* nth-of-type e non nth-child: conta solo le <picture>, anche se un giorno
+   il link dovesse avere altri figli. */
 @media (max-width: 480px) {
   .diary-teaser a { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .diary-teaser picture:nth-of-type(n + 4) { display: none; }
