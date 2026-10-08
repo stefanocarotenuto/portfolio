@@ -249,8 +249,7 @@ main { padding-top: var(--m); }
 .contact-links, .photo-links {
   display: flex; flex-wrap: wrap; gap: var(--s) var(--m);
   margin-top: var(--m);
-  /* Peso normale di proposito: il grassetto nel sito e` riservato alle
-     parole chiave del testo. Questi link sono gia` distinti da colore,
+  /* Peso normale di proposito: questi link sono gia` distinti da colore,
      sottolineatura e riga propria. */
   font-size: var(--t-body);
 }
