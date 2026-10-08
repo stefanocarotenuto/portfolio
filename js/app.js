@@ -98,7 +98,6 @@
     'link-email-personal': 'Personal email',
     'link-diary':          'Photo diary<span class="vh"> (opens in new tab)</span>',
     'link-linkedin':       'LinkedIn<span class="vh"> (opens in new tab)</span>',
-    'link-instagram':      'Instagram<span class="vh"> (opens in new tab)</span>',
     'avatar-alt':          'Portrait of Stefano Carotenuto',
     'footer-credit':       '© 2026 Stefano Carotenuto · Milan, Italy',
     'privacy':             'This site uses no cookies and collects no personal data. The typeface, Supria Sans, is served via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/adobe-fonts.html" target="_blank" rel="noopener noreferrer">privacy policy<span class="vh"> (opens in new tab)</span></a>); the photo previews come from my diary, flaneurat.work.',
