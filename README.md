@@ -1,6 +1,6 @@
 # stefanocarotenuto.it
 
-Personal page of Stefano Carotenuto, designer and street photographer in Milan.
+Personal page of Stefano Carotenuto, communication designer and street photographer in Milan.
 Live at [stefanocarotenuto.it](https://stefanocarotenuto.it).
 
 Plain HTML, CSS and JavaScript, no build step, served by GitHub Pages.
