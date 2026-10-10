@@ -94,7 +94,7 @@
     'link-email-work':     'Work email',
     'photo-heading':       'On the street',
     'photo-intro':         'In my spare time I walk with a camera in my pocket.',
-    'photo-bio':           'My work has been praised by Magnum photographers Martin&nbsp;Parr and Steve&nbsp;McCurry. I’ve exhibited at the HistoryMiami Museum during Art Basel Miami, and some of my photographs have appeared in magazines such as Corriere della Sera’s Style Magazine.',
+    'photo-bio':           'My work has been praised by Magnum photographers Martin&nbsp;Parr and Steve&nbsp;McCurry. I’ve exhibited at the HistoryMiami Museum during Art Basel Miami, and some of my photographs have appeared in magazines such as Corriere della Sera’s Style Magazine and in the group book <a href="https://psicograficieditore.com/shop/libri/10-street-photography/" target="_blank" rel="noopener noreferrer">10 Street Photography<span class="vh"> (opens in new tab)</span></a>.',
     'link-email-personal': 'Personal email',
     'link-diary':          'Photo diary<span class="vh"> (opens in new tab)</span>',
     'link-linkedin':       'LinkedIn<span class="vh"> (opens in new tab)</span>',
