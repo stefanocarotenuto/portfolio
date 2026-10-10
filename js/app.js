@@ -100,7 +100,7 @@
     'link-linkedin':       'LinkedIn<span class="vh"> (opens in new tab)</span>',
     'avatar-alt':          'Portrait of Stefano Carotenuto',
     'footer-credit':       '© 2026 Stefano Carotenuto · Milan, Italy',
-    'privacy':             'This site uses no cookies and collects no personal data. The typeface, Supria Sans, is served via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/adobe-fonts.html" target="_blank" rel="noopener noreferrer">privacy policy<span class="vh"> (opens in new tab)</span></a>).',
+    'privacy':             'This site uses no cookies and collects no personal data: visits are counted anonymously with <a href="https://www.simpleanalytics.com/" target="_blank" rel="noopener noreferrer">Simple Analytics<span class="vh"> (opens in new tab)</span></a>, without tracking you. The typeface, Supria Sans, is served via Adobe Fonts (<a href="https://www.adobe.com/privacy/policies/adobe-fonts.html" target="_blank" rel="noopener noreferrer">privacy policy<span class="vh"> (opens in new tab)</span></a>).',
   };
 
   const IT = {};
